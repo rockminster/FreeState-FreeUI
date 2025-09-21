@@ -3,7 +3,7 @@
  * /* Auto-generated from design tokens - do not edit directly */
  */
 
-:root[data-theme="dark"] {
+:root {
   --freeui-color-brand-50: #082f49;
   --freeui-color-brand-100: #0c4a6e;
   --freeui-color-brand-200: #075985;
