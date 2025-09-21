@@ -50,8 +50,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
-      - name: Build packages
-        run: pnpm build
+      - name: Build Storybook docs
+        run: pnpm --filter @freeui/docs build
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
