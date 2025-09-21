@@ -1,0 +1,48 @@
+/**
+ * /* Dark theme tokens for FreeUI design system */
+ * /* Auto-generated from design tokens - do not edit directly */
+ */
+
+:root[data-theme="dark"] {
+  --freeui-color-brand-50: #082f49;
+  --freeui-color-brand-100: #0c4a6e;
+  --freeui-color-brand-200: #075985;
+  --freeui-color-brand-300: #0369a1;
+  --freeui-color-brand-400: #0284c7;
+  --freeui-color-brand-500: #0ea5e9;
+  --freeui-color-brand-600: #38bdf8;
+  --freeui-color-brand-700: #7dd3fc;
+  --freeui-color-brand-800: #bae6fd;
+  --freeui-color-brand-900: #e0f2fe;
+  --freeui-color-brand-950: #f0f9ff;
+  --freeui-color-neutral-50: #020617;
+  --freeui-color-neutral-100: #0f172a;
+  --freeui-color-neutral-200: #1e293b;
+  --freeui-color-neutral-300: #334155;
+  --freeui-color-neutral-400: #475569;
+  --freeui-color-neutral-500: #64748b;
+  --freeui-color-neutral-600: #94a3b8;
+  --freeui-color-neutral-700: #cbd5e1;
+  --freeui-color-neutral-800: #e2e8f0;
+  --freeui-color-neutral-900: #f1f5f9;
+  --freeui-color-neutral-950: #f8fafc;
+  --freeui-color-semantic-success-50: #15803d;
+  --freeui-color-semantic-success-500: #22c55e;
+  --freeui-color-semantic-success-600: #16a34a;
+  --freeui-color-semantic-success-700: #f0fdf4;
+  --freeui-color-semantic-warning-50: #b45309;
+  --freeui-color-semantic-warning-500: #f59e0b;
+  --freeui-color-semantic-warning-600: #d97706;
+  --freeui-color-semantic-warning-700: #fffbeb;
+  --freeui-color-semantic-error-50: #b91c1c;
+  --freeui-color-semantic-error-500: #ef4444;
+  --freeui-color-semantic-error-600: #dc2626;
+  --freeui-color-semantic-error-700: #fef2f2;
+  --freeui-color-semantic-info-50: #1d4ed8;
+  --freeui-color-semantic-info-500: #3b82f6;
+  --freeui-color-semantic-info-600: #2563eb;
+  --freeui-color-semantic-info-700: #eff6ff;
+  --freeui-color-white: #000000;
+  --freeui-color-black: #ffffff;
+  --freeui-color-transparent: transparent;
+}
