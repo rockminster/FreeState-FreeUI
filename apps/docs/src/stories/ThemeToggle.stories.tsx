@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { colors, typography, spacing } from "@freeui/tokens";
+import { colors } from "@freeui/tokens";
 
 const meta: Meta = {
   title: "Design Tokens/Theme Toggle",
@@ -101,6 +101,12 @@ function ThemeToggleDemo() {
           onMouseOut={(e) => {
             e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-500)";
           }}
+          onFocus={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-600)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-500)";
+          }}
         >
           {isDark ? "🌞 Switch to Light" : "🌙 Switch to Dark"}
         </button>
@@ -137,7 +143,7 @@ function ThemeToggleDemo() {
               Brand Colors
             </h3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-              {Object.entries(colors.brand).map(([key, _]) => (
+              {Object.entries(colors.brand).map(([key]) => (
                 <div
                   key={key}
                   style={{
@@ -177,7 +183,7 @@ function ThemeToggleDemo() {
               Neutral Colors
             </h3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-              {Object.entries(colors.neutral).map(([key, _]) => (
+              {Object.entries(colors.neutral).map(([key]) => (
                 <div
                   key={key}
                   style={{
@@ -228,7 +234,7 @@ function ThemeToggleDemo() {
                     {category}
                   </h4>
                   <div style={{ display: "flex", gap: "0.25rem" }}>
-                    {Object.entries(shades).map(([key, _]) => (
+                    {Object.entries(shades).map(([key]) => (
                       <div
                         key={key}
                         style={{
@@ -327,7 +333,7 @@ function ThemeToggleDemo() {
 
           {/* Alert Examples */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {Object.entries(colors.semantic).map(([type, _]) => (
+            {Object.entries(colors.semantic).map(([type]) => (
               <div
                 key={type}
                 style={{

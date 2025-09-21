@@ -4,8 +4,9 @@
   "private": true,
   "description": "Storybook documentation for FreeUI design system",
   "scripts": {
-    "build": "storybook build",
-    "dev": "storybook dev -p 6006",
+    "build": "npm run build:deps && storybook build",
+    "build:deps": "npm run --workspace=@freeui/tokens build && npm run --workspace=@freeui/css build && npm run --workspace=@freeui/react build",
+    "dev": "npm run build:deps && storybook dev -p 6006",
     "lint": "eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf storybook-static"
