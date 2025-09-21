@@ -1,0 +1,203 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* CSS Custom Properties from Tokens */
+:root {
+  /* Colors */
+  --freeui-color-brand-50: #f0f9ff;
+  --freeui-color-brand-100: #e0f2fe;
+  --freeui-color-brand-200: #bae6fd;
+  --freeui-color-brand-300: #7dd3fc;
+  --freeui-color-brand-400: #38bdf8;
+  --freeui-color-brand-500: #0ea5e9;
+  --freeui-color-brand-600: #0284c7;
+  --freeui-color-brand-700: #0369a1;
+  --freeui-color-brand-800: #075985;
+  --freeui-color-brand-900: #0c4a6e;
+  --freeui-color-brand-950: #082f49;
+
+  --freeui-color-neutral-50: #f8fafc;
+  --freeui-color-neutral-100: #f1f5f9;
+  --freeui-color-neutral-200: #e2e8f0;
+  --freeui-color-neutral-300: #cbd5e1;
+  --freeui-color-neutral-400: #94a3b8;
+  --freeui-color-neutral-500: #64748b;
+  --freeui-color-neutral-600: #475569;
+  --freeui-color-neutral-700: #334155;
+  --freeui-color-neutral-800: #1e293b;
+  --freeui-color-neutral-900: #0f172a;
+  --freeui-color-neutral-950: #020617;
+
+  --freeui-color-success-50: #f0fdf4;
+  --freeui-color-success-500: #22c55e;
+  --freeui-color-success-600: #16a34a;
+  --freeui-color-success-700: #15803d;
+
+  --freeui-color-warning-50: #fffbeb;
+  --freeui-color-warning-500: #f59e0b;
+  --freeui-color-warning-600: #d97706;
+  --freeui-color-warning-700: #b45309;
+
+  --freeui-color-error-50: #fef2f2;
+  --freeui-color-error-500: #ef4444;
+  --freeui-color-error-600: #dc2626;
+  --freeui-color-error-700: #b91c1c;
+
+  --freeui-color-info-50: #eff6ff;
+  --freeui-color-info-500: #3b82f6;
+  --freeui-color-info-600: #2563eb;
+  --freeui-color-info-700: #1d4ed8;
+
+  --freeui-color-white: #ffffff;
+  --freeui-color-black: #000000;
+
+  /* Typography */
+  --freeui-font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --freeui-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --freeui-font-size-xs: 0.75rem;
+  --freeui-font-size-sm: 0.875rem;
+  --freeui-font-size-base: 1rem;
+  --freeui-font-size-lg: 1.125rem;
+  --freeui-font-size-xl: 1.25rem;
+  --freeui-font-size-2xl: 1.5rem;
+  --freeui-font-size-3xl: 1.875rem;
+  --freeui-font-size-4xl: 2.25rem;
+  --freeui-font-size-5xl: 3rem;
+  --freeui-font-size-6xl: 3.75rem;
+
+  --freeui-font-weight-normal: 400;
+  --freeui-font-weight-medium: 500;
+  --freeui-font-weight-semibold: 600;
+  --freeui-font-weight-bold: 700;
+
+  --freeui-line-height-tight: 1.25;
+  --freeui-line-height-normal: 1.5;
+  --freeui-line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --freeui-spacing-0: 0px;
+  --freeui-spacing-1: 0.25rem;
+  --freeui-spacing-2: 0.5rem;
+  --freeui-spacing-3: 0.75rem;
+  --freeui-spacing-4: 1rem;
+  --freeui-spacing-5: 1.25rem;
+  --freeui-spacing-6: 1.5rem;
+  --freeui-spacing-8: 2rem;
+  --freeui-spacing-10: 2.5rem;
+  --freeui-spacing-12: 3rem;
+  --freeui-spacing-16: 4rem;
+  --freeui-spacing-20: 5rem;
+  --freeui-spacing-24: 6rem;
+  --freeui-spacing-32: 8rem;
+  --freeui-spacing-40: 10rem;
+  --freeui-spacing-48: 12rem;
+  --freeui-spacing-56: 14rem;
+  --freeui-spacing-64: 16rem;
+
+  /* Border Radius */
+  --freeui-border-radius-none: 0px;
+  --freeui-border-radius-sm: 0.125rem;
+  --freeui-border-radius-base: 0.25rem;
+  --freeui-border-radius-md: 0.375rem;
+  --freeui-border-radius-lg: 0.5rem;
+  --freeui-border-radius-xl: 0.75rem;
+  --freeui-border-radius-2xl: 1rem;
+  --freeui-border-radius-3xl: 1.5rem;
+  --freeui-border-radius-full: 9999px;
+
+  /* Shadows */
+  --freeui-shadow-none: none;
+  --freeui-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --freeui-shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --freeui-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --freeui-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --freeui-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --freeui-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --freeui-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* Animation */
+  --freeui-duration-fast: 150ms;
+  --freeui-duration-normal: 300ms;
+  --freeui-duration-slow: 500ms;
+
+  --freeui-easing-linear: linear;
+  --freeui-easing-ease: ease;
+  --freeui-easing-ease-in: ease-in;
+  --freeui-easing-ease-out: ease-out;
+  --freeui-easing-ease-in-out: ease-in-out;
+}
+
+/* Utility Classes */
+.freeui-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.freeui-not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

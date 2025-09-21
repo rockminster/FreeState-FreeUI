@@ -1,0 +1,33 @@
+{
+  "name": "@freeui/css",
+  "version": "0.0.1",
+  "description": "CSS utilities for FreeUI design system",
+  "main": "dist/index.css",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "postcss src/index.css -o dist/index.css",
+    "dev": "postcss src/index.css -o dist/index.css --watch",
+    "lint": "eslint .",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "css",
+    "utilities",
+    "design-system"
+  ],
+  "author": "rockminster",
+  "license": "MIT",
+  "dependencies": {
+    "@freeui/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@freeui/eslint-config": "workspace:*",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.0.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.0"
+  }
+}
