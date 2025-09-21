@@ -17,6 +17,13 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
+  viteFinal: async (config) => {
+    // Configure base path for GitHub Pages
+    if (process.env.NODE_ENV === "production") {
+      config.base = "/FreeState-FreeUI/";
+    }
+    return config;
+  },
 };
 
 export default config;

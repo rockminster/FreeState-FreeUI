@@ -116,7 +116,7 @@ pnpm release
 
 ## 📖 Documentation
 
-Visit our [Storybook documentation](https://freeui-docs.vercel.app) to explore all components and design tokens.
+Visit our [Storybook documentation](https://rockminster.github.io/FreeState-FreeUI/) to explore all components and design tokens.
 
 To run Storybook locally:
 
