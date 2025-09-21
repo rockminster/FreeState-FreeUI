@@ -9,7 +9,7 @@
   "scripts": {
     "build": "postcss src/index.css -o dist/index.css",
     "dev": "postcss src/index.css -o dist/index.css --watch",
-    "lint": "eslint .",
+    "lint": "eslint *.js --ignore-pattern dist",
     "clean": "rm -rf dist"
   },
   "keywords": [
