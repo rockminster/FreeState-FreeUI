@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+storybook-static/
+
+# Generated files
+packages/css/src/generated/
+packages/tokens/src/generated/
+
+# Logs
+*.log
+.cache/
+
+# Environment files
+.env*
+
+# OS
+.DS_Store
+Thumbs.db
