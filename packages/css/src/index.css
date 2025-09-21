@@ -178,6 +178,185 @@ h6 {
   --freeui-easing-ease-in-out: ease-in-out;
 }
 
+/* Button Component Styles */
+.freeui-button {
+  /* Base button styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--freeui-spacing-2);
+  font-family: var(--freeui-font-family-sans);
+  font-weight: var(--freeui-font-weight-medium);
+  line-height: var(--freeui-line-height-normal);
+  border: 1px solid transparent;
+  border-radius: var(--freeui-border-radius-md);
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  text-decoration: none;
+  user-select: none;
+  outline: none;
+  position: relative;
+}
+
+/* Button sizes */
+.freeui-button--sm {
+  font-size: var(--freeui-font-size-sm);
+  padding: var(--freeui-spacing-2) var(--freeui-spacing-3);
+  min-height: 2rem;
+}
+
+.freeui-button--md {
+  font-size: var(--freeui-font-size-base);
+  padding: var(--freeui-spacing-3) var(--freeui-spacing-4);
+  min-height: 2.5rem;
+}
+
+.freeui-button--lg {
+  font-size: var(--freeui-font-size-lg);
+  padding: var(--freeui-spacing-4) var(--freeui-spacing-6);
+  min-height: 3rem;
+}
+
+/* Button variants */
+.freeui-button--primary {
+  background-color: var(--freeui-color-brand-500);
+  color: var(--freeui-color-white);
+  border-color: var(--freeui-color-brand-500);
+  box-shadow: var(--freeui-shadow-sm);
+}
+
+.freeui-button--primary:hover:not(:disabled) {
+  background-color: var(--freeui-color-brand-600);
+  border-color: var(--freeui-color-brand-600);
+  box-shadow: var(--freeui-shadow-md);
+}
+
+.freeui-button--primary:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--primary:active:not(:disabled) {
+  background-color: var(--freeui-color-brand-700);
+  border-color: var(--freeui-color-brand-700);
+  transform: translateY(1px);
+}
+
+.freeui-button--primary:disabled {
+  background-color: var(--freeui-color-neutral-300);
+  border-color: var(--freeui-color-neutral-300);
+  color: var(--freeui-color-neutral-500);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.freeui-button--secondary {
+  background-color: var(--freeui-color-neutral-100);
+  color: var(--freeui-color-neutral-800);
+  border-color: var(--freeui-color-neutral-200);
+}
+
+.freeui-button--secondary:hover:not(:disabled) {
+  background-color: var(--freeui-color-neutral-200);
+  border-color: var(--freeui-color-neutral-300);
+}
+
+.freeui-button--secondary:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--secondary:active:not(:disabled) {
+  background-color: var(--freeui-color-neutral-300);
+  transform: translateY(1px);
+}
+
+.freeui-button--secondary:disabled {
+  background-color: var(--freeui-color-neutral-100);
+  border-color: var(--freeui-color-neutral-200);
+  color: var(--freeui-color-neutral-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.freeui-button--outline {
+  background-color: transparent;
+  color: var(--freeui-color-brand-600);
+  border-color: var(--freeui-color-brand-300);
+}
+
+.freeui-button--outline:hover:not(:disabled) {
+  background-color: var(--freeui-color-brand-50);
+  border-color: var(--freeui-color-brand-400);
+}
+
+.freeui-button--outline:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--outline:active:not(:disabled) {
+  background-color: var(--freeui-color-brand-100);
+  transform: translateY(1px);
+}
+
+.freeui-button--outline:disabled {
+  background-color: transparent;
+  border-color: var(--freeui-color-neutral-200);
+  color: var(--freeui-color-neutral-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.freeui-button--ghost {
+  background-color: transparent;
+  color: var(--freeui-color-brand-600);
+  border-color: transparent;
+}
+
+.freeui-button--ghost:hover:not(:disabled) {
+  background-color: var(--freeui-color-brand-50);
+}
+
+.freeui-button--ghost:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--ghost:active:not(:disabled) {
+  background-color: var(--freeui-color-brand-100);
+  transform: translateY(1px);
+}
+
+.freeui-button--ghost:disabled {
+  background-color: transparent;
+  color: var(--freeui-color-neutral-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Button states */
+.freeui-button--full-width {
+  width: 100%;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.freeui-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
 /* Utility Classes */
 .freeui-sr-only {
   position: absolute;
