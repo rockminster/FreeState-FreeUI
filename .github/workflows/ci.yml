@@ -56,14 +56,14 @@ jobs:
       - name: Build packages
         run: pnpm build
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
       - name: Run tests
         run: pnpm test
 
       - name: Build Storybook
         run: pnpm --filter @freeui/docs build
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
 
       - name: Run Storybook accessibility tests
         run: |
