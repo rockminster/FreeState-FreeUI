@@ -10,16 +10,16 @@ module.exports = {
           destination: "dark-tokens.css",
           format: "css/variables",
           options: {
-            selector: ":root[data-theme=\"dark\"]",
-            fileHeader: function() {
+            selector: ':root[data-theme="dark"]',
+            fileHeader: function () {
               return [
                 "/* Dark theme tokens for FreeUI design system */",
-                "/* Auto-generated from design tokens - do not edit directly */"
+                "/* Auto-generated from design tokens - do not edit directly */",
               ];
-            }
-          }
-        }
-      ]
-    }
-  }
+            },
+          },
+        },
+      ],
+    },
+  },
 };

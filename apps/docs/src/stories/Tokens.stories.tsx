@@ -35,12 +35,22 @@ type Story = StoryObj<typeof meta>;
 export const Colors: Story = {
   render: () => (
     <div>
-      <h2 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+      <h2
+        style={{
+          marginBottom: "1rem",
+          fontFamily: typography.fontFamily.sans.join(", "),
+        }}
+      >
         Color Palette
       </h2>
-      
+
       <div style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+        <h3
+          style={{
+            marginBottom: "1rem",
+            fontFamily: typography.fontFamily.sans.join(", "),
+          }}
+        >
           Brand Colors
         </h3>
         <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
@@ -68,7 +78,12 @@ export const Colors: Story = {
       </div>
 
       <div style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+        <h3
+          style={{
+            marginBottom: "1rem",
+            fontFamily: typography.fontFamily.sans.join(", "),
+          }}
+        >
           Neutral Colors
         </h3>
         <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
@@ -96,18 +111,25 @@ export const Colors: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+        <h3
+          style={{
+            marginBottom: "1rem",
+            fontFamily: typography.fontFamily.sans.join(", "),
+          }}
+        >
           Semantic Colors
         </h3>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           {Object.entries(colors.semantic).map(([category, shades]) => (
             <div key={category}>
-              <h4 style={{ 
-                marginBottom: "0.5rem", 
-                fontFamily: typography.fontFamily.sans.join(", "),
-                textTransform: "capitalize",
-                fontSize: "14px",
-              }}>
+              <h4
+                style={{
+                  marginBottom: "0.5rem",
+                  fontFamily: typography.fontFamily.sans.join(", "),
+                  textTransform: "capitalize",
+                  fontSize: "14px",
+                }}
+              >
                 {category}
               </h4>
               <div style={{ display: "flex", gap: "0.25rem" }}>
@@ -143,37 +165,56 @@ export const Colors: Story = {
 export const Typography: Story = {
   render: () => (
     <div>
-      <h2 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+      <h2
+        style={{
+          marginBottom: "1rem",
+          fontFamily: typography.fontFamily.sans.join(", "),
+        }}
+      >
         Typography Scale
       </h2>
-      
+
       <div style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+        <h3
+          style={{
+            marginBottom: "1rem",
+            fontFamily: typography.fontFamily.sans.join(", "),
+          }}
+        >
           Font Sizes
         </h3>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {Object.entries(typography.fontSize).map(([key, value]) => (
-            <div key={key} style={{ display: "flex", alignItems: "baseline", gap: "2rem" }}>
-              <code style={{ 
-                fontFamily: typography.fontFamily.mono.join(", "),
-                minWidth: "60px",
-                fontSize: "14px",
-                color: colors.neutral[600],
-              }}>
+            <div
+              key={key}
+              style={{ display: "flex", alignItems: "baseline", gap: "2rem" }}
+            >
+              <code
+                style={{
+                  fontFamily: typography.fontFamily.mono.join(", "),
+                  minWidth: "60px",
+                  fontSize: "14px",
+                  color: colors.neutral[600],
+                }}
+              >
                 {key}
               </code>
-              <span style={{ 
-                fontSize: value,
-                fontFamily: typography.fontFamily.sans.join(", "),
-                lineHeight: typography.lineHeight.normal,
-              }}>
+              <span
+                style={{
+                  fontSize: value,
+                  fontFamily: typography.fontFamily.sans.join(", "),
+                  lineHeight: typography.lineHeight.normal,
+                }}
+              >
                 The quick brown fox jumps over the lazy dog
               </span>
-              <span style={{ 
-                fontFamily: typography.fontFamily.mono.join(", "),
-                fontSize: "12px",
-                color: colors.neutral[500],
-              }}>
+              <span
+                style={{
+                  fontFamily: typography.fontFamily.mono.join(", "),
+                  fontSize: "12px",
+                  color: colors.neutral[500],
+                }}
+              >
                 {value}
               </span>
             </div>
@@ -187,19 +228,29 @@ export const Typography: Story = {
 export const Spacing: Story = {
   render: () => (
     <div>
-      <h2 style={{ marginBottom: "1rem", fontFamily: typography.fontFamily.sans.join(", ") }}>
+      <h2
+        style={{
+          marginBottom: "1rem",
+          fontFamily: typography.fontFamily.sans.join(", "),
+        }}
+      >
         Spacing Scale
       </h2>
-      
+
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         {Object.entries(spacing).map(([key, value]) => (
-          <div key={key} style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-            <code style={{ 
-              fontFamily: typography.fontFamily.mono.join(", "),
-              minWidth: "40px",
-              fontSize: "14px",
-              color: colors.neutral[600],
-            }}>
+          <div
+            key={key}
+            style={{ display: "flex", alignItems: "center", gap: "2rem" }}
+          >
+            <code
+              style={{
+                fontFamily: typography.fontFamily.mono.join(", "),
+                minWidth: "40px",
+                fontSize: "14px",
+                color: colors.neutral[600],
+              }}
+            >
               {key}
             </code>
             <div
@@ -210,11 +261,13 @@ export const Spacing: Story = {
                 borderRadius: "2px",
               }}
             />
-            <span style={{ 
-              fontFamily: typography.fontFamily.mono.join(", "),
-              fontSize: "12px",
-              color: colors.neutral[500],
-            }}>
+            <span
+              style={{
+                fontFamily: typography.fontFamily.mono.join(", "),
+                fontSize: "12px",
+                color: colors.neutral[500],
+              }}
+            >
               {value}
             </span>
           </div>

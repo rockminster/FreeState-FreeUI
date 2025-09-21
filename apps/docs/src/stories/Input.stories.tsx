@@ -93,7 +93,8 @@ export const Subtle: Story = {
   parameters: {
     docs: {
       description: {
-        story: "The subtle variant with a background color instead of a border.",
+        story:
+          "The subtle variant with a background color instead of a border.",
       },
     },
   },
@@ -131,7 +132,15 @@ export const Disabled: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center", width: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        alignItems: "center",
+        width: "300px",
+      }}
+    >
       <Input size="sm" placeholder="Small input" />
       <Input size="md" placeholder="Medium input" />
       <Input size="lg" placeholder="Large input" />
@@ -148,7 +157,15 @@ export const Sizes: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center", width: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        alignItems: "center",
+        width: "300px",
+      }}
+    >
       <Input variant="outline" placeholder="Outline variant" />
       <Input variant="subtle" placeholder="Subtle variant" />
     </div>
@@ -164,7 +181,15 @@ export const Variants: Story = {
 
 export const States: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center", width: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        alignItems: "center",
+        width: "300px",
+      }}
+    >
       <Input placeholder="Normal state" />
       <Input error placeholder="Error state" />
       <Input disabled placeholder="Disabled state" />
@@ -181,26 +206,37 @@ export const States: Story = {
 
 export const WithLabel: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "flex-start", width: "300px" }}>
-      <label htmlFor="email-input" style={{ 
-        fontFamily: "var(--freeui-font-family-sans)", 
-        fontSize: "var(--freeui-font-size-sm)",
-        fontWeight: "var(--freeui-font-weight-medium)",
-        color: "var(--freeui-color-neutral-700)"
-      }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.5rem",
+        alignItems: "flex-start",
+        width: "300px",
+      }}
+    >
+      <label
+        htmlFor="email-input"
+        style={{
+          fontFamily: "var(--freeui-font-family-sans)",
+          fontSize: "var(--freeui-font-size-sm)",
+          fontWeight: "var(--freeui-font-weight-medium)",
+          color: "var(--freeui-color-neutral-700)",
+        }}
+      >
         Email Address
       </label>
-      <Input 
+      <Input
         id="email-input"
-        type="email" 
+        type="email"
         placeholder="Enter your email"
         aria-describedby="email-help"
       />
-      <span 
+      <span
         id="email-help"
-        style={{ 
+        style={{
           fontSize: "var(--freeui-font-size-xs)",
-          color: "var(--freeui-color-neutral-500)"
+          color: "var(--freeui-color-neutral-500)",
         }}
       >
         We&apos;ll never share your email with anyone else.
@@ -210,7 +246,8 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Input with associated label and help text for proper accessibility.",
+        story:
+          "Input with associated label and help text for proper accessibility.",
       },
     },
   },

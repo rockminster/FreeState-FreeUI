@@ -1,37 +1,38 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * The visual style variant of the button
    */
   variant?: "primary" | "secondary" | "outline" | "ghost";
-  
+
   /**
    * The size of the button
    */
   size?: "sm" | "md" | "lg";
-  
+
   /**
    * Whether the button is disabled
    */
   disabled?: boolean;
-  
+
   /**
    * Whether the button should take full width
    */
   fullWidth?: boolean;
-  
+
   /**
    * Loading state for the button
    */
   loading?: boolean;
-  
+
   /**
    * Icon to display before the button text
    */
   startIcon?: React.ReactNode;
-  
+
   /**
    * Icon to display after the button text
    */
@@ -40,7 +41,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 /**
  * Button component with WCAG AA compliance and multiple variants
- * 
+ *
  * Features:
  * - Semantic HTML button element
  * - Keyboard navigation support
@@ -88,19 +89,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading && (
-          <span
-            className="freeui-button__spinner"
-            aria-hidden="true"
-          />
+          <span className="freeui-button__spinner" aria-hidden="true" />
         )}
         {!loading && startIcon && (
           <span className="freeui-button__start-icon" aria-hidden="true">
             {startIcon}
           </span>
         )}
-        {children && (
-          <span className="freeui-button__text">{children}</span>
-        )}
+        {children && <span className="freeui-button__text">{children}</span>}
         {!loading && endIcon && (
           <span className="freeui-button__end-icon" aria-hidden="true">
             {endIcon}

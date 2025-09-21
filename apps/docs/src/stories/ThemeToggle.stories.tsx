@@ -43,43 +43,49 @@ function ThemeToggleDemo() {
   React.useEffect(() => {
     const rootElement = document.documentElement;
     if (isDark) {
-      rootElement.setAttribute('data-theme', 'dark');
+      rootElement.setAttribute("data-theme", "dark");
     } else {
-      rootElement.removeAttribute('data-theme');
+      rootElement.removeAttribute("data-theme");
     }
-    
+
     // Cleanup on unmount
     return () => {
-      rootElement.removeAttribute('data-theme');
+      rootElement.removeAttribute("data-theme");
     };
   }, [isDark]);
 
   return (
-    <div style={{ 
-      minHeight: "100vh",
-      padding: "2rem",
-      backgroundColor: "var(--freeui-color-neutral-50)",
-      color: "var(--freeui-color-neutral-900)",
-      transition: "all 0.3s ease"
-    }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        padding: "2rem",
+        backgroundColor: "var(--freeui-color-neutral-50)",
+        color: "var(--freeui-color-neutral-900)",
+        transition: "all 0.3s ease",
+      }}
+    >
       {/* Theme Toggle Button */}
-      <div style={{ 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "space-between",
-        marginBottom: "2rem",
-        padding: "1rem",
-        backgroundColor: "var(--freeui-color-white)",
-        borderRadius: "12px",
-        boxShadow: "var(--freeui-shadow-base)",
-        border: "1px solid var(--freeui-color-neutral-200)"
-      }}>
-        <h1 style={{
-          margin: 0,
-          fontSize: "1.5rem",
-          fontWeight: 600,
-          color: "var(--freeui-color-neutral-900)"
-        }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "2rem",
+          padding: "1rem",
+          backgroundColor: "var(--freeui-color-white)",
+          borderRadius: "12px",
+          boxShadow: "var(--freeui-shadow-base)",
+          border: "1px solid var(--freeui-color-neutral-200)",
+        }}
+      >
+        <h1
+          style={{
+            margin: 0,
+            fontSize: "1.5rem",
+            fontWeight: 600,
+            color: "var(--freeui-color-neutral-900)",
+          }}
+        >
           FreeUI Theme Demo
         </h1>
         <button
@@ -93,19 +99,23 @@ function ThemeToggleDemo() {
             cursor: "pointer",
             fontSize: "0.875rem",
             fontWeight: 500,
-            transition: "all 0.2s ease"
+            transition: "all 0.2s ease",
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-600)";
+            e.currentTarget.style.backgroundColor =
+              "var(--freeui-color-brand-600)";
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-500)";
+            e.currentTarget.style.backgroundColor =
+              "var(--freeui-color-brand-500)";
           }}
           onFocus={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-600)";
+            e.currentTarget.style.backgroundColor =
+              "var(--freeui-color-brand-600)";
           }}
           onBlur={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--freeui-color-brand-500)";
+            e.currentTarget.style.backgroundColor =
+              "var(--freeui-color-brand-500)";
           }}
         >
           {isDark ? "🌞 Switch to Light" : "🌙 Switch to Dark"}
@@ -114,32 +124,40 @@ function ThemeToggleDemo() {
 
       {/* Color Palette Demo */}
       <div style={{ marginBottom: "3rem" }}>
-        <h2 style={{ 
-          marginBottom: "1.5rem",
-          color: "var(--freeui-color-neutral-800)",
-          fontSize: "1.25rem"
-        }}>
+        <h2
+          style={{
+            marginBottom: "1.5rem",
+            color: "var(--freeui-color-neutral-800)",
+            fontSize: "1.25rem",
+          }}
+        >
           Color Palette
         </h2>
-        
-        <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1.5rem" 
-        }}>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "1.5rem",
+          }}
+        >
           {/* Brand Colors */}
-          <div style={{
-            backgroundColor: "var(--freeui-color-white)",
-            borderRadius: "12px",
-            padding: "1.5rem",
-            boxShadow: "var(--freeui-shadow-base)",
-            border: "1px solid var(--freeui-color-neutral-200)"
-          }}>
-            <h3 style={{ 
-              marginBottom: "1rem",
-              color: "var(--freeui-color-neutral-700)",
-              fontSize: "1rem"
-            }}>
+          <div
+            style={{
+              backgroundColor: "var(--freeui-color-white)",
+              borderRadius: "12px",
+              padding: "1.5rem",
+              boxShadow: "var(--freeui-shadow-base)",
+              border: "1px solid var(--freeui-color-neutral-200)",
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "1rem",
+                color: "var(--freeui-color-neutral-700)",
+                fontSize: "1rem",
+              }}
+            >
               Brand Colors
             </h3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
@@ -158,7 +176,7 @@ function ThemeToggleDemo() {
                     fontSize: "10px",
                     fontWeight: 500,
                     padding: "4px",
-                    border: "1px solid var(--freeui-color-neutral-300)"
+                    border: "1px solid var(--freeui-color-neutral-300)",
                   }}
                 >
                   {key}
@@ -168,18 +186,22 @@ function ThemeToggleDemo() {
           </div>
 
           {/* Neutral Colors */}
-          <div style={{
-            backgroundColor: "var(--freeui-color-white)",
-            borderRadius: "12px",
-            padding: "1.5rem",
-            boxShadow: "var(--freeui-shadow-base)",
-            border: "1px solid var(--freeui-color-neutral-200)"
-          }}>
-            <h3 style={{ 
-              marginBottom: "1rem",
-              color: "var(--freeui-color-neutral-700)",
-              fontSize: "1rem"
-            }}>
+          <div
+            style={{
+              backgroundColor: "var(--freeui-color-white)",
+              borderRadius: "12px",
+              padding: "1.5rem",
+              boxShadow: "var(--freeui-shadow-base)",
+              border: "1px solid var(--freeui-color-neutral-200)",
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "1rem",
+                color: "var(--freeui-color-neutral-700)",
+                fontSize: "1rem",
+              }}
+            >
               Neutral Colors
             </h3>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
@@ -198,7 +220,7 @@ function ThemeToggleDemo() {
                     fontSize: "10px",
                     fontWeight: 500,
                     padding: "4px",
-                    border: "1px solid var(--freeui-color-neutral-300)"
+                    border: "1px solid var(--freeui-color-neutral-300)",
                   }}
                 >
                   {key}
@@ -208,29 +230,37 @@ function ThemeToggleDemo() {
           </div>
 
           {/* Semantic Colors */}
-          <div style={{
-            backgroundColor: "var(--freeui-color-white)",
-            borderRadius: "12px",
-            padding: "1.5rem",
-            boxShadow: "var(--freeui-shadow-base)",
-            border: "1px solid var(--freeui-color-neutral-200)"
-          }}>
-            <h3 style={{ 
-              marginBottom: "1rem",
-              color: "var(--freeui-color-neutral-700)",
-              fontSize: "1rem"
-            }}>
+          <div
+            style={{
+              backgroundColor: "var(--freeui-color-white)",
+              borderRadius: "12px",
+              padding: "1.5rem",
+              boxShadow: "var(--freeui-shadow-base)",
+              border: "1px solid var(--freeui-color-neutral-200)",
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "1rem",
+                color: "var(--freeui-color-neutral-700)",
+                fontSize: "1rem",
+              }}
+            >
               Semantic Colors
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            >
               {Object.entries(colors.semantic).map(([category, shades]) => (
                 <div key={category}>
-                  <h4 style={{ 
-                    marginBottom: "0.5rem",
-                    textTransform: "capitalize",
-                    fontSize: "12px",
-                    color: "var(--freeui-color-neutral-600)"
-                  }}>
+                  <h4
+                    style={{
+                      marginBottom: "0.5rem",
+                      textTransform: "capitalize",
+                      fontSize: "12px",
+                      color: "var(--freeui-color-neutral-600)",
+                    }}
+                  >
                     {category}
                   </h4>
                   <div style={{ display: "flex", gap: "0.25rem" }}>
@@ -249,7 +279,7 @@ function ThemeToggleDemo() {
                           fontSize: "8px",
                           fontWeight: 500,
                           padding: "2px",
-                          border: "1px solid var(--freeui-color-neutral-300)"
+                          border: "1px solid var(--freeui-color-neutral-300)",
                         }}
                       >
                         {key}
@@ -265,74 +295,93 @@ function ThemeToggleDemo() {
 
       {/* Component Examples */}
       <div>
-        <h2 style={{ 
-          marginBottom: "1.5rem",
-          color: "var(--freeui-color-neutral-800)",
-          fontSize: "1.25rem"
-        }}>
+        <h2
+          style={{
+            marginBottom: "1.5rem",
+            color: "var(--freeui-color-neutral-800)",
+            fontSize: "1.25rem",
+          }}
+        >
           Component Examples
         </h2>
-        
-        <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "1.5rem" 
-        }}>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "1.5rem",
+          }}
+        >
           {/* Card Example */}
-          <div style={{
-            backgroundColor: "var(--freeui-color-white)",
-            borderRadius: "12px",
-            padding: "1.5rem",
-            boxShadow: "var(--freeui-shadow-lg)",
-            border: "1px solid var(--freeui-color-neutral-200)"
-          }}>
-            <h3 style={{ 
-              marginBottom: "0.5rem",
-              color: "var(--freeui-color-neutral-900)",
-              fontSize: "1.125rem"
-            }}>
+          <div
+            style={{
+              backgroundColor: "var(--freeui-color-white)",
+              borderRadius: "12px",
+              padding: "1.5rem",
+              boxShadow: "var(--freeui-shadow-lg)",
+              border: "1px solid var(--freeui-color-neutral-200)",
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "0.5rem",
+                color: "var(--freeui-color-neutral-900)",
+                fontSize: "1.125rem",
+              }}
+            >
               Card Component
             </h3>
-            <p style={{ 
-              marginBottom: "1rem",
-              color: "var(--freeui-color-neutral-600)",
-              lineHeight: 1.5
-            }}>
-              This card demonstrates how components adapt to theme changes while maintaining readability and accessibility.
+            <p
+              style={{
+                marginBottom: "1rem",
+                color: "var(--freeui-color-neutral-600)",
+                lineHeight: 1.5,
+              }}
+            >
+              This card demonstrates how components adapt to theme changes while
+              maintaining readability and accessibility.
             </p>
-            <div style={{
-              display: "flex",
-              gap: "0.75rem"
-            }}>
-              <button style={{
-                backgroundColor: "var(--freeui-color-brand-500)",
-                color: "var(--freeui-color-white)",
-                border: "none",
-                borderRadius: "6px",
-                padding: "0.5rem 1rem",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                cursor: "pointer"
-              }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "0.75rem",
+              }}
+            >
+              <button
+                style={{
+                  backgroundColor: "var(--freeui-color-brand-500)",
+                  color: "var(--freeui-color-white)",
+                  border: "none",
+                  borderRadius: "6px",
+                  padding: "0.5rem 1rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                }}
+              >
                 Primary
               </button>
-              <button style={{
-                backgroundColor: "transparent",
-                color: "var(--freeui-color-brand-500)",
-                border: "1px solid var(--freeui-color-brand-500)",
-                borderRadius: "6px",
-                padding: "0.5rem 1rem",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                cursor: "pointer"
-              }}>
+              <button
+                style={{
+                  backgroundColor: "transparent",
+                  color: "var(--freeui-color-brand-500)",
+                  border: "1px solid var(--freeui-color-brand-500)",
+                  borderRadius: "6px",
+                  padding: "0.5rem 1rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                }}
+              >
                 Secondary
               </button>
             </div>
           </div>
 
           {/* Alert Examples */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          >
             {Object.entries(colors.semantic).map(([type]) => (
               <div
                 key={type}
@@ -343,7 +392,7 @@ function ThemeToggleDemo() {
                   padding: "1rem",
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.75rem"
+                  gap: "0.75rem",
                 }}
               >
                 <div
@@ -352,25 +401,29 @@ function ThemeToggleDemo() {
                     height: "20px",
                     borderRadius: "50%",
                     backgroundColor: `var(--freeui-color-semantic-${type}-500)`,
-                    flexShrink: 0
+                    flexShrink: 0,
                   }}
                 />
                 <div>
-                  <h4 style={{
-                    margin: 0,
-                    marginBottom: "0.25rem",
-                    textTransform: "capitalize",
-                    color: `var(--freeui-color-semantic-${type}-700)`,
-                    fontSize: "0.875rem",
-                    fontWeight: 600
-                  }}>
+                  <h4
+                    style={{
+                      margin: 0,
+                      marginBottom: "0.25rem",
+                      textTransform: "capitalize",
+                      color: `var(--freeui-color-semantic-${type}-700)`,
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                    }}
+                  >
                     {type} Alert
                   </h4>
-                  <p style={{
-                    margin: 0,
-                    color: `var(--freeui-color-semantic-${type}-600)`,
-                    fontSize: "0.75rem"
-                  }}>
+                  <p
+                    style={{
+                      margin: 0,
+                      color: `var(--freeui-color-semantic-${type}-600)`,
+                      fontSize: "0.75rem",
+                    }}
+                  >
                     This is a {type} message with proper contrast.
                   </p>
                 </div>
@@ -381,22 +434,25 @@ function ThemeToggleDemo() {
       </div>
 
       {/* Footer */}
-      <div style={{
-        marginTop: "3rem",
-        padding: "1.5rem",
-        backgroundColor: "var(--freeui-color-neutral-100)",
-        borderRadius: "12px",
-        textAlign: "center",
-        border: "1px solid var(--freeui-color-neutral-200)"
-      }}>
-        <p style={{
-          margin: 0,
-          color: "var(--freeui-color-neutral-600)",
-          fontSize: "0.875rem"
-        }}>
-          Current theme: <strong>{isDark ? "Dark" : "Light"}</strong> • 
-          All colors are WCAG AA compliant • 
-          Powered by FreeUI Design System
+      <div
+        style={{
+          marginTop: "3rem",
+          padding: "1.5rem",
+          backgroundColor: "var(--freeui-color-neutral-100)",
+          borderRadius: "12px",
+          textAlign: "center",
+          border: "1px solid var(--freeui-color-neutral-200)",
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            color: "var(--freeui-color-neutral-600)",
+            fontSize: "0.875rem",
+          }}
+        >
+          Current theme: <strong>{isDark ? "Dark" : "Light"}</strong> • All
+          colors are WCAG AA compliant • Powered by FreeUI Design System
         </p>
       </div>
     </div>
@@ -408,8 +464,8 @@ export const ThemeToggle: Story = {
   parameters: {
     docs: {
       story: {
-        height: "800px"
-      }
-    }
-  }
+        height: "800px",
+      },
+    },
+  },
 };

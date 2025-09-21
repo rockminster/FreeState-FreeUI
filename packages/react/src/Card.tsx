@@ -6,7 +6,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
    * The shadow level for the card
    */
   shadow?: "none" | "sm" | "md";
-  
+
   /**
    * The padding level for the card
    */
@@ -15,7 +15,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * Card component with surface background and composable design
- * 
+ *
  * Features:
  * - Surface background using design tokens
  * - Configurable padding levels
@@ -24,16 +24,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
  * - Accessible by default
  */
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  (
-    {
-      children,
-      shadow = "sm",
-      padding = "md",
-      className,
-      ...props
-    },
-    ref
-  ) => {
+  ({ children, shadow = "sm", padding = "md", className, ...props }, ref) => {
     const cardClass = clsx(
       "freeui-card",
       `freeui-card--shadow-${shadow}`,
@@ -42,11 +33,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     );
 
     return (
-      <div
-        ref={ref}
-        className={cardClass}
-        {...props}
-      >
+      <div ref={ref} className={cardClass} {...props}>
         {children}
       </div>
     );

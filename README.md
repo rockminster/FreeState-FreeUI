@@ -129,7 +129,9 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 ## 🎯 Design Principles
 
 ### Accessibility First
+
 All components are built with WCAG AA compliance in mind:
+
 - Semantic HTML elements
 - Proper ARIA attributes
 - Keyboard navigation support
@@ -137,13 +139,17 @@ All components are built with WCAG AA compliance in mind:
 - Color contrast compliance
 
 ### Tokens-First Architecture
+
 The design system is built on a foundation of design tokens:
+
 - **Consistent values**: All spacing, colors, and typography use predefined tokens
 - **Easy theming**: Change tokens to customize the entire system
 - **Platform agnostic**: Tokens can be used across web, mobile, and other platforms
 
 ### Boring APIs
+
 We prioritize predictable, intuitive APIs:
+
 - Consistent naming conventions
 - Minimal required props
 - Sensible defaults
