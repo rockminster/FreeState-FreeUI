@@ -357,6 +357,108 @@ h6 {
   animation: spin 1s linear infinite;
 }
 
+/* Input Component Styles */
+.freeui-input {
+  /* Base input styles */
+  display: block;
+  width: 100%;
+  font-family: var(--freeui-font-family-sans);
+  font-weight: var(--freeui-font-weight-normal);
+  line-height: var(--freeui-line-height-normal);
+  border: 1px solid var(--freeui-color-neutral-300);
+  border-radius: var(--freeui-border-radius-md);
+  background-color: var(--freeui-color-white);
+  color: var(--freeui-color-neutral-800);
+  transition: all var(--freeui-duration-fast) var(--freeui-easing-ease-out);
+  outline: none;
+}
+
+.freeui-input::placeholder {
+  color: var(--freeui-color-neutral-500);
+}
+
+/* Input sizes */
+.freeui-input--sm {
+  font-size: var(--freeui-font-size-sm);
+  padding: var(--freeui-spacing-2) var(--freeui-spacing-3);
+  min-height: 2rem;
+}
+
+.freeui-input--md {
+  font-size: var(--freeui-font-size-base);
+  padding: var(--freeui-spacing-3) var(--freeui-spacing-4);
+  min-height: 2.5rem;
+}
+
+.freeui-input--lg {
+  font-size: var(--freeui-font-size-lg);
+  padding: var(--freeui-spacing-4) var(--freeui-spacing-6);
+  min-height: 3rem;
+}
+
+/* Input variants */
+.freeui-input--outline {
+  border-color: var(--freeui-color-neutral-300);
+  background-color: var(--freeui-color-white);
+}
+
+.freeui-input--outline:hover:not(:disabled) {
+  border-color: var(--freeui-color-neutral-400);
+}
+
+.freeui-input--outline:focus {
+  border-color: var(--freeui-color-brand-500);
+  box-shadow: 0 0 0 3px var(--freeui-color-brand-100);
+}
+
+.freeui-input--outline:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-input--subtle {
+  border-color: transparent;
+  background-color: var(--freeui-color-neutral-100);
+}
+
+.freeui-input--subtle:hover:not(:disabled) {
+  background-color: var(--freeui-color-neutral-200);
+}
+
+.freeui-input--subtle:focus {
+  border-color: var(--freeui-color-brand-500);
+  background-color: var(--freeui-color-white);
+  box-shadow: 0 0 0 3px var(--freeui-color-brand-100);
+}
+
+.freeui-input--subtle:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Input states */
+.freeui-input--error {
+  border-color: var(--freeui-color-error-500);
+}
+
+.freeui-input--error:focus {
+  border-color: var(--freeui-color-error-500);
+  box-shadow: 0 0 0 3px var(--freeui-color-error-100);
+}
+
+.freeui-input--error:focus-visible {
+  outline: 2px solid var(--freeui-color-error-500);
+  outline-offset: 2px;
+}
+
+.freeui-input--disabled,
+.freeui-input:disabled {
+  background-color: var(--freeui-color-neutral-100);
+  border-color: var(--freeui-color-neutral-200);
+  color: var(--freeui-color-neutral-500);
+  cursor: not-allowed;
+}
+
 /* Utility Classes */
 .freeui-sr-only {
   position: absolute;
