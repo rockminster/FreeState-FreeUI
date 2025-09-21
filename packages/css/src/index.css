@@ -416,6 +416,46 @@ h6 {
   cursor: not-allowed;
 }
 
+/* Card Component Styles */
+.freeui-card {
+  /* Base card styles */
+  background-color: var(--freeui-color-white);
+  border: 1px solid var(--freeui-color-neutral-200);
+  border-radius: var(--freeui-border-radius-xl);
+  display: block;
+  position: relative;
+}
+
+/* Card padding sizes */
+.freeui-card--padding-none {
+  padding: 0;
+}
+
+.freeui-card--padding-sm {
+  padding: var(--freeui-spacing-3);
+}
+
+.freeui-card--padding-md {
+  padding: var(--freeui-spacing-6);
+}
+
+.freeui-card--padding-lg {
+  padding: var(--freeui-spacing-8);
+}
+
+/* Card shadow levels */
+.freeui-card--shadow-none {
+  box-shadow: var(--freeui-shadow-none);
+}
+
+.freeui-card--shadow-sm {
+  box-shadow: var(--freeui-shadow-sm);
+}
+
+.freeui-card--shadow-md {
+  box-shadow: var(--freeui-shadow-md);
+}
+
 /* Utility Classes */
 .freeui-sr-only {
   position: absolute;
