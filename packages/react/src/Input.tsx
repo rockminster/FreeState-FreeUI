@@ -13,11 +13,6 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   size?: "sm" | "md" | "lg";
   
   /**
-   * Whether the input is disabled
-   */
-  disabled?: boolean;
-  
-  /**
    * Whether the input has an error state
    */
   error?: boolean;
@@ -39,10 +34,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     {
       variant = "outline",
       size = "md",
-      disabled = false,
       error = false,
       className,
       type = "text",
+      disabled,
       ...props
     },
     ref
