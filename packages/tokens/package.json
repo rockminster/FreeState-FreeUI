@@ -16,7 +16,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && npm run build:tokens",
+    "build:tokens": "style-dictionary build --config style-dictionary.config.js && style-dictionary build --config style-dictionary-dark.config.js",
     "dev": "tsup --watch",
     "type-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
@@ -39,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "style-dictionary": "^5.0.4",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   }

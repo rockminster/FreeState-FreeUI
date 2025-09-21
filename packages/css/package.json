@@ -7,8 +7,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "postcss src/index.css -o dist/index.css",
-    "dev": "postcss src/index.css -o dist/index.css --watch",
+    "build": "npm run build:tokens && postcss src/index.css -o dist/index.css",
+    "build:tokens": "npm run --workspace=@freeui/tokens build:tokens",
+    "dev": "npm run build:tokens && postcss src/index.css -o dist/index.css --watch",
     "lint": "eslint *.js --ignore-pattern dist",
     "clean": "rm -rf dist"
   },
