@@ -1,0 +1,51 @@
+{
+  "name": "@freeui/react",
+  "version": "0.0.1",
+  "description": "React components for FreeUI design system",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "accessibility"
+  ],
+  "author": "rockminster",
+  "license": "MIT",
+  "dependencies": {
+    "@freeui/tokens": "workspace:*",
+    "clsx": "^2.0.0"
+  },
+  "devDependencies": {
+    "@freeui/eslint-config": "workspace:*",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "^8.0.0",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
