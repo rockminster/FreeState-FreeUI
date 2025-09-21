@@ -70,7 +70,7 @@ jobs:
           cd apps/docs
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on http://127.0.0.1:6006 && npm run test"
+            "npx wait-on http://127.0.0.1:6006 && npm run test -- --url http://127.0.0.1:6006"
 
       - name: Upload Storybook artifacts
         uses: actions/upload-artifact@v4
