@@ -395,16 +395,16 @@ h6 {
 
 /* Input states */
 .freeui-input--error {
-  border-color: var(--freeui-color-error-500);
+  border-color: var(--freeui-color-semantic-error-500);
 }
 
 .freeui-input--error:focus {
-  border-color: var(--freeui-color-error-500);
-  box-shadow: 0 0 0 3px var(--freeui-color-error-100);
+  border-color: var(--freeui-color-semantic-error-500);
+  box-shadow: 0 0 0 3px var(--freeui-color-semantic-error-50);
 }
 
 .freeui-input--error:focus-visible {
-  outline: 2px solid var(--freeui-color-error-500);
+  outline: 2px solid var(--freeui-color-semantic-error-500);
   outline-offset: 2px;
 }
 
