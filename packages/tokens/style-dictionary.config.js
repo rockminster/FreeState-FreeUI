@@ -9,8 +9,8 @@ module.exports = {
         {
           destination: "light-tokens.css",
           format: "css/variables",
-          selector: ":root",
           options: {
+            selector: ":root",
             fileHeader: function() {
               return [
                 "/* Light theme tokens for FreeUI design system */",
