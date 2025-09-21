@@ -52,8 +52,8 @@
         "700": { "value": "#eff6ff" }
       }
     },
-    "white": { "value": "#000000" },
-    "black": { "value": "#ffffff" },
+    "white": { "value": "#ffffff" },
+    "black": { "value": "#000000" },
     "transparent": { "value": "transparent" }
   }
 }
