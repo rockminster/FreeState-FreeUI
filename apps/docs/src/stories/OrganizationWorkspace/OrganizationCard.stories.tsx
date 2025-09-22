@@ -5,7 +5,8 @@ import { OrganizationCard, Organization } from "@rockminster/react";
 const mockOrganization: Organization = {
   id: "org-1",
   name: "Acme Corporation",
-  description: "A leading technology company focused on innovative solutions for modern businesses.",
+  description:
+    "A leading technology company focused on innovative solutions for modern businesses.",
   plan: "pro",
   limits: {
     workspaces: 10,
@@ -112,7 +113,7 @@ The OrganizationCard component displays comprehensive organization information i
       action: "upgrade",
     },
     onSettings: {
-      description: "Callback for settings action", 
+      description: "Callback for settings action",
       action: "settings",
     },
     onViewWorkspaces: {
@@ -158,7 +159,8 @@ export const EnterprisePlan: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Enterprise organization with higher limits and no upgrade option.",
+        story:
+          "Enterprise organization with higher limits and no upgrade option.",
       },
     },
   },
@@ -197,7 +199,7 @@ export const InteractiveActions: Story = {
   args: {
     organization: mockOrganization,
     onUpgrade: () => alert("Upgrade clicked!"),
-    onSettings: () => alert("Settings clicked!"), 
+    onSettings: () => alert("Settings clicked!"),
     onViewWorkspaces: () => alert("View workspaces clicked!"),
   },
   parameters: {

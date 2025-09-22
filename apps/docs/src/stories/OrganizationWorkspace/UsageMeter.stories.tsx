@@ -92,7 +92,8 @@ export const WarningLevel: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Warning level usage meter (76%) automatically showing warning color.",
+        story:
+          "Warning level usage meter (76%) automatically showing warning color.",
       },
     },
   },
@@ -107,7 +108,8 @@ export const DangerLevel: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Danger level usage meter (90%) automatically showing danger color.",
+        story:
+          "Danger level usage meter (90%) automatically showing danger color.",
       },
     },
   },
@@ -139,7 +141,8 @@ export const LargeNumbers: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Usage meter with large numbers showing K/M formatting (1.3M / 5.0M).",
+        story:
+          "Usage meter with large numbers showing K/M formatting (1.3M / 5.0M).",
       },
     },
   },
@@ -155,7 +158,8 @@ export const ManualVariant: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Usage meter with manually overridden danger variant despite low usage.",
+        story:
+          "Usage meter with manually overridden danger variant despite low usage.",
       },
     },
   },
@@ -186,7 +190,8 @@ export const ZeroLimit: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Usage meter with zero limit (unlimited quota) showing over-quota handling.",
+        story:
+          "Usage meter with zero limit (unlimited quota) showing over-quota handling.",
       },
     },
   },
@@ -210,11 +215,24 @@ export const ZeroLimitNoUsage: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "24px", minWidth: "400px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "24px",
+        minWidth: "400px",
+      }}
+    >
       <UsageMeter label="Default" usage={32} limit={100} unit="GB" />
       <UsageMeter label="Warning" usage={78} limit={100} unit="GB" />
       <UsageMeter label="Danger" usage={95} limit={100} unit="GB" />
-      <UsageMeter label="Manual Warning" usage={25} limit={100} unit="GB" variant="warning" />
+      <UsageMeter
+        label="Manual Warning"
+        usage={25}
+        limit={100}
+        unit="GB"
+        variant="warning"
+      />
     </div>
   ),
   parameters: {

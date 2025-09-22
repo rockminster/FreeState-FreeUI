@@ -12,17 +12,20 @@ import type { RoleSelectorProps, UserRole } from "./types";
  * - Disabled state support
  * - Keyboard navigation support
  */
-export const RoleSelector = React.forwardRef<HTMLSelectElement, RoleSelectorProps>(
-  ({ value, onChange, disabled = false, className, ...props }, ref) => {
-    const selectorClass = clsx(
-      "freeui-role-selector",
-      {
-        "freeui-role-selector--disabled": disabled,
-      },
-      className
-    );
+export const RoleSelector = React.forwardRef<
+  HTMLSelectElement,
+  RoleSelectorProps
+>(({ value, onChange, disabled = false, className, ...props }, ref) => {
+  const selectorClass = clsx(
+    "freeui-role-selector",
+    {
+      "freeui-role-selector--disabled": disabled,
+    },
+    className
+  );
 
-    const roles: Array<{ value: UserRole; label: string; description: string }> = [
+  const roles: Array<{ value: UserRole; label: string; description: string }> =
+    [
       {
         value: "admin",
         label: "Admin",
@@ -30,7 +33,7 @@ export const RoleSelector = React.forwardRef<HTMLSelectElement, RoleSelectorProp
       },
       {
         value: "contributor",
-        label: "Contributor", 
+        label: "Contributor",
         description: "Can create and edit content",
       },
       {
@@ -40,31 +43,30 @@ export const RoleSelector = React.forwardRef<HTMLSelectElement, RoleSelectorProp
       },
     ];
 
-    return (
-      <div className={selectorClass}>
-        <select
-          ref={ref}
-          value={value}
-          onChange={(e) => onChange(e.target.value as UserRole)}
-          disabled={disabled}
-          className="freeui-role-selector__select"
-          aria-label="Select user role"
-          {...props}
-        >
-          {roles.map((role) => (
-            <option key={role.value} value={role.value}>
-              {role.label}
-            </option>
-          ))}
-        </select>
-        
-        {/* Role description */}
-        <div className="freeui-role-selector__description">
-          {roles.find(role => role.value === value)?.description}
-        </div>
+  return (
+    <div className={selectorClass}>
+      <select
+        ref={ref}
+        value={value}
+        onChange={(e) => onChange(e.target.value as UserRole)}
+        disabled={disabled}
+        className="freeui-role-selector__select"
+        aria-label="Select user role"
+        {...props}
+      >
+        {roles.map((role) => (
+          <option key={role.value} value={role.value}>
+            {role.label}
+          </option>
+        ))}
+      </select>
+
+      {/* Role description */}
+      <div className="freeui-role-selector__description">
+        {roles.find((role) => role.value === value)?.description}
       </div>
-    );
-  }
-);
+    </div>
+  );
+});
 
 RoleSelector.displayName = "RoleSelector";

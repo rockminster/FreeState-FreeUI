@@ -17,7 +17,10 @@ import { UsageMeter } from "./UsageMeter";
  * - Accessible with proper ARIA labels and semantic structure
  * - Responsive design using design tokens
  */
-export const OrganizationCard = React.forwardRef<HTMLDivElement, OrganizationCardProps>(
+export const OrganizationCard = React.forwardRef<
+  HTMLDivElement,
+  OrganizationCardProps
+>(
   (
     {
       organization,
@@ -46,7 +49,9 @@ export const OrganizationCard = React.forwardRef<HTMLDivElement, OrganizationCar
         {/* Header */}
         <div className="freeui-organization-card__header">
           <div className="freeui-organization-card__title-section">
-            <h3 className="freeui-organization-card__name">{organization.name}</h3>
+            <h3 className="freeui-organization-card__name">
+              {organization.name}
+            </h3>
             <PlanBadge plan={organization.plan} />
           </div>
           <div className="freeui-organization-card__actions">
@@ -82,7 +87,9 @@ export const OrganizationCard = React.forwardRef<HTMLDivElement, OrganizationCar
 
         {/* Usage Metrics */}
         <div className="freeui-organization-card__usage">
-          <h4 className="freeui-organization-card__usage-title">Current Usage</h4>
+          <h4 className="freeui-organization-card__usage-title">
+            Current Usage
+          </h4>
           <div className="freeui-organization-card__usage-grid">
             <UsageMeter
               label="Workspaces"

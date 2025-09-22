@@ -44,7 +44,8 @@ const mockMembers: WorkspaceMember[] = [
 const mockWorkspace: Workspace = {
   id: "workspace-1",
   name: "Product Development",
-  description: "Main workspace for product development team collaboration and project management.",
+  description:
+    "Main workspace for product development team collaboration and project management.",
   organizationId: "org-1",
   members: mockMembers,
   owner: {
@@ -191,7 +192,8 @@ export const ReadOnlyView: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Workspace card viewed by a read-only user with limited permissions.",
+        story:
+          "Workspace card viewed by a read-only user with limited permissions.",
       },
     },
   },
@@ -219,7 +221,8 @@ export const LargeWorkspace: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Large workspace with many members showing preview and overflow.",
+        story:
+          "Large workspace with many members showing preview and overflow.",
       },
     },
   },
@@ -250,7 +253,8 @@ export const GuestView: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Workspace card viewed by a guest (no user ID) with minimal actions.",
+        story:
+          "Workspace card viewed by a guest (no user ID) with minimal actions.",
       },
     },
   },

@@ -56,7 +56,8 @@ export const Admin: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Role selector with admin role selected, showing full access description.",
+        story:
+          "Role selector with admin role selected, showing full access description.",
       },
     },
   },
@@ -69,7 +70,8 @@ export const ReadOnly: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Role selector with read-only role selected, showing limited access description.",
+        story:
+          "Role selector with read-only role selected, showing limited access description.",
       },
     },
   },
@@ -92,14 +94,13 @@ export const Disabled: Story = {
 // Interactive story with state management
 export const Interactive: Story = {
   render: function InteractiveRoleSelector() {
-    const [role, setRole] = useState<"admin" | "contributor" | "read-only">("contributor");
-    
+    const [role, setRole] = useState<"admin" | "contributor" | "read-only">(
+      "contributor"
+    );
+
     return (
       <div style={{ minWidth: "300px" }}>
-        <RoleSelector
-          value={role}
-          onChange={setRole}
-        />
+        <RoleSelector value={role} onChange={setRole} />
         <div style={{ marginTop: "16px", fontSize: "14px", color: "#64748b" }}>
           Selected role: <strong>{role}</strong>
         </div>
@@ -109,7 +110,8 @@ export const Interactive: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Interactive role selector with state management and current selection display.",
+        story:
+          "Interactive role selector with state management and current selection display.",
       },
     },
   },

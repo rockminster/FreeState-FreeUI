@@ -15,7 +15,10 @@ import type { WorkspaceCardProps } from "./types";
  * - Accessible with proper ARIA labels and semantic structure
  * - Permission-aware UI based on current user role
  */
-export const WorkspaceCard = React.forwardRef<HTMLDivElement, WorkspaceCardProps>(
+export const WorkspaceCard = React.forwardRef<
+  HTMLDivElement,
+  WorkspaceCardProps
+>(
   (
     {
       workspace,
@@ -76,7 +79,8 @@ export const WorkspaceCard = React.forwardRef<HTMLDivElement, WorkspaceCardProps
           <div className="freeui-workspace-card__title-section">
             <h3 className="freeui-workspace-card__name">{workspace.name}</h3>
             <span className="freeui-workspace-card__member-count">
-              {workspace.members.length} member{workspace.members.length !== 1 ? "s" : ""}
+              {workspace.members.length} member
+              {workspace.members.length !== 1 ? "s" : ""}
             </span>
           </div>
           <div className="freeui-workspace-card__actions">
@@ -112,11 +116,15 @@ export const WorkspaceCard = React.forwardRef<HTMLDivElement, WorkspaceCardProps
 
         {/* Member Summary */}
         <div className="freeui-workspace-card__members">
-          <h4 className="freeui-workspace-card__members-title">Members & Roles</h4>
+          <h4 className="freeui-workspace-card__members-title">
+            Members & Roles
+          </h4>
           <div className="freeui-workspace-card__role-distribution">
             {Object.entries(roleCounts).map(([role, count]) => (
               <div key={role} className="freeui-workspace-card__role-stat">
-                <span className="freeui-workspace-card__role-count">{count}</span>
+                <span className="freeui-workspace-card__role-count">
+                  {count}
+                </span>
                 <span className="freeui-workspace-card__role-name">
                   {getRoleLabel(role)}
                 </span>
@@ -126,7 +134,9 @@ export const WorkspaceCard = React.forwardRef<HTMLDivElement, WorkspaceCardProps
 
           {/* Recent Members Preview */}
           <div className="freeui-workspace-card__recent-members">
-            <h5 className="freeui-workspace-card__recent-title">Recent Members</h5>
+            <h5 className="freeui-workspace-card__recent-title">
+              Recent Members
+            </h5>
             <div className="freeui-workspace-card__member-list">
               {workspace.members.slice(0, 3).map((member) => (
                 <div key={member.id} className="freeui-workspace-card__member">
@@ -134,7 +144,9 @@ export const WorkspaceCard = React.forwardRef<HTMLDivElement, WorkspaceCardProps
                     <span className="freeui-workspace-card__member-name">
                       {member.name}
                       {member.id === workspace.owner.id && (
-                        <span className="freeui-workspace-card__owner-badge">Owner</span>
+                        <span className="freeui-workspace-card__owner-badge">
+                          Owner
+                        </span>
                       )}
                     </span>
                     <span className="freeui-workspace-card__member-role">
