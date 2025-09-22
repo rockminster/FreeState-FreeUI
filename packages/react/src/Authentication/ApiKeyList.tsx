@@ -106,7 +106,11 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
       
       setLoadingActions(prev => new Set(prev).add(`revoke-${apiKey.id}`));
       try {
-        await onKeyRevoke(apiKey);
+        const result = onKeyRevoke(apiKey);
+        // Handle both sync and async callbacks
+        if (result && typeof result.then === 'function') {
+          await result;
+        }
       } finally {
         setLoadingActions(prev => {
           const next = new Set(prev);
@@ -121,7 +125,11 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
       
       setLoadingActions(prev => new Set(prev).add(`rotate-${apiKey.id}`));
       try {
-        await onKeyRotate(apiKey);
+        const result = onKeyRotate(apiKey);
+        // Handle both sync and async callbacks
+        if (result && typeof result.then === 'function') {
+          await result;
+        }
       } finally {
         setLoadingActions(prev => {
           const next = new Set(prev);
@@ -199,10 +207,11 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
             });
 
             return (
-              <button
+              <div
                 key={apiKey.id}
                 className={itemClass}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onClick={() => handleKeyClick(apiKey)}
                 onKeyDown={(e) => handleKeyDown(e, apiKey)}
                 aria-describedby={`api-key-${apiKey.id}-description`}
@@ -301,7 +310,7 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
                     </Button>
                   </div>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>

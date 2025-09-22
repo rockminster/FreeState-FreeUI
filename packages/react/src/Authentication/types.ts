@@ -159,9 +159,9 @@ export interface ApiKeyListProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Callback when an API key is selected */
   onKeySelect?: (apiKey: ApiKey) => void;
   /** Callback when an API key should be revoked */
-  onKeyRevoke?: (apiKey: ApiKey) => void;
+  onKeyRevoke?: (apiKey: ApiKey) => void | Promise<void>;
   /** Callback when an API key should be rotated */
-  onKeyRotate?: (apiKey: ApiKey) => void;
+  onKeyRotate?: (apiKey: ApiKey) => void | Promise<void>;
   /** Whether the list is loading */
   loading?: boolean;
   /** Error message to display */
@@ -175,8 +175,8 @@ export interface ApiKeyListProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface ApiKeyFormProps extends Omit<React.HTMLAttributes<HTMLFormElement>, 'onSubmit'> {
   /** Available permission scopes */
   availableScopes: string[];
-  /** Callback when form is submitted */
-  onSubmit: (formData: ApiKeyFormData) => void;
+  /** Callback when form is submitted with form data */
+  onFormSubmit: (formData: ApiKeyFormData) => void;
   /** Whether form is submitting */
   loading?: boolean;
   /** Form validation errors */

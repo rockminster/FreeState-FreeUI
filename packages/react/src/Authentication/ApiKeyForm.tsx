@@ -22,7 +22,7 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
   (
     {
       availableScopes,
-      onSubmit,
+      onFormSubmit,
       loading = false,
       errors = {},
       initialValues = {},
@@ -108,7 +108,7 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
         rateLimit: enableRateLimit ? formData.rateLimit : undefined,
       };
 
-      onSubmit(submitData);
+      onFormSubmit(submitData);
     };
 
     const isValid = formData.name.trim().length > 0 && formData.permissions.length > 0;

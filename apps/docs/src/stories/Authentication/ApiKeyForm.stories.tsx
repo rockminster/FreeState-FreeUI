@@ -48,7 +48,7 @@ The ApiKeyForm component provides a comprehensive form for creating new API keys
       description: "Available permission scopes for selection",
       control: false,
     },
-    onSubmit: {
+    onFormSubmit: {
       description: "Callback when form is submitted",
       action: "form submitted",
     },
@@ -73,7 +73,7 @@ type Story = StoryObj<typeof ApiKeyForm>;
 export const Default: Story = {
   args: {
     availableScopes: mockAvailableScopes,
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
   },
@@ -82,7 +82,7 @@ export const Default: Story = {
 export const WithInitialValues: Story = {
   args: {
     availableScopes: mockAvailableScopes,
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
     initialValues: {
@@ -109,7 +109,7 @@ export const WithInitialValues: Story = {
 export const WithValidationErrors: Story = {
   args: {
     availableScopes: mockAvailableScopes,
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
     errors: {
@@ -130,7 +130,7 @@ export const WithValidationErrors: Story = {
 export const Loading: Story = {
   args: {
     availableScopes: mockAvailableScopes,
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
     loading: true,
@@ -152,7 +152,7 @@ export const Loading: Story = {
 export const MinimalConfiguration: Story = {
   args: {
     availableScopes: ["read", "write", "admin"],
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
     initialValues: {
@@ -172,7 +172,7 @@ export const MinimalConfiguration: Story = {
 export const HighSecurityConfiguration: Story = {
   args: {
     availableScopes: mockAvailableScopes,
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
     initialValues: {
@@ -199,7 +199,7 @@ export const HighSecurityConfiguration: Story = {
 export const LimitedScopes: Story = {
   args: {
     availableScopes: ["read", "user:read", "analytics:read"],
-    onSubmit: (formData: ApiKeyFormData) => {
+    onFormSubmit: (formData: ApiKeyFormData) => {
       console.log("Form submitted:", formData);
     },
   },

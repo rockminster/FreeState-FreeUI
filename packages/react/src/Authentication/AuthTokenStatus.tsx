@@ -107,13 +107,18 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
       className
     );
 
-    const expirationWarning = tokenType === "api_key" && (token as ApiKey).expiresAt
-      ? isExpiringSoon((token as ApiKey).expiresAt!)
-      : tokenType === "jwt" && isExpiringSoon((token as JwtToken).expiresAt);
+    // Helper functions to get expiration information based on token type
+    const getExpirationDate = (): string | null => {
+      if (tokenType === "api_key") {
+        return (token as ApiKey).expiresAt || null;
+      } else {
+        return (token as JwtToken).expiresAt;
+      }
+    };
 
-    const tokenExpired = tokenType === "api_key" && (token as ApiKey).expiresAt
-      ? isExpired((token as ApiKey).expiresAt!)
-      : tokenType === "jwt" && isExpired((token as JwtToken).expiresAt);
+    const expirationDate = getExpirationDate();
+    const expirationWarning = expirationDate ? isExpiringSoon(expirationDate) : false;
+    const tokenExpired = expirationDate ? isExpired(expirationDate) : false;
 
     return (
       <Card
