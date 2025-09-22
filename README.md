@@ -46,15 +46,7 @@ Core interactive and container components:
 - **`Button`** - User actions with multiple variants
 - **`Input`** - Form controls and data entry
 
-### Legacy Components
-
-These complex components will be refactored into compositional patterns:
-
-- StateVersion components (VersionViewer, VersionDiff, etc.)
-- OrganizationWorkspace components
-- Authentication components
-
-> **Migration Note**: New features should use compositional primitives. Legacy components will be gradually refactored to demonstrate compositional patterns.
+> **Compositional Philosophy**: Rather than providing bespoke components for specific use cases, FreeUI focuses on flexible primitives that can be composed to build any interface. This approach reduces bundle size, increases flexibility, and ensures consistent design patterns.
 
 ## 🚀 Quick Start
 
@@ -184,7 +176,7 @@ The design system is built on a foundation of design tokens:
 
 ### Compositional Design
 
-Following Elastic's EUI principles, FreeUI provides flexible building blocks rather than bespoke components:
+Following compositional design principles, FreeUI provides flexible building blocks rather than bespoke components:
 
 - **Layout primitives**: Stack, Inline, Separator for structural composition
 - **Display primitives**: Text, Heading, Badge for content presentation

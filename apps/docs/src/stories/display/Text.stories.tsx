@@ -13,7 +13,7 @@ Text is a foundational typography component that provides consistent text stylin
 
 ## Compositional Approach
 
-Following EUI's compositional principles, Text is designed as a flexible primitive that can represent any text content
+Following compositional design principles, Text is designed as a flexible primitive that can represent any text content
 without being tied to specific use cases. Rather than creating specialized text components like "ProductName" or 
 "UserEmail", compose interfaces using Text with appropriate size, weight, and color variants.
 

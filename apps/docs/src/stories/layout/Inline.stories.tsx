@@ -13,7 +13,7 @@ Inline is a foundational layout component for horizontal arrangement of elements
 
 ## Compositional Approach
 
-Like Stack, Inline follows EUI's compositional principles by providing flexible horizontal layout primitives
+Like Stack, Inline follows compositional design principles by providing flexible horizontal layout primitives
 rather than rigid components tied to specific use cases. This enables building diverse interfaces
 through composition rather than creating bespoke components.
 

@@ -13,7 +13,7 @@ Stack is a foundational layout component for vertical arrangement of elements wi
 
 ## Compositional Approach
 
-Following the EUI design principle, Stack is designed to be a structural primitive that accepts any children
+Following compositional design principles, Stack is designed to be a structural primitive that accepts any children
 and provides consistent vertical spacing without being tied to specific use cases or data structures.
 
 ## Features

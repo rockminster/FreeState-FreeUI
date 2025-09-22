@@ -2,7 +2,7 @@
 
 ## Overview
 
-FreeUI has been refactored to follow Elastic's EUI compositional design principles, moving away from bespoke components toward flexible building blocks that can be composed to create any interface.
+FreeUI follows compositional design principles, moving away from bespoke components toward flexible building blocks that can be composed to create any interface.
 
 ## The Problem with Bespoke Components
 
@@ -215,4 +215,4 @@ Every primitive includes proper accessibility:
 
 ## Conclusion
 
-By adopting compositional design principles, FreeUI becomes more flexible, maintainable, and consistent while reducing bundle size and complexity. This approach follows industry best practices established by design systems like Elastic's EUI.
+By adopting compositional design principles, FreeUI becomes more flexible, maintainable, and consistent while reducing bundle size and complexity. This approach follows industry best practices established by modern design systems.
