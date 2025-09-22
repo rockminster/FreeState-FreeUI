@@ -312,7 +312,7 @@ export const NotificationPanel: Story = {
             <Stack key={index} gap="xs">
               <Inline gap="sm" align="start">
                 <Badge 
-                  variant={notification.type as any} 
+                  variant={notification.type as "success" | "info" | "warning"} 
                   size="sm" 
                   style={{ marginTop: "2px", flexShrink: 0 }}
                 >

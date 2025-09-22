@@ -51,7 +51,6 @@ export const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
       <hr
         ref={ref}
         className={separatorClass}
-        role="separator"
         aria-orientation={orientation}
         {...props}
       />
