@@ -1,11 +1,11 @@
 {
-  "name": "@freeui/docs",
+  "name": "@rockminster/docs",
   "version": "0.0.1",
   "private": true,
   "description": "Storybook documentation for FreeUI design system",
   "scripts": {
     "build": "pnpm run build:deps && storybook build",
-    "build:deps": "pnpm --filter @freeui/tokens build && pnpm --filter @freeui/css build && pnpm --filter @freeui/react build",
+    "build:deps": "pnpm --filter @rockminster/tokens build && pnpm --filter @rockminster/css build && pnpm --filter @rockminster/react build",
     "dev": "pnpm run build:deps && storybook dev -p 6006",
     "test": "pnpm run test:smoke",
     "test:smoke": "pnpm run build && echo \"Storybook build successful - basic smoke test passed\"",
@@ -15,14 +15,14 @@
     "clean": "rm -rf storybook-static"
   },
   "dependencies": {
-    "@freeui/css": "workspace:*",
-    "@freeui/react": "workspace:*",
-    "@freeui/tokens": "workspace:*",
+    "@rockminster/css": "workspace:*",
+    "@rockminster/react": "workspace:*",
+    "@rockminster/tokens": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@freeui/eslint-config": "workspace:*",
+    "@rockminster/eslint-config": "workspace:*",
     "@storybook/addon-a11y": "^8.0.0",
     "@storybook/addon-essentials": "^8.0.0",
     "@storybook/addon-links": "^8.0.0",

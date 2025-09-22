@@ -15,10 +15,10 @@ A tokens-first design system for FreeState apps, built with accessibility and de
 
 This monorepo contains the following packages:
 
-- **[@freeui/tokens](./packages/tokens)**: Design tokens (colors, typography, spacing, etc.)
-- **[@freeui/css](./packages/css)**: CSS utilities and custom properties
-- **[@freeui/react](./packages/react)**: React component library
-- **[@freeui/docs](./apps/docs)**: Storybook documentation site
+- **[@rockminster/tokens](./packages/tokens)**: Design tokens (colors, typography, spacing, etc.)
+- **[@rockminster/css](./packages/css)**: CSS utilities and custom properties
+- **[@rockminster/react](./packages/react)**: React component library
+- **[@rockminster/docs](./apps/docs)**: Storybook documentation site
 
 ## 🚀 Quick Start
 
@@ -26,20 +26,20 @@ This monorepo contains the following packages:
 
 ```bash
 # Install the packages you need
-npm install @freeui/react @freeui/css @freeui/tokens
+npm install @rockminster/react @rockminster/css @rockminster/tokens
 
 # Or with pnpm
-pnpm add @freeui/react @freeui/css @freeui/tokens
+pnpm add @rockminster/react @rockminster/css @rockminster/tokens
 
 # Or with yarn
-yarn add @freeui/react @freeui/css @freeui/tokens
+yarn add @rockminster/react @rockminster/css @rockminster/tokens
 ```
 
 ### Basic Usage
 
 ```tsx
-import { Button } from "@freeui/react";
-import "@freeui/css/dist/index.css";
+import { Button } from "@rockminster/react";
+import "@rockminster/css/dist/index.css";
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
 ### Using Design Tokens
 
 ```tsx
-import { colors, spacing, typography } from "@freeui/tokens";
+import { colors, spacing, typography } from "@rockminster/tokens";
 
 const customStyles = {
   backgroundColor: colors.brand[500],

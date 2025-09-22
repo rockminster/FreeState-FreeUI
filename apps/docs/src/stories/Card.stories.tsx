@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@freeui/react";
+import { Card } from "@rockminster/react";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",

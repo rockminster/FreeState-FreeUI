@@ -1,5 +1,5 @@
 {
-  "name": "@freeui/react",
+  "name": "@rockminster/react",
   "version": "0.0.1",
   "description": "React components for FreeUI design system",
   "main": "dist/index.js",
@@ -15,6 +15,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -31,11 +34,11 @@
   "author": "rockminster",
   "license": "MIT",
   "dependencies": {
-    "@freeui/tokens": "workspace:*",
+    "@rockminster/tokens": "workspace:*",
     "clsx": "^2.0.0"
   },
   "devDependencies": {
-    "@freeui/eslint-config": "workspace:*",
+    "@rockminster/eslint-config": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

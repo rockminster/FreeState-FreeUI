@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import "@freeui/css/dist/index.css";
+import "@rockminster/css/dist/index.css";
 
 const preview: Preview = {
   parameters: {

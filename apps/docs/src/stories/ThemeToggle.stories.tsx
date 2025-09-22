@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { colors } from "@freeui/tokens";
+import { colors } from "@rockminster/tokens";
 
 const meta: Meta = {
   title: "Design Tokens/Theme Toggle",

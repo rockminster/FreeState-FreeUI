@@ -1,14 +1,17 @@
 {
-  "name": "@freeui/css",
+  "name": "@rockminster/css",
   "version": "0.0.1",
   "description": "CSS utilities for FreeUI design system",
   "main": "dist/index.css",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "pnpm run build:tokens && postcss src/index.css -o dist/index.css",
-    "build:tokens": "pnpm --filter @freeui/tokens build:tokens",
+    "build:tokens": "pnpm --filter @rockminster/tokens build:tokens",
     "dev": "pnpm run build:tokens && postcss src/index.css -o dist/index.css --watch",
     "lint": "eslint *.js --ignore-pattern dist",
     "clean": "rm -rf dist"
@@ -21,10 +24,10 @@
   "author": "rockminster",
   "license": "MIT",
   "dependencies": {
-    "@freeui/tokens": "workspace:*"
+    "@rockminster/tokens": "workspace:*"
   },
   "devDependencies": {
-    "@freeui/eslint-config": "workspace:*",
+    "@rockminster/eslint-config": "workspace:*",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.0.0",
     "postcss": "^8.4.0",
