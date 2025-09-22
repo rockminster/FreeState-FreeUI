@@ -1,7 +1,7 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * The text size following design system scale
    */
@@ -38,7 +38,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
  * - Flexible HTML element rendering
  * - Full composability with children
  */
-export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
+export const Text = React.forwardRef<HTMLElement, TextProps>(
   (
     {
       children,
@@ -63,16 +63,14 @@ export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
       className
     );
 
-    const Component = as;
-
-    return (
-      <Component
-        ref={ref as any}
-        className={textClass}
-        {...props}
-      >
-        {children}
-      </Component>
+    return React.createElement(
+      as,
+      {
+        ref,
+        className: textClass,
+        ...props,
+      },
+      children
     );
   }
 );
