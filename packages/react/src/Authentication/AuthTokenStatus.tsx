@@ -16,16 +16,12 @@ import type { AuthTokenStatusProps, ApiKey, JwtToken } from "./types";
  * - Accessibility with proper ARIA labels
  * - Support for both API keys and JWT tokens
  */
-export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusProps>(
+export const AuthTokenStatus = React.forwardRef<
+  HTMLDivElement,
+  AuthTokenStatusProps
+>(
   (
-    {
-      token,
-      tokenType,
-      detailed = false,
-      onAction,
-      className,
-      ...props
-    },
+    { token, tokenType, detailed = false, onAction, className, ...props },
     ref
   ) => {
     const formatDate = (isoString: string) => {
@@ -117,28 +113,32 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
     };
 
     const expirationDate = getExpirationDate();
-    const expirationWarning = expirationDate ? isExpiringSoon(expirationDate) : false;
+    const expirationWarning = expirationDate
+      ? isExpiringSoon(expirationDate)
+      : false;
     const tokenExpired = expirationDate ? isExpired(expirationDate) : false;
 
     return (
-      <Card
-        ref={ref}
-        className={containerClass}
-        {...props}
-      >
+      <Card ref={ref} className={containerClass} {...props}>
         <div className="freeui-auth-token-status__header">
           <div className="freeui-auth-token-status__title">
             <h4 className="freeui-auth-token-status__name">
-              {tokenType === "api_key" ? (token as ApiKey).name : `${(token as JwtToken).type} Token`}
+              {tokenType === "api_key"
+                ? (token as ApiKey).name
+                : `${(token as JwtToken).type} Token`}
             </h4>
-            <div className={`freeui-auth-token-status__status freeui-auth-token-status__status--${getStatusColor(token.status)}`}>
+            <div
+              className={`freeui-auth-token-status__status freeui-auth-token-status__status--${getStatusColor(token.status)}`}
+            >
               {token.status}
             </div>
           </div>
-          
+
           {(expirationWarning || tokenExpired) && (
-            <div className={`freeui-auth-token-status__warning ${tokenExpired ? 'freeui-auth-token-status__warning--expired' : 'freeui-auth-token-status__warning--expiring'}`}>
-              {tokenExpired ? '⚠️ Expired' : '⚠️ Expires soon'}
+            <div
+              className={`freeui-auth-token-status__warning ${tokenExpired ? "freeui-auth-token-status__warning--expired" : "freeui-auth-token-status__warning--expiring"}`}
+            >
+              {tokenExpired ? "⚠️ Expired" : "⚠️ Expires soon"}
             </div>
           )}
         </div>
@@ -148,7 +148,11 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
             {tokenType === "api_key" ? "API Key" : "Token"}:
           </label>
           <code className="freeui-auth-token-status__token-value">
-            {maskToken(tokenType === "api_key" ? (token as ApiKey).key : (token as JwtToken).token)}
+            {maskToken(
+              tokenType === "api_key"
+                ? (token as ApiKey).key
+                : (token as JwtToken).token
+            )}
           </code>
         </div>
 
@@ -157,7 +161,9 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
             {tokenType === "api_key" && (
               <>
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Permissions:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Permissions:
+                  </span>
                   <div className="freeui-auth-token-status__permissions">
                     {(token as ApiKey).permissions.map((permission) => (
                       <span
@@ -169,10 +175,12 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
                     ))}
                   </div>
                 </div>
-                
+
                 {(token as ApiKey).metadata?.description && (
                   <div className="freeui-auth-token-status__detail">
-                    <span className="freeui-auth-token-status__detail-label">Description:</span>
+                    <span className="freeui-auth-token-status__detail-label">
+                      Description:
+                    </span>
                     <span className="freeui-auth-token-status__detail-value">
                       {(token as ApiKey).metadata!.description}
                     </span>
@@ -181,41 +189,57 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
 
                 {(token as ApiKey).lastUsedAt && (
                   <div className="freeui-auth-token-status__detail">
-                    <span className="freeui-auth-token-status__detail-label">Last Used:</span>
+                    <span className="freeui-auth-token-status__detail-label">
+                      Last Used:
+                    </span>
                     <span className="freeui-auth-token-status__detail-value">
-                      {formatRelativeTime((token as ApiKey).lastUsedAt!)} ({formatDate((token as ApiKey).lastUsedAt!)})
+                      {formatRelativeTime((token as ApiKey).lastUsedAt!)} (
+                      {formatDate((token as ApiKey).lastUsedAt!)})
                     </span>
                   </div>
                 )}
 
                 {(token as ApiKey).expiresAt && (
                   <div className="freeui-auth-token-status__detail">
-                    <span className="freeui-auth-token-status__detail-label">Expires:</span>
+                    <span className="freeui-auth-token-status__detail-label">
+                      Expires:
+                    </span>
                     <span className="freeui-auth-token-status__detail-value">
                       {formatDate((token as ApiKey).expiresAt!)}
                     </span>
                   </div>
                 )}
 
-                {(token as ApiKey).metadata?.ipRestrictions && (token as ApiKey).metadata!.ipRestrictions!.length > 0 && (
-                  <div className="freeui-auth-token-status__detail">
-                    <span className="freeui-auth-token-status__detail-label">IP Restrictions:</span>
-                    <div className="freeui-auth-token-status__ip-restrictions">
-                      {(token as ApiKey).metadata!.ipRestrictions!.map((ip, index) => (
-                        <code key={index} className="freeui-auth-token-status__ip-restriction">
-                          {ip}
-                        </code>
-                      ))}
+                {(token as ApiKey).metadata?.ipRestrictions &&
+                  (token as ApiKey).metadata!.ipRestrictions!.length > 0 && (
+                    <div className="freeui-auth-token-status__detail">
+                      <span className="freeui-auth-token-status__detail-label">
+                        IP Restrictions:
+                      </span>
+                      <div className="freeui-auth-token-status__ip-restrictions">
+                        {(token as ApiKey).metadata!.ipRestrictions!.map(
+                          (ip, index) => (
+                            <code
+                              key={index}
+                              className="freeui-auth-token-status__ip-restriction"
+                            >
+                              {ip}
+                            </code>
+                          )
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
                 {(token as ApiKey).metadata?.rateLimit && (
                   <div className="freeui-auth-token-status__detail">
-                    <span className="freeui-auth-token-status__detail-label">Rate Limit:</span>
+                    <span className="freeui-auth-token-status__detail-label">
+                      Rate Limit:
+                    </span>
                     <span className="freeui-auth-token-status__detail-value">
-                      {(token as ApiKey).metadata!.rateLimit!.requestsPerMinute} req/min 
-                      (burst: {(token as ApiKey).metadata!.rateLimit!.burstSize})
+                      {(token as ApiKey).metadata!.rateLimit!.requestsPerMinute}{" "}
+                      req/min (burst:{" "}
+                      {(token as ApiKey).metadata!.rateLimit!.burstSize})
                     </span>
                   </div>
                 )}
@@ -225,28 +249,36 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
             {tokenType === "jwt" && (
               <>
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Subject:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Subject:
+                  </span>
                   <span className="freeui-auth-token-status__detail-value">
                     {(token as JwtToken).subject}
                   </span>
                 </div>
 
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Issuer:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Issuer:
+                  </span>
                   <span className="freeui-auth-token-status__detail-value">
                     {(token as JwtToken).issuer}
                   </span>
                 </div>
 
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Audience:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Audience:
+                  </span>
                   <span className="freeui-auth-token-status__detail-value">
                     {(token as JwtToken).audience.join(", ")}
                   </span>
                 </div>
 
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Scopes:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Scopes:
+                  </span>
                   <div className="freeui-auth-token-status__scopes">
                     {(token as JwtToken).scopes.map((scope) => (
                       <span
@@ -260,14 +292,18 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
                 </div>
 
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Issued:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Issued:
+                  </span>
                   <span className="freeui-auth-token-status__detail-value">
                     {formatDate((token as JwtToken).issuedAt)}
                   </span>
                 </div>
 
                 <div className="freeui-auth-token-status__detail">
-                  <span className="freeui-auth-token-status__detail-label">Expires:</span>
+                  <span className="freeui-auth-token-status__detail-label">
+                    Expires:
+                  </span>
                   <span className="freeui-auth-token-status__detail-value">
                     {formatDate((token as JwtToken).expiresAt)}
                   </span>
@@ -276,10 +312,19 @@ export const AuthTokenStatus = React.forwardRef<HTMLDivElement, AuthTokenStatusP
             )}
 
             <div className="freeui-auth-token-status__detail">
-              <span className="freeui-auth-token-status__detail-label">Created:</span>
+              <span className="freeui-auth-token-status__detail-label">
+                Created:
+              </span>
               <span className="freeui-auth-token-status__detail-value">
-                {formatDate(tokenType === "api_key" ? (token as ApiKey).createdAt : (token as JwtToken).issuedAt)} by{" "}
-                {tokenType === "api_key" ? (token as ApiKey).createdBy.name : (token as JwtToken).subject}
+                {formatDate(
+                  tokenType === "api_key"
+                    ? (token as ApiKey).createdAt
+                    : (token as JwtToken).issuedAt
+                )}{" "}
+                by{" "}
+                {tokenType === "api_key"
+                  ? (token as ApiKey).createdBy.name
+                  : (token as JwtToken).subject}
               </span>
             </div>
           </div>

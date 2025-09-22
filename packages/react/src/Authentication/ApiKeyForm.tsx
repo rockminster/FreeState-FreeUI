@@ -60,7 +60,7 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
         .split("\n")
         .map((ip) => ip.trim())
         .filter((ip) => ip.length > 0);
-      
+
       setFormData((prev) => ({
         ...prev,
         ipRestrictions: ips,
@@ -101,7 +101,7 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
 
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
-      
+
       const submitData: ApiKeyFormData = {
         ...formData,
         expiresAt: enableExpiration ? formData.expiresAt : undefined,
@@ -111,7 +111,8 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
       onFormSubmit(submitData);
     };
 
-    const isValid = formData.name.trim().length > 0 && formData.permissions.length > 0;
+    const isValid =
+      formData.name.trim().length > 0 && formData.permissions.length > 0;
 
     const containerClass = clsx(
       "freeui-api-key-form",
@@ -132,13 +133,17 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
           <div className="freeui-api-key-form__header">
             <h3 className="freeui-api-key-form__title">Create API Key</h3>
             <p className="freeui-api-key-form__description">
-              Generate a new API key with specific permissions and security settings.
+              Generate a new API key with specific permissions and security
+              settings.
             </p>
           </div>
 
           <div className="freeui-api-key-form__fields">
             <div className="freeui-api-key-form__field">
-              <label htmlFor="api-key-name" className="freeui-api-key-form__label">
+              <label
+                htmlFor="api-key-name"
+                className="freeui-api-key-form__label"
+              >
                 Key Name *
               </label>
               <Input
@@ -149,30 +154,45 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                 placeholder="e.g., Production API Key"
                 error={Boolean(errors.name)}
                 required
-                aria-describedby={errors.name ? "api-key-name-error" : undefined}
+                aria-describedby={
+                  errors.name ? "api-key-name-error" : undefined
+                }
               />
               {errors.name && (
-                <div id="api-key-name-error" className="freeui-api-key-form__error">
+                <div
+                  id="api-key-name-error"
+                  className="freeui-api-key-form__error"
+                >
                   {errors.name}
                 </div>
               )}
             </div>
 
             <div className="freeui-api-key-form__field">
-              <label htmlFor="api-key-description" className="freeui-api-key-form__label">
+              <label
+                htmlFor="api-key-description"
+                className="freeui-api-key-form__label"
+              >
                 Description
               </label>
               <textarea
                 id="api-key-description"
                 className="freeui-api-key-form__textarea"
                 value={formData.description}
-                onChange={(e) => handleInputChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("description", e.target.value)
+                }
                 placeholder="Describe the purpose of this API key..."
                 rows={3}
-                aria-describedby={errors.description ? "api-key-description-error" : undefined}
+                aria-describedby={
+                  errors.description ? "api-key-description-error" : undefined
+                }
               />
               {errors.description && (
-                <div id="api-key-description-error" className="freeui-api-key-form__error">
+                <div
+                  id="api-key-description-error"
+                  className="freeui-api-key-form__error"
+                >
                   {errors.description}
                 </div>
               )}
@@ -185,12 +205,17 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                 </legend>
                 <div className="freeui-api-key-form__permissions">
                   {availableScopes.map((scope) => (
-                    <label key={scope} className="freeui-api-key-form__checkbox-label">
+                    <label
+                      key={scope}
+                      className="freeui-api-key-form__checkbox-label"
+                    >
                       <input
                         type="checkbox"
                         className="freeui-api-key-form__checkbox"
                         checked={formData.permissions.includes(scope)}
-                        onChange={(e) => handlePermissionChange(scope, e.target.checked)}
+                        onChange={(e) =>
+                          handlePermissionChange(scope, e.target.checked)
+                        }
                       />
                       <span className="freeui-api-key-form__checkbox-text">
                         {scope}
@@ -218,18 +243,25 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                   Set expiration date
                 </span>
               </label>
-              
+
               {enableExpiration && (
                 <div className="freeui-api-key-form__field-nested">
                   <Input
                     type="datetime-local"
                     value={formData.expiresAt}
-                    onChange={(e) => handleInputChange("expiresAt", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("expiresAt", e.target.value)
+                    }
                     error={Boolean(errors.expiresAt)}
-                    aria-describedby={errors.expiresAt ? "api-key-expires-error" : undefined}
+                    aria-describedby={
+                      errors.expiresAt ? "api-key-expires-error" : undefined
+                    }
                   />
                   {errors.expiresAt && (
-                    <div id="api-key-expires-error" className="freeui-api-key-form__error">
+                    <div
+                      id="api-key-expires-error"
+                      className="freeui-api-key-form__error"
+                    >
                       {errors.expiresAt}
                     </div>
                   )}
@@ -238,7 +270,10 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
             </div>
 
             <div className="freeui-api-key-form__field">
-              <label htmlFor="api-key-ip-restrictions" className="freeui-api-key-form__label">
+              <label
+                htmlFor="api-key-ip-restrictions"
+                className="freeui-api-key-form__label"
+              >
                 IP Address Restrictions
               </label>
               <textarea
@@ -250,7 +285,10 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                 rows={4}
                 aria-describedby="api-key-ip-restrictions-help"
               />
-              <div id="api-key-ip-restrictions-help" className="freeui-api-key-form__help">
+              <div
+                id="api-key-ip-restrictions-help"
+                className="freeui-api-key-form__help"
+              >
                 Optional. Leave empty to allow access from any IP address.
               </div>
             </div>
@@ -267,11 +305,14 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                   Configure rate limiting
                 </span>
               </label>
-              
+
               {enableRateLimit && (
                 <div className="freeui-api-key-form__rate-limit">
                   <div className="freeui-api-key-form__rate-limit-field">
-                    <label htmlFor="rate-limit-requests" className="freeui-api-key-form__label">
+                    <label
+                      htmlFor="rate-limit-requests"
+                      className="freeui-api-key-form__label"
+                    >
                       Requests per minute
                     </label>
                     <Input
@@ -280,13 +321,19 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                       min="1"
                       max="10000"
                       value={formData.rateLimit?.requestsPerMinute || 60}
-                      onChange={(e) => 
-                        handleRateLimitChange("requestsPerMinute", parseInt(e.target.value))
+                      onChange={(e) =>
+                        handleRateLimitChange(
+                          "requestsPerMinute",
+                          parseInt(e.target.value)
+                        )
                       }
                     />
                   </div>
                   <div className="freeui-api-key-form__rate-limit-field">
-                    <label htmlFor="rate-limit-burst" className="freeui-api-key-form__label">
+                    <label
+                      htmlFor="rate-limit-burst"
+                      className="freeui-api-key-form__label"
+                    >
                       Burst size
                     </label>
                     <Input
@@ -295,8 +342,11 @@ export const ApiKeyForm = React.forwardRef<HTMLFormElement, ApiKeyFormProps>(
                       min="1"
                       max="1000"
                       value={formData.rateLimit?.burstSize || 10}
-                      onChange={(e) => 
-                        handleRateLimitChange("burstSize", parseInt(e.target.value))
+                      onChange={(e) =>
+                        handleRateLimitChange(
+                          "burstSize",
+                          parseInt(e.target.value)
+                        )
                       }
                     />
                   </div>

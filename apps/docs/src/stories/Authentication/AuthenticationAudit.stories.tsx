@@ -15,7 +15,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceId: "key-001",
     resourceType: "api_key",
     details: {
-      description: "Created new API key 'Production API Key' with admin permissions",
+      description:
+        "Created new API key 'Production API Key' with admin permissions",
       userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
       ipAddress: "192.168.1.100",
       success: true,
@@ -38,7 +39,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceType: "user_session",
     details: {
       description: "Successful login from development environment",
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
       ipAddress: "10.0.1.45",
       success: true,
       metadata: {
@@ -125,7 +127,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceId: "key-003",
     resourceType: "api_key",
     details: {
-      description: "Revoked API key 'Legacy Integration' due to security policy",
+      description:
+        "Revoked API key 'Legacy Integration' due to security policy",
       userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
       ipAddress: "192.168.1.100",
       success: true,
@@ -148,7 +151,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceId: "key-004",
     resourceType: "api_key",
     details: {
-      description: "Access denied for DELETE /api/users/123 - insufficient permissions",
+      description:
+        "Access denied for DELETE /api/users/123 - insufficient permissions",
       userAgent: "ApiClient/1.0",
       ipAddress: "203.0.113.55",
       success: false,
@@ -174,7 +178,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceType: "api_key",
     details: {
       description: "Rotated API key 'Development Key' - new key generated",
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
       ipAddress: "10.0.1.45",
       success: true,
       metadata: {
@@ -220,7 +225,8 @@ const mockAuthEvents: AuthEvent[] = [
     resourceType: "user_session",
     details: {
       description: "User logged out successfully",
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
       ipAddress: "10.0.1.45",
       success: true,
       metadata: {
@@ -320,7 +326,8 @@ export const WithoutDateGrouping: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Authentication audit without date grouping for a flat timeline view.",
+        story:
+          "Authentication audit without date grouping for a flat timeline view.",
       },
     },
   },
@@ -343,10 +350,11 @@ export const FilteredByEventType: Story = {
 
 export const LoginEvents: Story = {
   args: {
-    events: mockAuthEvents.filter(event => 
-      event.type === "login_success" || 
-      event.type === "login_failure" || 
-      event.type === "logout"
+    events: mockAuthEvents.filter(
+      (event) =>
+        event.type === "login_success" ||
+        event.type === "login_failure" ||
+        event.type === "logout"
     ),
     groupByDate: true,
   },
@@ -361,18 +369,20 @@ export const LoginEvents: Story = {
 
 export const SecurityEvents: Story = {
   args: {
-    events: mockAuthEvents.filter(event => 
-      event.type === "login_failure" || 
-      event.type === "permission_denied" ||
-      event.type === "api_key_revoked" ||
-      event.type === "jwt_revoked"
+    events: mockAuthEvents.filter(
+      (event) =>
+        event.type === "login_failure" ||
+        event.type === "permission_denied" ||
+        event.type === "api_key_revoked" ||
+        event.type === "jwt_revoked"
     ),
     groupByDate: true,
   },
   parameters: {
     docs: {
       description: {
-        story: "Audit log filtered to show security-relevant events and failures.",
+        story:
+          "Audit log filtered to show security-relevant events and failures.",
       },
     },
   },
@@ -395,7 +405,8 @@ export const Loading: Story = {
 export const Error: Story = {
   args: {
     events: [],
-    error: "Failed to load authentication audit log. Please check your permissions and try again.",
+    error:
+      "Failed to load authentication audit log. Please check your permissions and try again.",
   },
   parameters: {
     docs: {
@@ -413,7 +424,8 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Empty state when no authentication events match the current filters.",
+        story:
+          "Empty state when no authentication events match the current filters.",
       },
     },
   },
@@ -428,7 +440,8 @@ export const LimitedEvents: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Audit log with limited initial display showing load more functionality.",
+        story:
+          "Audit log with limited initial display showing load more functionality.",
       },
     },
   },
@@ -436,13 +449,14 @@ export const LimitedEvents: Story = {
 
 export const FailureEvents: Story = {
   args: {
-    events: mockAuthEvents.filter(event => !event.details.success),
+    events: mockAuthEvents.filter((event) => !event.details.success),
     groupByDate: true,
   },
   parameters: {
     docs: {
       description: {
-        story: "Audit log showing only failed authentication and authorization attempts.",
+        story:
+          "Audit log showing only failed authentication and authorization attempts.",
       },
     },
   },

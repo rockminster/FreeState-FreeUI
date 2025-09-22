@@ -18,7 +18,10 @@ import type { AuthenticationAuditProps, AuthEvent } from "./types";
  * - Grouping by date for better organization
  * - Accessible with proper ARIA labels and keyboard navigation
  */
-export const AuthenticationAudit = React.forwardRef<HTMLDivElement, AuthenticationAuditProps>(
+export const AuthenticationAudit = React.forwardRef<
+  HTMLDivElement,
+  AuthenticationAuditProps
+>(
   (
     {
       events,
@@ -36,8 +39,11 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
     ref
   ) => {
     const [visibleEvents, setVisibleEvents] = useState(maxEvents);
-    const [expandedEvents, setExpandedEvents] = useState<Set<string>>(new Set());
-    const [localEventTypeFilter, setLocalEventTypeFilter] = useState<AuthEvent["type"][]>(eventTypeFilter);
+    const [expandedEvents, setExpandedEvents] = useState<Set<string>>(
+      new Set()
+    );
+    const [localEventTypeFilter, setLocalEventTypeFilter] =
+      useState<AuthEvent["type"][]>(eventTypeFilter);
     const [localUserFilter, setLocalUserFilter] = useState(userFilter);
     // Remove unused setLocalDateRange to fix linting error
     const [localDateRange] = useState(dateRange);
@@ -99,12 +105,18 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
     const filteredEvents = useMemo(() => {
       return events.filter((event) => {
         // Event type filter
-        if (localEventTypeFilter.length > 0 && !localEventTypeFilter.includes(event.type)) {
+        if (
+          localEventTypeFilter.length > 0 &&
+          !localEventTypeFilter.includes(event.type)
+        ) {
           return false;
         }
 
         // User filter
-        if (localUserFilter && !event.user.name.toLowerCase().includes(localUserFilter.toLowerCase())) {
+        if (
+          localUserFilter &&
+          !event.user.name.toLowerCase().includes(localUserFilter.toLowerCase())
+        ) {
           return false;
         }
 
@@ -113,7 +125,7 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
           const eventDate = new Date(event.timestamp);
           const startDate = new Date(localDateRange.startDate);
           const endDate = new Date(localDateRange.endDate);
-          
+
           if (eventDate < startDate || eventDate > endDate) {
             return false;
           }
@@ -129,7 +141,7 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
       }
 
       const groups: Record<string, AuthEvent[]> = {};
-      
+
       filteredEvents.slice(0, visibleEvents).forEach((event) => {
         const date = formatDate(event.timestamp);
         if (!groups[date]) {
@@ -155,11 +167,14 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
       });
     };
 
-    const handleEventTypeFilterChange = (eventType: AuthEvent["type"], checked: boolean) => {
+    const handleEventTypeFilterChange = (
+      eventType: AuthEvent["type"],
+      checked: boolean
+    ) => {
       const newFilter = checked
         ? [...localEventTypeFilter, eventType]
         : localEventTypeFilter.filter((type) => type !== eventType);
-      
+
       setLocalEventTypeFilter(newFilter);
       if (onFilterChange) {
         onFilterChange({
@@ -182,7 +197,9 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
     };
 
     const handleLoadMore = () => {
-      setVisibleEvents((prev) => Math.min(prev + maxEvents, filteredEvents.length));
+      setVisibleEvents((prev) =>
+        Math.min(prev + maxEvents, filteredEvents.length)
+      );
     };
 
     const containerClass = clsx(
@@ -229,7 +246,9 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-authentication-audit__error">
-            <div className="freeui-authentication-audit__error-message">{error}</div>
+            <div className="freeui-authentication-audit__error-message">
+              {error}
+            </div>
           </div>
         </Card>
       );
@@ -238,15 +257,21 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
     return (
       <Card ref={ref} className={containerClass} {...props}>
         <div className="freeui-authentication-audit__header">
-          <h3 className="freeui-authentication-audit__title">Authentication Audit Log</h3>
+          <h3 className="freeui-authentication-audit__title">
+            Authentication Audit Log
+          </h3>
           <div className="freeui-authentication-audit__count">
-            {filteredEvents.length} event{filteredEvents.length !== 1 ? "s" : ""}
+            {filteredEvents.length} event
+            {filteredEvents.length !== 1 ? "s" : ""}
           </div>
         </div>
 
         <div className="freeui-authentication-audit__filters">
           <div className="freeui-authentication-audit__filter">
-            <label htmlFor="user-filter" className="freeui-authentication-audit__filter-label">
+            <label
+              htmlFor="user-filter"
+              className="freeui-authentication-audit__filter-label"
+            >
               Filter by user:
             </label>
             <Input
@@ -266,12 +291,17 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
               </legend>
               <div className="freeui-authentication-audit__event-types">
                 {eventTypes.map((eventType) => (
-                  <label key={eventType} className="freeui-authentication-audit__event-type-label">
+                  <label
+                    key={eventType}
+                    className="freeui-authentication-audit__event-type-label"
+                  >
                     <input
                       type="checkbox"
                       className="freeui-authentication-audit__event-type-checkbox"
                       checked={localEventTypeFilter.includes(eventType)}
-                      onChange={(e) => handleEventTypeFilterChange(eventType, e.target.checked)}
+                      onChange={(e) =>
+                        handleEventTypeFilterChange(eventType, e.target.checked)
+                      }
                     />
                     <span className="freeui-authentication-audit__event-type-text">
                       {getEventIcon(eventType)} {eventType.replace(/_/g, " ")}
@@ -292,26 +322,40 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
         ) : (
           <div className="freeui-authentication-audit__timeline">
             {groupedEvents.map(({ date, events }) => (
-              <div key={date || "ungrouped"} className="freeui-authentication-audit__group">
+              <div
+                key={date || "ungrouped"}
+                className="freeui-authentication-audit__group"
+              >
                 {groupByDate && date && (
                   <div className="freeui-authentication-audit__group-header">
-                    <h4 className="freeui-authentication-audit__group-date">{date}</h4>
+                    <h4 className="freeui-authentication-audit__group-date">
+                      {date}
+                    </h4>
                   </div>
                 )}
-                
+
                 <div className="freeui-authentication-audit__events">
                   {events.map((event) => {
                     const isExpanded = expandedEvents.has(event.id);
-                    const hasMetadata = event.details.metadata && Object.keys(event.details.metadata).length > 0;
-                    
+                    const hasMetadata =
+                      event.details.metadata &&
+                      Object.keys(event.details.metadata).length > 0;
+
                     return (
-                      <div key={event.id} className="freeui-authentication-audit__event">
+                      <div
+                        key={event.id}
+                        className="freeui-authentication-audit__event"
+                      >
                         <div className="freeui-authentication-audit__event-main">
                           <div className="freeui-authentication-audit__event-indicator">
-                            <div className={`freeui-authentication-audit__event-icon freeui-authentication-audit__event-icon--${getEventTypeColor(event.type)}`}>
+                            <div
+                              className={`freeui-authentication-audit__event-icon freeui-authentication-audit__event-icon--${getEventTypeColor(event.type)}`}
+                            >
                               {getEventIcon(event.type)}
                             </div>
-                            <div className={`freeui-authentication-audit__event-status freeui-authentication-audit__event-status--${event.details.success ? 'success' : 'failure'}`}>
+                            <div
+                              className={`freeui-authentication-audit__event-status freeui-authentication-audit__event-status--${event.details.success ? "success" : "failure"}`}
+                            >
                               {event.details.success ? "✓" : "✗"}
                             </div>
                           </div>
@@ -319,7 +363,9 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
                           <div className="freeui-authentication-audit__event-content">
                             <div className="freeui-authentication-audit__event-header">
                               <div className="freeui-authentication-audit__event-type">
-                                {event.type.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                                {event.type
+                                  .replace(/_/g, " ")
+                                  .replace(/\b\w/g, (l) => l.toUpperCase())}
                               </div>
                               <div className="freeui-authentication-audit__event-time">
                                 {formatTime(event.timestamp)}
@@ -367,34 +413,39 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
                           )}
                         </div>
 
-                        {isExpanded && (hasMetadata || event.details.userAgent) && (
-                          <div
-                            id={`event-details-${event.id}`}
-                            className="freeui-authentication-audit__event-details"
-                          >
-                            {event.details.userAgent && (
-                              <div className="freeui-authentication-audit__event-detail">
-                                <span className="freeui-authentication-audit__event-detail-label">
-                                  User Agent:
-                                </span>
-                                <span className="freeui-authentication-audit__event-detail-value">
-                                  {event.details.userAgent}
-                                </span>
-                              </div>
-                            )}
-                            
-                            {hasMetadata && (
-                              <div className="freeui-authentication-audit__event-detail">
-                                <span className="freeui-authentication-audit__event-detail-label">
-                                  Metadata:
-                                </span>
-                                <pre className="freeui-authentication-audit__event-detail-metadata">
-                                  {JSON.stringify(event.details.metadata, null, 2)}
-                                </pre>
-                              </div>
-                            )}
-                          </div>
-                        )}
+                        {isExpanded &&
+                          (hasMetadata || event.details.userAgent) && (
+                            <div
+                              id={`event-details-${event.id}`}
+                              className="freeui-authentication-audit__event-details"
+                            >
+                              {event.details.userAgent && (
+                                <div className="freeui-authentication-audit__event-detail">
+                                  <span className="freeui-authentication-audit__event-detail-label">
+                                    User Agent:
+                                  </span>
+                                  <span className="freeui-authentication-audit__event-detail-value">
+                                    {event.details.userAgent}
+                                  </span>
+                                </div>
+                              )}
+
+                              {hasMetadata && (
+                                <div className="freeui-authentication-audit__event-detail">
+                                  <span className="freeui-authentication-audit__event-detail-label">
+                                    Metadata:
+                                  </span>
+                                  <pre className="freeui-authentication-audit__event-detail-metadata">
+                                    {JSON.stringify(
+                                      event.details.metadata,
+                                      null,
+                                      2
+                                    )}
+                                  </pre>
+                                </div>
+                              )}
+                            </div>
+                          )}
                       </div>
                     );
                   })}
@@ -404,10 +455,7 @@ export const AuthenticationAudit = React.forwardRef<HTMLDivElement, Authenticati
 
             {visibleEvents < filteredEvents.length && (
               <div className="freeui-authentication-audit__load-more">
-                <Button
-                  variant="outline"
-                  onClick={handleLoadMore}
-                >
+                <Button variant="outline" onClick={handleLoadMore}>
                   Load More Events
                 </Button>
                 <div className="freeui-authentication-audit__load-more-info">

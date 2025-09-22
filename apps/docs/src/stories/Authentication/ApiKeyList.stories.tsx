@@ -247,7 +247,8 @@ export const Loading: Story = {
 export const Error: Story = {
   args: {
     apiKeys: [],
-    error: "Failed to load API keys. Please check your permissions and try again.",
+    error:
+      "Failed to load API keys. Please check your permissions and try again.",
   },
   parameters: {
     docs: {
@@ -273,7 +274,7 @@ export const EmptyState: Story = {
 
 export const ActiveKeysOnly: Story = {
   args: {
-    apiKeys: mockApiKeys.filter(key => key.status === "active"),
+    apiKeys: mockApiKeys.filter((key) => key.status === "active"),
     showActions: true,
   },
   parameters: {
@@ -288,9 +289,9 @@ export const ActiveKeysOnly: Story = {
 export const StatusVariations: Story = {
   args: {
     apiKeys: [
-      mockApiKeys.find(key => key.status === "active")!,
-      mockApiKeys.find(key => key.status === "expired")!,
-      mockApiKeys.find(key => key.status === "revoked")!,
+      mockApiKeys.find((key) => key.status === "active")!,
+      mockApiKeys.find((key) => key.status === "expired")!,
+      mockApiKeys.find((key) => key.status === "revoked")!,
     ],
     showActions: true,
   },

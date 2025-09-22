@@ -57,7 +57,8 @@ const mockExpiringSoonApiKey: ApiKey = {
 // Mock JWT token for stories
 const mockJwtToken: JwtToken = {
   id: "jwt-001",
-  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
   type: "access",
   subject: "user-123",
   issuer: "https://api.example.com",
@@ -156,7 +157,8 @@ export const ApiKeyDetailed: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Active API key with detailed information including permissions, IP restrictions, and rate limits.",
+        story:
+          "Active API key with detailed information including permissions, IP restrictions, and rate limits.",
       },
     },
   },
@@ -231,7 +233,8 @@ export const JwtTokenDetailed: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Active JWT token with detailed information including claims, scopes, and metadata.",
+        story:
+          "Active JWT token with detailed information including claims, scopes, and metadata.",
       },
     },
   },

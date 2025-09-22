@@ -100,7 +100,8 @@ export const WithInitialValues: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Form pre-filled with initial values for editing an existing API key.",
+        story:
+          "Form pre-filled with initial values for editing an existing API key.",
       },
     },
   },
@@ -190,7 +191,8 @@ export const HighSecurityConfiguration: Story = {
   parameters: {
     docs: {
       description: {
-        story: "High security configuration with IP restrictions, rate limiting, and expiration.",
+        story:
+          "High security configuration with IP restrictions, rate limiting, and expiration.",
       },
     },
   },
@@ -206,7 +208,8 @@ export const LimitedScopes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Form with limited permission scopes for restricted environments.",
+        story:
+          "Form with limited permission scopes for restricted environments.",
       },
     },
   },

@@ -70,7 +70,7 @@ export interface AuthEvent {
   /** Unique identifier for the auth event */
   id: string;
   /** Type of authentication event */
-  type: 
+  type:
     | "api_key_created"
     | "api_key_revoked"
     | "api_key_rotated"
@@ -172,7 +172,8 @@ export interface ApiKeyListProps extends React.HTMLAttributes<HTMLDivElement> {
   compact?: boolean;
 }
 
-export interface ApiKeyFormProps extends Omit<React.HTMLAttributes<HTMLFormElement>, 'onSubmit'> {
+export interface ApiKeyFormProps
+  extends Omit<React.HTMLAttributes<HTMLFormElement>, "onSubmit"> {
   /** Available permission scopes */
   availableScopes: string[];
   /** Callback when form is submitted with form data */
@@ -203,7 +204,8 @@ export interface ApiKeyFormData {
   };
 }
 
-export interface AuthTokenStatusProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AuthTokenStatusProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /** Token to display status for */
   token: ApiKey | JwtToken;
   /** Token type for proper display */
@@ -214,7 +216,8 @@ export interface AuthTokenStatusProps extends React.HTMLAttributes<HTMLDivElemen
   onAction?: (action: "revoke" | "refresh" | "details") => void;
 }
 
-export interface ApiKeyActionsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ApiKeyActionsProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /** API key for actions */
   apiKey: ApiKey;
   /** Available actions */
@@ -227,7 +230,8 @@ export interface ApiKeyActionsProps extends React.HTMLAttributes<HTMLDivElement>
   loadingActions?: string[];
 }
 
-export interface AuthenticationAuditProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AuthenticationAuditProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /** Array of authentication events */
   events: AuthEvent[];
   /** Filter by event type */
@@ -255,7 +259,8 @@ export interface AuthenticationAuditProps extends React.HTMLAttributes<HTMLDivEl
   }) => void;
 }
 
-export interface JwtTokenViewerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface JwtTokenViewerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /** JWT token to display */
   token: JwtToken;
   /** Whether to show token value (masked by default) */

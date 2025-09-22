@@ -34,7 +34,9 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
     },
     ref
   ) => {
-    const [loadingActions, setLoadingActions] = useState<Set<string>>(new Set());
+    const [loadingActions, setLoadingActions] = useState<Set<string>>(
+      new Set()
+    );
 
     const formatDate = (isoString: string) => {
       const date = new Date(isoString);
@@ -91,10 +93,7 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
       }
     };
 
-    const handleKeyDown = (
-      event: React.KeyboardEvent,
-      apiKey: ApiKey
-    ) => {
+    const handleKeyDown = (event: React.KeyboardEvent, apiKey: ApiKey) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         handleKeyClick(apiKey);
@@ -103,16 +102,16 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
 
     const handleRevoke = async (apiKey: ApiKey) => {
       if (!onKeyRevoke) return;
-      
-      setLoadingActions(prev => new Set(prev).add(`revoke-${apiKey.id}`));
+
+      setLoadingActions((prev) => new Set(prev).add(`revoke-${apiKey.id}`));
       try {
         const result = onKeyRevoke(apiKey);
         // Handle both sync and async callbacks
-        if (result && typeof result.then === 'function') {
+        if (result && typeof result.then === "function") {
           await result;
         }
       } finally {
-        setLoadingActions(prev => {
+        setLoadingActions((prev) => {
           const next = new Set(prev);
           next.delete(`revoke-${apiKey.id}`);
           return next;
@@ -122,16 +121,16 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
 
     const handleRotate = async (apiKey: ApiKey) => {
       if (!onKeyRotate) return;
-      
-      setLoadingActions(prev => new Set(prev).add(`rotate-${apiKey.id}`));
+
+      setLoadingActions((prev) => new Set(prev).add(`rotate-${apiKey.id}`));
       try {
         const result = onKeyRotate(apiKey);
         // Handle both sync and async callbacks
-        if (result && typeof result.then === 'function') {
+        if (result && typeof result.then === "function") {
           await result;
         }
       } finally {
-        setLoadingActions(prev => {
+        setLoadingActions((prev) => {
           const next = new Set(prev);
           next.delete(`rotate-${apiKey.id}`);
           return next;
@@ -198,8 +197,9 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
         <div className="freeui-api-key-list__items" role="list">
           {apiKeys.map((apiKey) => {
             const isSelected = selectedKeyId === apiKey.id;
-            const isRevoked = apiKey.status === "revoked" || apiKey.status === "suspended";
-            
+            const isRevoked =
+              apiKey.status === "revoked" || apiKey.status === "suspended";
+
             const itemClass = clsx("freeui-api-key-list__item", {
               "freeui-api-key-list__item--selected": isSelected,
               "freeui-api-key-list__item--revoked": isRevoked,
@@ -221,7 +221,9 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
                   <div className="freeui-api-key-list__item-name">
                     {apiKey.name}
                   </div>
-                  <div className={`freeui-api-key-list__item-status freeui-api-key-list__item-status--${getStatusColor(apiKey.status)}`}>
+                  <div
+                    className={`freeui-api-key-list__item-status freeui-api-key-list__item-status--${getStatusColor(apiKey.status)}`}
+                  >
                     {apiKey.status}
                   </div>
                 </div>
@@ -239,7 +241,7 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
                   <div className="freeui-api-key-list__item-key">
                     <code>{maskApiKey(apiKey.key)}</code>
                   </div>
-                  
+
                   {!compact && (
                     <div className="freeui-api-key-list__item-permissions">
                       <span className="freeui-api-key-list__item-permissions-label">
@@ -266,15 +268,16 @@ export const ApiKeyList = React.forwardRef<HTMLDivElement, ApiKeyListProps>(
 
                 <div className="freeui-api-key-list__item-meta">
                   <div className="freeui-api-key-list__item-created">
-                    Created {formatDate(apiKey.createdAt)} by {apiKey.createdBy.name}
+                    Created {formatDate(apiKey.createdAt)} by{" "}
+                    {apiKey.createdBy.name}
                   </div>
-                  
+
                   {apiKey.lastUsedAt && (
                     <div className="freeui-api-key-list__item-last-used">
                       Last used {formatRelativeTime(apiKey.lastUsedAt)}
                     </div>
                   )}
-                  
+
                   {apiKey.expiresAt && (
                     <div className="freeui-api-key-list__item-expires">
                       Expires {formatDate(apiKey.expiresAt)}
