@@ -6,3 +6,6 @@ export type { HeadingProps } from "./Heading";
 
 export { Badge } from "./Badge";
 export type { BadgeProps } from "./Badge";
+
+export { Diff } from "./Diff";
+export type { DiffProps, DiffLine } from "./Diff";

@@ -19,7 +19,7 @@ const meta: Meta = {
         component: `
 # Compositional Design Examples
 
-This demonstrates the transformation from bespoke components to compositional design following EUI principles.
+This demonstrates the transformation from bespoke components to compositional design following FreeUI principles.
 Instead of creating specialized components like \`OrganizationCard\`, we compose interfaces from basic primitives.
 
 ## Key Principles

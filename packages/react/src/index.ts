@@ -6,10 +6,20 @@ export type { InputProps } from "./Input";
 export { Card } from "./Card";
 export type { CardProps } from "./Card";
 
+// Form components for user input
+export { Checkbox, Slider } from "./form";
+export type { CheckboxProps, SliderProps } from "./form";
+
 // Layout components for composition
 export { Stack, Inline, Separator } from "./layout";
 export type { StackProps, InlineProps, SeparatorProps } from "./layout";
 
 // Display components for data presentation
-export { Text, Heading, Badge } from "./display";
-export type { TextProps, HeadingProps, BadgeProps } from "./display";
+export { Text, Heading, Badge, Diff } from "./display";
+export type {
+  TextProps,
+  HeadingProps,
+  BadgeProps,
+  DiffProps,
+  DiffLine,
+} from "./display";
