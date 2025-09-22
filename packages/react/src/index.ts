@@ -47,3 +47,24 @@ export type {
   RoleSelectorProps,
   UsageMeterProps,
 } from "./OrganizationWorkspace";
+
+// Authentication and API key management components
+export {
+  ApiKeyList,
+  ApiKeyForm,
+  AuthTokenStatus,
+  AuthenticationAudit,
+} from "./Authentication";
+export type {
+  ApiKey,
+  JwtToken,
+  AuthEvent,
+  AuthenticationConfig,
+  ApiKeyListProps,
+  ApiKeyFormProps,
+  ApiKeyFormData,
+  AuthTokenStatusProps,
+  ApiKeyActionsProps,
+  AuthenticationAuditProps,
+  JwtTokenViewerProps,
+} from "./Authentication";
