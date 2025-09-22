@@ -167,7 +167,7 @@ export const LargeContent: Story = {
     version: {
       ...mockVersion,
       content: {
-        ...(mockVersion.content as Record<string, unknown> || {}),
+        ...((mockVersion.content as Record<string, unknown>) || {}),
         largeDataSet: Array.from({ length: 100 }, (_, i) => ({
           id: i,
           name: `Item ${i}`,
