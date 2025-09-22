@@ -15,7 +15,7 @@ Always reference these instructions first and fallback to search or bash command
 ### Essential Commands
 
 - Install dependencies: `pnpm install` -- takes ~6 seconds. NEVER CANCEL.
-- Build all packages: `pnpm build` -- takes ~20 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
+- Build all packages: `pnpm build` -- takes ~20 seconds. NEVER CANCEL. Set timeout to 300+ seconds.
 - Run linting: `pnpm lint` -- takes ~10 seconds. NEVER CANCEL. Set timeout to 30+ seconds.
 - Run type checking: `pnpm type-check` -- takes ~5 seconds. NEVER CANCEL.
 - Run tests: `pnpm test` -- takes ~20 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
