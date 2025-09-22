@@ -51,7 +51,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Storybook docs
-        run: pnpm --filter @freeui/docs build
+        run: pnpm --filter @rockminster/docs build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
