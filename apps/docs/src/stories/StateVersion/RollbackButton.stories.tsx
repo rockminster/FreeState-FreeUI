@@ -163,45 +163,47 @@ export const Disabled: Story = {
   },
 };
 
+const InteractiveDemoComponent = (args: { targetVersion: StateVersion; currentVersion: StateVersion }) => {
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [lastRollback, setLastRollback] = React.useState<string | null>(null);
+
+  const handleRollback = (targetVersionId: string) => {
+    setIsLoading(true);
+    // Simulate rollback operation
+    setTimeout(() => {
+      setIsLoading(false);
+      setLastRollback(targetVersionId);
+    }, 2000);
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
+      <RollbackButton
+        {...args}
+        loading={isLoading}
+        onRollback={handleRollback}
+      />
+      {lastRollback && (
+        <div style={{ 
+          padding: "0.5rem 1rem", 
+          backgroundColor: "#22c55e", 
+          color: "white", 
+          borderRadius: "0.375rem",
+          fontSize: "0.875rem"
+        }}>
+          Successfully rolled back to {lastRollback}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const InteractiveDemo: Story = {
   args: {
     targetVersion,
     currentVersion,
   },
-  render: (args) => {
-    const [isLoading, setIsLoading] = React.useState(false);
-    const [lastRollback, setLastRollback] = React.useState<string | null>(null);
-
-    const handleRollback = (targetVersionId: string) => {
-      setIsLoading(true);
-      // Simulate rollback operation
-      setTimeout(() => {
-        setIsLoading(false);
-        setLastRollback(targetVersionId);
-      }, 2000);
-    };
-
-    return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
-        <RollbackButton
-          {...args}
-          loading={isLoading}
-          onRollback={handleRollback}
-        />
-        {lastRollback && (
-          <div style={{ 
-            padding: "0.5rem 1rem", 
-            backgroundColor: "#22c55e", 
-            color: "white", 
-            borderRadius: "0.375rem",
-            fontSize: "0.875rem"
-          }}>
-            Successfully rolled back to {lastRollback}
-          </div>
-        )}
-      </div>
-    );
-  },
+  render: InteractiveDemoComponent,
   parameters: {
     docs: {
       description: {

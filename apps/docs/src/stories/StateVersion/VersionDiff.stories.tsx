@@ -247,54 +247,56 @@ export const Error: Story = {
   },
 };
 
+const InteractiveComponent = (args: { diffData: VersionDiffData }) => {
+  const [layout, setLayout] = React.useState<"side-by-side" | "unified">("side-by-side");
+  const [showLineNumbers, setShowLineNumbers] = React.useState(true);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <label>
+          <input
+            type="radio"
+            name="layout"
+            value="side-by-side"
+            checked={layout === "side-by-side"}
+            onChange={() => setLayout("side-by-side")}
+          />
+          Side-by-side
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="layout"
+            value="unified"
+            checked={layout === "unified"}
+            onChange={() => setLayout("unified")}
+          />
+          Unified
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={showLineNumbers}
+            onChange={(e) => setShowLineNumbers(e.target.checked)}
+          />
+          Show line numbers
+        </label>
+      </div>
+      <VersionDiff
+        {...args}
+        layout={layout}
+        showLineNumbers={showLineNumbers}
+      />
+    </div>
+  );
+};
+
 export const Interactive: Story = {
   args: {
     diffData: mockDiffData,
   },
-  render: (args) => {
-    const [layout, setLayout] = React.useState<"side-by-side" | "unified">("side-by-side");
-    const [showLineNumbers, setShowLineNumbers] = React.useState(true);
-
-    return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-          <label>
-            <input
-              type="radio"
-              name="layout"
-              value="side-by-side"
-              checked={layout === "side-by-side"}
-              onChange={() => setLayout("side-by-side")}
-            />
-            Side-by-side
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="layout"
-              value="unified"
-              checked={layout === "unified"}
-              onChange={() => setLayout("unified")}
-            />
-            Unified
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={showLineNumbers}
-              onChange={(e) => setShowLineNumbers(e.target.checked)}
-            />
-            Show line numbers
-          </label>
-        </div>
-        <VersionDiff
-          {...args}
-          layout={layout}
-          showLineNumbers={showLineNumbers}
-        />
-      </div>
-    );
-  },
+  render: InteractiveComponent,
   parameters: {
     docs: {
       description: {

@@ -202,21 +202,23 @@ export const SingleVersion: Story = {
   },
 };
 
+const InteractiveComponent = (args: { versions: StateVersion[] }) => {
+  const [selectedId, setSelectedId] = React.useState<string | undefined>();
+
+  return (
+    <VersionList
+      {...args}
+      selectedVersionId={selectedId}
+      onVersionSelect={(version) => setSelectedId(version.id)}
+    />
+  );
+};
+
 export const Interactive: Story = {
   args: {
     versions: mockVersions,
   },
-  render: (args) => {
-    const [selectedId, setSelectedId] = React.useState<string | undefined>();
-
-    return (
-      <VersionList
-        {...args}
-        selectedVersionId={selectedId}
-        onVersionSelect={(version) => setSelectedId(version.id)}
-      />
-    );
-  },
+  render: InteractiveComponent,
   parameters: {
     docs: {
       description: {
