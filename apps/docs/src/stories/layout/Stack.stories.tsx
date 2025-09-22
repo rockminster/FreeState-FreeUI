@@ -47,10 +47,6 @@ for specific scenarios. This enables maximum reusability and consistency across 
       control: { type: "boolean" },
       description: "Whether items should wrap when they overflow",
     },
-    as: {
-      control: { type: "text" },
-      description: "HTML element to render",
-    },
   },
 };
 
