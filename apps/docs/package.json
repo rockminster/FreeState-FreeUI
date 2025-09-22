@@ -9,7 +9,7 @@
     "dev": "pnpm run build:deps && storybook dev -p 6006",
     "test": "pnpm run test:smoke",
     "test:smoke": "pnpm run build && echo \"Storybook build successful - basic smoke test passed\"",
-    "test:ci": "npm run test:smoke",
+    "test:ci": "pnpm run test:smoke",
     "lint": "eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf storybook-static"
