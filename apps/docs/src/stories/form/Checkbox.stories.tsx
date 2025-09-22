@@ -69,7 +69,8 @@ export const Default: Story = {
 export const WithDescription: Story = {
   args: {
     label: "Enable notifications",
-    description: "Receive email updates about important changes to your account",
+    description:
+      "Receive email updates about important changes to your account",
   },
 };
 

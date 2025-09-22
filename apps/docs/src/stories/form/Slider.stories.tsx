@@ -102,7 +102,14 @@ export const WithDescription: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2rem", width: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+        width: "300px",
+      }}
+    >
       <Slider size="sm" label="Small slider" showValue defaultValue={25} />
       <Slider size="md" label="Medium slider" showValue defaultValue={50} />
       <Slider size="lg" label="Large slider" showValue defaultValue={75} />
@@ -119,7 +126,14 @@ export const Sizes: Story = {
 
 export const States: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2rem", width: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+        width: "300px",
+      }}
+    >
       <Slider label="Normal state" showValue defaultValue={30} />
       <Slider label="Error state" error showValue defaultValue={80} />
       <Slider label="Disabled state" disabled showValue defaultValue={60} />
@@ -137,11 +151,16 @@ export const States: Story = {
 export const ComposedSettings: Story = {
   render: () => (
     <div style={{ maxWidth: "400px" }}>
-      <h3 style={{ marginBottom: "1.5rem", color: "var(--freeui-color-neutral-900)" }}>
+      <h3
+        style={{
+          marginBottom: "1.5rem",
+          color: "var(--freeui-color-neutral-900)",
+        }}
+      >
         Performance Settings
       </h3>
       <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <Slider 
+        <Slider
           label="CPU Usage Limit"
           description="Maximum CPU percentage to use"
           showValue
@@ -149,7 +168,7 @@ export const ComposedSettings: Story = {
           max={100}
           defaultValue={75}
         />
-        <Slider 
+        <Slider
           label="Memory Allocation"
           description="RAM allocation in GB"
           showValue
@@ -158,7 +177,7 @@ export const ComposedSettings: Story = {
           step={1}
           defaultValue={8}
         />
-        <Slider 
+        <Slider
           label="Network Bandwidth"
           description="Maximum bandwidth utilization"
           showValue
@@ -166,7 +185,7 @@ export const ComposedSettings: Story = {
           max={100}
           defaultValue={50}
         />
-        <Slider 
+        <Slider
           label="Storage Cache"
           description="Cache size for temporary files"
           showValue
@@ -181,7 +200,8 @@ export const ComposedSettings: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example showing how Slider composes with other primitives to build settings interfaces.",
+        story:
+          "Example showing how Slider composes with other primitives to build settings interfaces.",
       },
     },
   },

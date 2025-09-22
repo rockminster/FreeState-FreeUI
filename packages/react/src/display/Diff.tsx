@@ -2,7 +2,7 @@ import React from "react";
 import { clsx } from "clsx";
 
 export interface DiffLine {
-  type: 'added' | 'removed' | 'unchanged';
+  type: "added" | "removed" | "unchanged";
   content: string;
   lineNumber?: number;
 }
@@ -35,7 +35,18 @@ export interface DiffProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Diff = React.forwardRef<HTMLDivElement, DiffProps>(
-  ({ lines, showLineNumbers = true, size = "md", syntax = false, title, className, ...props }, ref) => {
+  (
+    {
+      lines,
+      showLineNumbers = true,
+      size = "md",
+      syntax = false,
+      title,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -49,11 +60,7 @@ export const Diff = React.forwardRef<HTMLDivElement, DiffProps>(
         )}
         {...props}
       >
-        {title && (
-          <div className="freeui-diff-title">
-            {title}
-          </div>
-        )}
+        {title && <div className="freeui-diff-title">{title}</div>}
         <div className="freeui-diff-content">
           {lines.map((line, index) => (
             <div
@@ -69,11 +76,13 @@ export const Diff = React.forwardRef<HTMLDivElement, DiffProps>(
                 </span>
               )}
               <span className="freeui-diff-line-indicator">
-                {line.type === 'added' ? '+' : line.type === 'removed' ? '-' : ' '}
+                {line.type === "added"
+                  ? "+"
+                  : line.type === "removed"
+                    ? "-"
+                    : " "}
               </span>
-              <span className="freeui-diff-line-content">
-                {line.content}
-              </span>
+              <span className="freeui-diff-line-content">{line.content}</span>
             </div>
           ))}
         </div>

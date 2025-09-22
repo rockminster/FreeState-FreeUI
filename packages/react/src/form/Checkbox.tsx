@@ -1,7 +1,8 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
+export interface CheckboxProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
   /**
    * The size of the checkbox
    */
@@ -24,8 +25,12 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ size = "md", error = false, label, description, className, ...props }, ref) => {
-    const checkboxId = props.id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+  (
+    { size = "md", error = false, label, description, className, ...props },
+    ref
+  ) => {
+    const generatedId = React.useId();
+    const checkboxId = props.id || `checkbox-${generatedId}`;
 
     return (
       <div className={clsx("freeui-checkbox-wrapper", className)}>
@@ -41,7 +46,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                 "freeui-checkbox--error": error,
               }
             )}
-            aria-describedby={description ? `${checkboxId}-description` : undefined}
+            aria-describedby={
+              description ? `${checkboxId}-description` : undefined
+            }
             {...props}
           />
           {label && (
@@ -51,7 +58,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           )}
         </div>
         {description && (
-          <div id={`${checkboxId}-description`} className="freeui-checkbox-description">
+          <div
+            id={`${checkboxId}-description`}
+            className="freeui-checkbox-description"
+          >
             {description}
           </div>
         )}

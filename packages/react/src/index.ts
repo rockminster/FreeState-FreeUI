@@ -16,4 +16,10 @@ export type { StackProps, InlineProps, SeparatorProps } from "./layout";
 
 // Display components for data presentation
 export { Text, Heading, Badge, Diff } from "./display";
-export type { TextProps, HeadingProps, BadgeProps, DiffProps, DiffLine } from "./display";
+export type {
+  TextProps,
+  HeadingProps,
+  BadgeProps,
+  DiffProps,
+  DiffLine,
+} from "./display";

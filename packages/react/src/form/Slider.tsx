@@ -1,7 +1,8 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
+export interface SliderProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
   /**
    * The size of the slider
    */
@@ -29,8 +30,20 @@ export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 }
 
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
-  ({ size = "md", error = false, label, description, showValue = false, className, ...props }, ref) => {
-    const sliderId = props.id || `slider-${Math.random().toString(36).substr(2, 9)}`;
+  (
+    {
+      size = "md",
+      error = false,
+      label,
+      description,
+      showValue = false,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const generatedId = React.useId();
+    const sliderId = props.id || `slider-${generatedId}`;
 
     return (
       <div className={clsx("freeui-slider-wrapper", className)}>
@@ -40,7 +53,9 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
               {label}
             </label>
             {showValue && (
-              <span className="freeui-slider-value">{props.value || props.defaultValue || 0}</span>
+              <span className="freeui-slider-value">
+                {props.value || props.defaultValue || 0}
+              </span>
             )}
           </div>
         )}
@@ -48,18 +63,17 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
           ref={ref}
           type="range"
           id={sliderId}
-          className={clsx(
-            "freeui-slider",
-            `freeui-slider--size-${size}`,
-            {
-              "freeui-slider--error": error,
-            }
-          )}
+          className={clsx("freeui-slider", `freeui-slider--size-${size}`, {
+            "freeui-slider--error": error,
+          })}
           aria-describedby={description ? `${sliderId}-description` : undefined}
           {...props}
         />
         {description && (
-          <div id={`${sliderId}-description`} className="freeui-slider-description">
+          <div
+            id={`${sliderId}-description`}
+            className="freeui-slider-description"
+          >
             {description}
           </div>
         )}
