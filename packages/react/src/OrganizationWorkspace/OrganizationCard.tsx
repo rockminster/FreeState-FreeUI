@@ -39,8 +39,6 @@ export const OrganizationCard = React.forwardRef<HTMLDivElement, OrganizationCar
       });
     };
 
-
-
     const canUpgrade = organization.plan !== "enterprise";
 
     return (

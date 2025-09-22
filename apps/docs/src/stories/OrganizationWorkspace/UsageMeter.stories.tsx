@@ -176,6 +176,38 @@ export const NoUnit: Story = {
   },
 };
 
+export const ZeroLimit: Story = {
+  args: {
+    label: "Unlimited Storage",
+    usage: 250,
+    limit: 0,
+    unit: "GB",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Usage meter with zero limit (unlimited quota) showing over-quota handling.",
+      },
+    },
+  },
+};
+
+export const ZeroLimitNoUsage: Story = {
+  args: {
+    label: "Unlimited API Requests",
+    usage: 0,
+    limit: 0,
+    unit: "/ month",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Usage meter with zero limit and no usage.",
+      },
+    },
+  },
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "24px", minWidth: "400px" }}>
