@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { colors, typography, spacing } from "@freeui/tokens";
+import { colors, typography, spacing } from "@rockminster/tokens";
 
 const meta: Meta = {
   title: "Design Tokens/Overview",

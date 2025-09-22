@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["@freeui/eslint-config"],
+  extends: ["@rockminster/eslint-config"],
 };

@@ -1,5 +1,5 @@
 {
-  "name": "@freeui/tokens",
+  "name": "@rockminster/tokens",
   "version": "0.0.1",
   "description": "Design tokens for FreeUI design system",
   "main": "dist/index.js",
@@ -15,6 +15,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsup && pnpm run build:tokens",
     "build:tokens": "style-dictionary build --config style-dictionary.config.js && style-dictionary build --config style-dictionary-dark.config.js",
@@ -31,7 +34,7 @@
   "author": "rockminster",
   "license": "MIT",
   "devDependencies": {
-    "@freeui/eslint-config": "workspace:*",
+    "@rockminster/eslint-config": "workspace:*",
     "@types/node": "catalog:",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

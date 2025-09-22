@@ -52,13 +52,13 @@ importers:
 
   apps/docs:
     dependencies:
-      "@freeui/css":
+      "@rockminster/css":
         specifier: workspace:*
         version: link:../../packages/css
-      "@freeui/react":
+      "@rockminster/react":
         specifier: workspace:*
         version: link:../../packages/react
-      "@freeui/tokens":
+      "@rockminster/tokens":
         specifier: workspace:*
         version: link:../../packages/tokens
       react:
@@ -68,7 +68,7 @@ importers:
         specifier: "catalog:"
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      "@freeui/eslint-config":
+      "@rockminster/eslint-config":
         specifier: workspace:*
         version: link:../../packages/eslint-config
       "@storybook/addon-a11y":
@@ -146,11 +146,11 @@ importers:
 
   packages/css:
     dependencies:
-      "@freeui/tokens":
+      "@rockminster/tokens":
         specifier: workspace:*
         version: link:../tokens
     devDependencies:
-      "@freeui/eslint-config":
+      "@rockminster/eslint-config":
         specifier: workspace:*
         version: link:../eslint-config
       autoprefixer:
@@ -198,14 +198,14 @@ importers:
 
   packages/react:
     dependencies:
-      "@freeui/tokens":
+      "@rockminster/tokens":
         specifier: workspace:*
         version: link:../tokens
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
     devDependencies:
-      "@freeui/eslint-config":
+      "@rockminster/eslint-config":
         specifier: workspace:*
         version: link:../eslint-config
       "@types/react":
@@ -250,7 +250,7 @@ importers:
 
   packages/tokens:
     devDependencies:
-      "@freeui/eslint-config":
+      "@rockminster/eslint-config":
         specifier: workspace:*
         version: link:../eslint-config
       "@types/node":
