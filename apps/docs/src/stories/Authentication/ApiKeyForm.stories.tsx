@@ -115,7 +115,7 @@ export const WithValidationErrors: Story = {
     },
     errors: {
       name: "API key name is required and must be unique",
-      permissions: "At least one permission must be selected",
+      permissions: ["At least one permission must be selected"],
       expiresAt: "Expiration date must be in the future",
     },
   },
