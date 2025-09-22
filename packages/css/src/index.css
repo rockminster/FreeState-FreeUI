@@ -301,6 +301,70 @@ h6 {
   transform: none;
 }
 
+/* Destructive button variant */
+.freeui-button--destructive {
+  background-color: var(--freeui-color-semantic-error-600);
+  color: var(--freeui-color-white);
+  border-color: var(--freeui-color-semantic-error-600);
+}
+
+.freeui-button--destructive:hover:not(:disabled) {
+  background-color: var(--freeui-color-semantic-error-700);
+  border-color: var(--freeui-color-semantic-error-700);
+  transform: translateY(-1px);
+}
+
+.freeui-button--destructive:focus-visible {
+  outline: 2px solid var(--freeui-color-semantic-error-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--destructive:active:not(:disabled) {
+  background-color: var(--freeui-color-semantic-error-800);
+  border-color: var(--freeui-color-semantic-error-800);
+  transform: none;
+}
+
+.freeui-button--destructive:disabled {
+  background-color: var(--freeui-color-neutral-200);
+  color: var(--freeui-color-neutral-400);
+  border-color: var(--freeui-color-neutral-200);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success button variant */
+.freeui-button--success {
+  background-color: var(--freeui-color-semantic-success-600);
+  color: var(--freeui-color-white);
+  border-color: var(--freeui-color-semantic-success-600);
+}
+
+.freeui-button--success:hover:not(:disabled) {
+  background-color: var(--freeui-color-semantic-success-700);
+  border-color: var(--freeui-color-semantic-success-700);
+  transform: translateY(-1px);
+}
+
+.freeui-button--success:focus-visible {
+  outline: 2px solid var(--freeui-color-semantic-success-500);
+  outline-offset: 2px;
+}
+
+.freeui-button--success:active:not(:disabled) {
+  background-color: var(--freeui-color-semantic-success-800);
+  border-color: var(--freeui-color-semantic-success-800);
+  transform: none;
+}
+
+.freeui-button--success:disabled {
+  background-color: var(--freeui-color-neutral-200);
+  color: var(--freeui-color-neutral-400);
+  border-color: var(--freeui-color-neutral-200);
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* Button states */
 .freeui-button--full-width {
   width: 100%;
@@ -2294,4 +2358,296 @@ h6 {
 
 .freeui-diff--syntax .freeui-diff-line-content {
   color: var(--freeui-color-neutral-800);
+}
+
+/* Switch Component Styles */
+.freeui-switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--freeui-spacing-1);
+}
+
+.freeui-switch-field {
+  display: flex;
+  align-items: center;
+  gap: var(--freeui-spacing-3);
+}
+
+.freeui-switch-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.freeui-switch {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.freeui-switch-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--freeui-border-radius-full);
+  border: 1px solid var(--freeui-color-neutral-300);
+  background-color: var(--freeui-color-neutral-200);
+  transition: all var(--freeui-duration-fast) var(--freeui-easing-ease-out);
+  cursor: pointer;
+}
+
+.freeui-switch-thumb {
+  display: block;
+  border-radius: var(--freeui-border-radius-full);
+  background-color: var(--freeui-color-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all var(--freeui-duration-fast) var(--freeui-easing-ease-out);
+  transform: translateX(0);
+}
+
+/* Switch sizes */
+.freeui-switch--size-sm .freeui-switch-track {
+  width: 2rem;
+  height: 1.125rem;
+  padding: 1px;
+}
+
+.freeui-switch--size-sm .freeui-switch-thumb {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.freeui-switch--size-md .freeui-switch-track {
+  width: 2.5rem;
+  height: 1.375rem;
+  padding: 2px;
+}
+
+.freeui-switch--size-md .freeui-switch-thumb {
+  width: 1rem;
+  height: 1rem;
+}
+
+.freeui-switch--size-lg .freeui-switch-track {
+  width: 3rem;
+  height: 1.625rem;
+  padding: 2px;
+}
+
+.freeui-switch--size-lg .freeui-switch-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Switch states */
+.freeui-switch:checked + .freeui-switch-track {
+  background-color: var(--freeui-color-brand-500);
+  border-color: var(--freeui-color-brand-500);
+}
+
+.freeui-switch:checked + .freeui-switch-track .freeui-switch-thumb {
+  transform: translateX(calc(100% + 2px));
+}
+
+.freeui-switch--size-sm:checked + .freeui-switch-track .freeui-switch-thumb {
+  transform: translateX(calc(100% + 1px));
+}
+
+.freeui-switch:focus-visible + .freeui-switch-track {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-switch:disabled + .freeui-switch-track {
+  background-color: var(--freeui-color-neutral-100);
+  border-color: var(--freeui-color-neutral-200);
+  cursor: not-allowed;
+}
+
+.freeui-switch:disabled + .freeui-switch-track .freeui-switch-thumb {
+  background-color: var(--freeui-color-neutral-300);
+}
+
+.freeui-switch--error + .freeui-switch-track {
+  border-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-switch--error:checked + .freeui-switch-track {
+  background-color: var(--freeui-color-semantic-error-500);
+  border-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-switch--error:focus-visible + .freeui-switch-track {
+  outline-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-switch-label {
+  font-family: var(--freeui-font-family-sans);
+  font-size: var(--freeui-font-size-sm);
+  font-weight: var(--freeui-font-weight-medium);
+  color: var(--freeui-color-neutral-900);
+  cursor: pointer;
+  user-select: none;
+}
+
+.freeui-switch:disabled + .freeui-switch-track + .freeui-switch-label,
+.freeui-switch-wrapper:has(.freeui-switch:disabled) .freeui-switch-label {
+  color: var(--freeui-color-neutral-400);
+  cursor: not-allowed;
+}
+
+.freeui-switch-description {
+  font-family: var(--freeui-font-family-sans);
+  font-size: var(--freeui-font-size-xs);
+  color: var(--freeui-color-neutral-600);
+  line-height: var(--freeui-line-height-normal);
+}
+
+/* Radio Button Component Styles */
+.freeui-radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--freeui-spacing-1);
+}
+
+.freeui-radio-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--freeui-spacing-2);
+}
+
+.freeui-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--freeui-border-radius-full);
+  border: 1px solid var(--freeui-color-neutral-300);
+  background-color: var(--freeui-color-white);
+  transition: all var(--freeui-duration-fast) var(--freeui-easing-ease-out);
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.freeui-radio::before {
+  content: "";
+  width: 50%;
+  height: 50%;
+  border-radius: var(--freeui-border-radius-full);
+  background-color: var(--freeui-color-brand-500);
+  transform: scale(0);
+  transition: all var(--freeui-duration-fast) var(--freeui-easing-ease-out);
+}
+
+.freeui-radio:checked::before {
+  transform: scale(1);
+}
+
+.freeui-radio:checked {
+  border-color: var(--freeui-color-brand-500);
+  background-color: var(--freeui-color-white);
+}
+
+.freeui-radio:hover:not(:disabled) {
+  border-color: var(--freeui-color-brand-400);
+  background-color: var(--freeui-color-brand-50);
+}
+
+.freeui-radio:focus-visible {
+  outline: 2px solid var(--freeui-color-brand-500);
+  outline-offset: 2px;
+}
+
+.freeui-radio:disabled {
+  background-color: var(--freeui-color-neutral-100);
+  border-color: var(--freeui-color-neutral-200);
+  cursor: not-allowed;
+}
+
+.freeui-radio:disabled::before {
+  background-color: var(--freeui-color-neutral-400);
+}
+
+.freeui-radio--size-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.freeui-radio--size-md {
+  width: 1rem;
+  height: 1rem;
+}
+
+.freeui-radio--size-lg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.freeui-radio--error {
+  border-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-radio--error:checked {
+  border-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-radio--error:checked::before {
+  background-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-radio--error:focus-visible {
+  outline-color: var(--freeui-color-semantic-error-500);
+}
+
+.freeui-radio-label {
+  font-family: var(--freeui-font-family-sans);
+  font-size: var(--freeui-font-size-sm);
+  font-weight: var(--freeui-font-weight-medium);
+  color: var(--freeui-color-neutral-900);
+  cursor: pointer;
+  user-select: none;
+  line-height: var(--freeui-line-height-normal);
+}
+
+.freeui-radio:disabled + .freeui-radio-label {
+  color: var(--freeui-color-neutral-400);
+  cursor: not-allowed;
+}
+
+.freeui-radio-description {
+  font-family: var(--freeui-font-family-sans);
+  font-size: var(--freeui-font-size-xs);
+  color: var(--freeui-color-neutral-600);
+  line-height: var(--freeui-line-height-normal);
+  margin-left: calc(1rem + var(--freeui-spacing-2)); /* Align with label */
+}
+
+/* Radio Group Component */
+.freeui-radio-group {
+  display: flex;
+}
+
+.freeui-radio-group--direction-column {
+  flex-direction: column;
+}
+
+.freeui-radio-group--direction-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.freeui-radio-group--gap-sm {
+  gap: var(--freeui-spacing-2);
+}
+
+.freeui-radio-group--gap-md {
+  gap: var(--freeui-spacing-3);
+}
+
+.freeui-radio-group--gap-lg {
+  gap: var(--freeui-spacing-4);
 }
