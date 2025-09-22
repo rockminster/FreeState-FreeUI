@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "ESLint configuration for FreeUI packages",
   "main": "index.js",
+  "author": "rockminster",
   "license": "MIT",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.0.0",
