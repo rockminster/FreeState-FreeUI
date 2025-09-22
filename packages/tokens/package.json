@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup && npm run build:tokens",
+    "build": "tsup && pnpm run build:tokens",
     "build:tokens": "style-dictionary build --config style-dictionary.config.js && style-dictionary build --config style-dictionary-dark.config.js",
     "dev": "tsup --watch",
     "type-check": "tsc --noEmit",

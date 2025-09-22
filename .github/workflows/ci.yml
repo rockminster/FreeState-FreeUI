@@ -56,11 +56,8 @@ jobs:
       - name: Build packages
         run: pnpm build
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
       - name: Run tests
-        run: pnpm --filter @freeui/docs run test:ci
+        run: pnpm test
 
       - name: Upload Storybook artifacts
         uses: actions/upload-artifact@v4
