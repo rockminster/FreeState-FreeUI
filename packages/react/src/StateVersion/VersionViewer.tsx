@@ -56,7 +56,7 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
       return `${size.toFixed(unitIndex === 0 ? 0 : 1)} ${units[unitIndex]}`;
     };
 
-    const formatContent = (content: any, mode: "formatted" | "raw") => {
+    const formatContent = (content: unknown, mode: "formatted" | "raw") => {
       if (mode === "raw") {
         return JSON.stringify(content, null, 0);
       }

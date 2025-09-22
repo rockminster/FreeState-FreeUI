@@ -41,7 +41,7 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
       }).format(date);
     };
 
-    const formatContent = (content: any) => {
+    const formatContent = (content: unknown) => {
       return JSON.stringify(content, null, 2);
     };
 

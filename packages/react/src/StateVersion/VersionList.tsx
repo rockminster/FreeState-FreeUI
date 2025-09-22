@@ -1,7 +1,6 @@
 import React from "react";
 import { clsx } from "clsx";
 import { Card } from "../Card";
-import { Button } from "../Button";
 import type { VersionListProps, StateVersion } from "./types";
 
 /**
@@ -136,15 +135,14 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
             );
 
             return (
-              <div
+              <button
                 key={version.id}
                 className={itemClass}
-                role="listitem"
-                tabIndex={0}
+                type="button"
                 onClick={() => handleVersionClick(version)}
                 onKeyDown={(e) => handleKeyDown(e, version)}
-                aria-selected={isSelected}
                 aria-describedby={`version-${version.id}-description`}
+                aria-pressed={isSelected}
               >
                 <div className="freeui-version-list__item-header">
                   <div className="freeui-version-list__item-version">
@@ -191,7 +189,7 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
                     ✓
                   </div>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>

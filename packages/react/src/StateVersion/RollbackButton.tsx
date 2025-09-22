@@ -72,10 +72,10 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
 
     if (showConfirmation) {
       return (
-        <div 
+        <dialog 
           className="freeui-rollback-confirmation"
+          open
           onKeyDown={handleKeyDown}
-          role="dialog"
           aria-labelledby="rollback-confirmation-title"
           aria-describedby="rollback-confirmation-description"
         >
@@ -167,7 +167,7 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
               </Button>
             </div>
           </div>
-        </div>
+        </dialog>
       );
     }
 

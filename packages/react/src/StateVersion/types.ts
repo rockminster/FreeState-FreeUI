@@ -18,7 +18,7 @@ export interface StateVersion {
     email?: string;
   };
   /** State content (JSON or other format) */
-  content: any;
+  content: unknown;
   /** Hash/checksum for integrity verification */
   checksum: string;
   /** Size of the state in bytes */
@@ -77,9 +77,9 @@ export interface DiffChunk {
   /** Path to the changed property (for nested objects) */
   path: string;
   /** Original value (for deletions and modifications) */
-  oldValue?: any;
+  oldValue?: unknown;
   /** New value (for additions and modifications) */
-  newValue?: any;
+  newValue?: unknown;
   /** Line number in the content (for text-based diffs) */
   lineNumber?: number;
   /** Type of change */
