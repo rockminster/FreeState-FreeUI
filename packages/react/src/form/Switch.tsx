@@ -57,38 +57,76 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     const generatedId = React.useId();
     const switchId = props.id || `switch-${generatedId}`;
 
-    const switchElement = (
-      <div className="freeui-switch-container">
-        <input
-          ref={ref}
-          type="checkbox"
-          role="switch"
-          id={switchId}
-          className={clsx("freeui-switch", `freeui-switch--size-${size}`, {
-            "freeui-switch--error": error,
-          })}
-          aria-describedby={description ? `${switchId}-description` : undefined}
-          {...props}
-        />
-        <span className="freeui-switch-track">
-          <span className="freeui-switch-thumb" />
-        </span>
-      </div>
+    const switchTrack = (
+      <span className="freeui-switch-track">
+        <span className="freeui-switch-thumb" />
+      </span>
     );
 
-    const labelElement = label && (
-      <label htmlFor={switchId} className="freeui-switch-label">
-        {label}
-      </label>
-    );
+    // If we have a label, create a single label containing both track and text
+    if (label) {
+      const labelContent =
+        labelPosition === "start" ? [label, switchTrack] : [switchTrack, label];
 
+      return (
+        <div className={clsx("freeui-switch-wrapper", className)}>
+          <label htmlFor={switchId} className="freeui-switch-field">
+            <input
+              ref={ref}
+              type="checkbox"
+              role="switch"
+              id={switchId}
+              className={clsx("freeui-switch", `freeui-switch--size-${size}`, {
+                "freeui-switch--error": error,
+              })}
+              aria-describedby={
+                description ? `${switchId}-description` : undefined
+              }
+              {...props}
+            />
+            {labelContent.map((item, index) => (
+              <span
+                key={index}
+                className={
+                  typeof item === "string" ? "freeui-switch-label" : undefined
+                }
+              >
+                {item}
+              </span>
+            ))}
+          </label>
+          {description && (
+            <div
+              id={`${switchId}-description`}
+              className="freeui-switch-description"
+            >
+              {description}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // If no label, use a label with screen reader text for accessibility
     return (
       <div className={clsx("freeui-switch-wrapper", className)}>
-        <div className="freeui-switch-field">
-          {labelPosition === "start" && labelElement}
-          {switchElement}
-          {labelPosition === "end" && labelElement}
-        </div>
+        <label htmlFor={switchId} className="freeui-switch-field">
+          <input
+            ref={ref}
+            type="checkbox"
+            role="switch"
+            id={switchId}
+            className={clsx("freeui-switch", `freeui-switch--size-${size}`, {
+              "freeui-switch--error": error,
+            })}
+            aria-describedby={
+              description ? `${switchId}-description` : undefined
+            }
+            {...props}
+          />
+          {switchTrack}
+          <span className="sr-only">Toggle switch</span>
+        </label>
         {description && (
           <div
             id={`${switchId}-description`}

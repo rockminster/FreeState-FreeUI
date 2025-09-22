@@ -209,3 +209,74 @@ export const FeatureToggles: Story = {
     },
   },
 };
+
+export const TrackClickability: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+        width: "400px",
+        padding: "1.5rem",
+        border: "1px solid #e2e8f0",
+        borderRadius: "8px",
+      }}
+    >
+      <h3
+        style={{
+          margin: "0 0 1rem 0",
+          fontSize: "1.125rem",
+          fontWeight: "600",
+        }}
+      >
+        Track Clickability Test
+      </h3>
+      <div>
+        <p
+          style={{
+            margin: "0 0 1rem 0",
+            fontSize: "0.875rem",
+            color: "#64748b",
+          }}
+        >
+          Click directly on the switch tracks below to test interactivity:
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
+            <Switch />
+            <span style={{ fontSize: "0.875rem" }}>
+              Switch without label (track should be clickable)
+            </span>
+          </div>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
+            <Switch defaultChecked />
+            <span style={{ fontSize: "0.875rem" }}>
+              Pre-checked switch without label
+            </span>
+          </div>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
+            <Switch disabled />
+            <span style={{ fontSize: "0.875rem" }}>
+              Disabled switch (should not be clickable)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Test story demonstrating that Switch tracks are clickable even without labels, addressing P1 accessibility issue.",
+      },
+    },
+  },
+};

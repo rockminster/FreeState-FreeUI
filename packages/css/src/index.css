@@ -49,6 +49,19 @@ h6 {
   isolation: isolate;
 }
 
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Focus styles for accessibility */
 :focus-visible {
   outline: 2px solid #0ea5e9;
@@ -2371,12 +2384,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: var(--freeui-spacing-3);
-}
-
-.freeui-switch-container {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
+  cursor: pointer;
 }
 
 .freeui-switch {
@@ -2492,7 +2500,7 @@ h6 {
   user-select: none;
 }
 
-.freeui-switch:disabled + .freeui-switch-track + .freeui-switch-label,
+.freeui-switch:disabled ~ .freeui-switch-label,
 .freeui-switch-wrapper:has(.freeui-switch:disabled) .freeui-switch-label {
   color: var(--freeui-color-neutral-400);
   cursor: not-allowed;
@@ -2623,7 +2631,9 @@ h6 {
   font-size: var(--freeui-font-size-xs);
   color: var(--freeui-color-neutral-600);
   line-height: var(--freeui-line-height-normal);
-  margin-left: calc(var(--freeui-spacing-4) + var(--freeui-spacing-2)); /* Align with label */
+  margin-left: calc(
+    var(--freeui-spacing-4) + var(--freeui-spacing-2)
+  ); /* Align with label */
 }
 
 /* Radio Group Component */
