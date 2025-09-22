@@ -13,8 +13,8 @@ module.exports = {
             selector: ':root[data-theme="dark"]',
             fileHeader: function () {
               return [
-                "/* Dark theme tokens for FreeUI design system */",
-                "/* Auto-generated from design tokens - do not edit directly */",
+                "Dark theme tokens for FreeUI design system",
+                "Auto-generated from design tokens - do not edit directly",
               ];
             },
           },
