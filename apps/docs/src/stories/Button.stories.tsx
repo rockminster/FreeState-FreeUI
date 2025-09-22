@@ -14,7 +14,7 @@ It follows WCAG AA accessibility guidelines and supports multiple variants, size
 
 ## Features
 - **Accessible by default**: Semantic HTML, keyboard navigation, screen reader support
-- **Multiple variants**: Primary, secondary, outline, and ghost styles
+- **Multiple variants**: Primary, secondary, outline, ghost, destructive, and success styles
 - **Flexible sizing**: Small, medium, and large sizes
 - **Loading states**: Built-in loading spinner
 - **Icon support**: Start and end icons
@@ -27,7 +27,14 @@ It follows WCAG AA accessibility guidelines and supports multiple variants, size
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["primary", "secondary", "outline", "ghost"],
+      options: [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost",
+        "destructive",
+        "success",
+      ],
       description: "The visual style variant of the button",
     },
     size: {
@@ -93,6 +100,20 @@ export const Ghost: Story = {
   },
 };
 
+export const Destructive: Story = {
+  args: {
+    variant: "destructive",
+    children: "Delete Account",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    variant: "success",
+    children: "Save Changes",
+  },
+};
+
 export const Small: Story = {
   args: {
     size: "sm",
@@ -153,6 +174,8 @@ export const AllVariants: Story = {
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="success">Success</Button>
     </div>
   ),
   parameters: {

@@ -6,7 +6,13 @@ export interface ButtonProps
   /**
    * The visual style variant of the button
    */
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "outline"
+    | "ghost"
+    | "destructive"
+    | "success";
 
   /**
    * The size of the button
