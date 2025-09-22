@@ -13,6 +13,7 @@ const config: TestRunnerConfig = {
       detailedReportOptions: {
         html: true,
       },
+      skipFailures: false,
     });
   },
 };
