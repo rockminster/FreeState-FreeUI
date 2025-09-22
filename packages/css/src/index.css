@@ -2623,7 +2623,7 @@ h6 {
   font-size: var(--freeui-font-size-xs);
   color: var(--freeui-color-neutral-600);
   line-height: var(--freeui-line-height-normal);
-  margin-left: calc(1rem + var(--freeui-spacing-2)); /* Align with label */
+  margin-left: calc(var(--freeui-spacing-4) + var(--freeui-spacing-2)); /* Align with label */
 }
 
 /* Radio Group Component */
