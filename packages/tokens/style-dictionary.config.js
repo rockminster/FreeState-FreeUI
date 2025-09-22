@@ -11,15 +11,15 @@ module.exports = {
           format: "css/variables",
           options: {
             selector: ":root",
-            fileHeader: function() {
+            fileHeader: function () {
               return [
-                "/* Light theme tokens for FreeUI design system */",
-                "/* Auto-generated from design tokens - do not edit directly */"
+                "Light theme tokens for FreeUI design system",
+                "Auto-generated from design tokens - do not edit directly",
               ];
-            }
-          }
-        }
-      ]
-    }
-  }
+            },
+          },
+        },
+      ],
+    },
+  },
 };

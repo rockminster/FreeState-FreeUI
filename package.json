@@ -2,7 +2,12 @@
   "name": "freeui",
   "private": true,
   "description": "A tokens-first design system for FreeState apps",
-  "keywords": ["design-system", "react", "tokens", "accessibility"],
+  "keywords": [
+    "design-system",
+    "react",
+    "tokens",
+    "accessibility"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/rockminster/FreeState-FreeUI.git"
@@ -17,6 +22,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "lint:prettier": "prettier --check .",
+    "format": "prettier --write .",
     "type-check": "turbo type-check",
     "clean": "turbo clean",
     "test": "turbo test",
@@ -29,6 +36,7 @@
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "playwright": "^1.55.0",
     "prettier": "^3.0.0",
     "turbo": "^2.0.0",
     "typescript": "^5.0.0"

@@ -1,17 +1,18 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /**
    * The visual style variant of the input
    */
   variant?: "outline" | "subtle";
-  
+
   /**
    * The size of the input
    */
   size?: "sm" | "md" | "lg";
-  
+
   /**
    * Whether the input has an error state
    */
@@ -20,7 +21,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
 
 /**
  * Input component with WCAG AA compliance and multiple variants
- * 
+ *
  * Features:
  * - Semantic HTML input element
  * - Keyboard navigation support
