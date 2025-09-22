@@ -10,7 +10,13 @@ export interface InlineProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The alignment of inline items along the main axis
    */
-  justify?: "start" | "center" | "end" | "space-between" | "space-around" | "space-evenly";
+  justify?:
+    | "start"
+    | "center"
+    | "end"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
 
   /**
    * The alignment of inline items along the cross axis
@@ -58,11 +64,7 @@ export const Inline = React.forwardRef<HTMLDivElement, InlineProps>(
     );
 
     return (
-      <div
-        ref={ref}
-        className={inlineClass}
-        {...props}
-      >
+      <div ref={ref} className={inlineClass} {...props}>
         {children}
       </div>
     );

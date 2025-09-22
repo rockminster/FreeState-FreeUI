@@ -89,7 +89,7 @@ export const CompositionExample: Story = {
           Composed Interface
         </Heading>
         <Text color="subdued">
-          This demonstrates how Stack can be used to compose complex interfaces 
+          This demonstrates how Stack can be used to compose complex interfaces
           from simple primitives without creating bespoke components.
         </Text>
         <Stack gap="sm">
@@ -106,7 +106,8 @@ export const CompositionExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example showing how Stack enables composition of complex interfaces from basic primitives.",
+        story:
+          "Example showing how Stack enables composition of complex interfaces from basic primitives.",
       },
     },
   },
@@ -120,10 +121,19 @@ export const GapVariations: Story = {
           <Text weight="medium" size="sm">
             Gap: {gap}
           </Text>
-          <Stack gap={gap} style={{ border: "1px dashed #ccc", padding: "12px" }}>
-            <Card padding="sm"><Text size="sm">Item 1</Text></Card>
-            <Card padding="sm"><Text size="sm">Item 2</Text></Card>
-            <Card padding="sm"><Text size="sm">Item 3</Text></Card>
+          <Stack
+            gap={gap}
+            style={{ border: "1px dashed #ccc", padding: "12px" }}
+          >
+            <Card padding="sm">
+              <Text size="sm">Item 1</Text>
+            </Card>
+            <Card padding="sm">
+              <Text size="sm">Item 2</Text>
+            </Card>
+            <Card padding="sm">
+              <Text size="sm">Item 3</Text>
+            </Card>
           </Stack>
         </div>
       ))}
@@ -146,14 +156,14 @@ export const AlignmentOptions: Story = {
           <Text weight="medium" size="sm">
             Align: {align}
           </Text>
-          <Stack 
-            gap="sm" 
-            align={align} 
-            style={{ 
-              border: "1px dashed #ccc", 
+          <Stack
+            gap="sm"
+            align={align}
+            style={{
+              border: "1px dashed #ccc",
               padding: "12px",
               minHeight: "80px",
-              backgroundColor: "#f9f9f9" 
+              backgroundColor: "#f9f9f9",
             }}
           >
             <Card padding="sm" style={{ width: "200px" }}>
@@ -170,7 +180,8 @@ export const AlignmentOptions: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Shows how different alignment options affect item positioning within the Stack.",
+        story:
+          "Shows how different alignment options affect item positioning within the Stack.",
       },
     },
   },

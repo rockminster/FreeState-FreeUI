@@ -7,28 +7,12 @@ export { Card } from "./Card";
 export type { CardProps } from "./Card";
 
 // Layout components for composition
-export {
-  Stack,
-  Inline,
-  Separator,
-} from "./layout";
-export type {
-  StackProps,
-  InlineProps,
-  SeparatorProps,
-} from "./layout";
+export { Stack, Inline, Separator } from "./layout";
+export type { StackProps, InlineProps, SeparatorProps } from "./layout";
 
 // Display components for data presentation
-export {
-  Text,
-  Heading,
-  Badge,
-} from "./display";
-export type {
-  TextProps,
-  HeadingProps,
-  BadgeProps,
-} from "./display";
+export { Text, Heading, Badge } from "./display";
+export type { TextProps, HeadingProps, BadgeProps } from "./display";
 
 // State versioning and audit trail components
 export {

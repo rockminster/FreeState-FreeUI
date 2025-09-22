@@ -7,12 +7,14 @@ FreeUI has been refactored to follow Elastic's EUI compositional design principl
 ## The Problem with Bespoke Components
 
 Previously, FreeUI risked creating too many specialized components like:
+
 - `OrganizationCard`
-- `UserProfilePanel` 
+- `UserProfilePanel`
 - `ProductInfoCard`
 - `NotificationList`
 
 This approach leads to:
+
 - ❌ Large bundle sizes
 - ❌ Reduced flexibility
 - ❌ Difficult maintenance
@@ -24,16 +26,19 @@ This approach leads to:
 Instead of bespoke components, we now provide **structural primitives** that can be composed to build any interface:
 
 ### Layout Primitives
+
 - **`Stack`** - Vertical layout with consistent spacing
 - **`Inline`** - Horizontal layout with alignment options
 - **`Separator`** - Visual content dividers
 
-### Display Primitives  
+### Display Primitives
+
 - **`Text`** - Typography with semantic colors and weights
 - **`Heading`** - Semantic headings with visual sizing
 - **`Badge`** - Status indicators and labels
 
 ### Foundation Primitives (existing)
+
 - **`Card`** - Content containers
 - **`Button`** - User actions
 - **`Input`** - Form controls
@@ -50,9 +55,10 @@ Instead of bespoke components, we now provide **structural primitives** that can
 ## Usage Examples
 
 ### Before: Bespoke Component
+
 ```tsx
 // Rigid, limited reusability
-<OrganizationCard 
+<OrganizationCard
   organization={org}
   showMetrics={true}
   onUpgrade={handleUpgrade}
@@ -60,6 +66,7 @@ Instead of bespoke components, we now provide **structural primitives** that can
 ```
 
 ### After: Compositional Design
+
 ```tsx
 // Flexible, unlimited variations
 <Card padding="lg" shadow="md">
@@ -71,13 +78,17 @@ Instead of bespoke components, we now provide **structural primitives** that can
       </Stack>
       <Button onClick={handleUpgrade}>Upgrade</Button>
     </Inline>
-    
+
     <Separator />
-    
+
     <Inline gap="xl">
       <Stack align="center">
-        <Text size="xl" weight="bold">{org.memberCount}</Text>
-        <Text size="sm" color="subdued">Members</Text>
+        <Text size="xl" weight="bold">
+          {org.memberCount}
+        </Text>
+        <Text size="sm" color="subdued">
+          Members
+        </Text>
       </Stack>
       {/* More metrics... */}
     </Inline>
@@ -91,13 +102,19 @@ All primitives use design tokens for consistency:
 
 ```css
 /* Spacing from tokens */
-.freeui-stack--gap-md { gap: var(--freeui-spacing-4); }
+.freeui-stack--gap-md {
+  gap: var(--freeui-spacing-4);
+}
 
 /* Colors from tokens */
-.freeui-text--color-success { color: var(--freeui-color-semantic-success-600); }
+.freeui-text--color-success {
+  color: var(--freeui-color-semantic-success-600);
+}
 
 /* Typography from tokens */
-.freeui-heading--size-lg { font-size: var(--freeui-font-size-2xl); }
+.freeui-heading--size-lg {
+  font-size: var(--freeui-font-size-2xl);
+}
 ```
 
 ## Accessibility Built-In
@@ -120,6 +137,7 @@ Every primitive includes proper accessibility:
 ## Best Practices
 
 ### ✅ Do
+
 - Use Stack for vertical layouts
 - Use Inline for horizontal layouts
 - Use Text for all typography
@@ -128,6 +146,7 @@ Every primitive includes proper accessibility:
 - Compose at the usage site
 
 ### ❌ Don't
+
 - Create `ProductCard`, `UserPanel`, etc.
 - Use hardcoded spacing values
 - Bypass the type system
@@ -136,10 +155,13 @@ Every primitive includes proper accessibility:
 ## Common Patterns
 
 ### Information Display
+
 ```tsx
 <Card padding="md">
   <Stack gap="sm">
-    <Heading level={3} size="sm">User Information</Heading>
+    <Heading level={3} size="sm">
+      User Information
+    </Heading>
     <Inline justify="space-between">
       <Text weight="medium">Name:</Text>
       <Text>{user.name}</Text>
@@ -153,13 +175,14 @@ Every primitive includes proper accessibility:
 ```
 
 ### Action Toolbars
+
 ```tsx
 <Inline justify="space-between" align="center">
   <Stack gap="xs">
     <Heading level={2}>Dashboard</Heading>
     <Text color="subdued">Manage your projects</Text>
   </Stack>
-  
+
   <Inline gap="sm">
     <Button variant="outline">Settings</Button>
     <Button variant="primary">New Project</Button>
@@ -168,15 +191,24 @@ Every primitive includes proper accessibility:
 ```
 
 ### Metric Grids
+
 ```tsx
 <Inline gap="xl" wrap>
   <Stack align="center" gap="xs">
-    <Text size="2xl" weight="bold" color="accent">42</Text>
-    <Text size="sm" color="subdued">Active Users</Text>
+    <Text size="2xl" weight="bold" color="accent">
+      42
+    </Text>
+    <Text size="sm" color="subdued">
+      Active Users
+    </Text>
   </Stack>
   <Stack align="center" gap="xs">
-    <Text size="2xl" weight="bold" color="accent">15</Text>
-    <Text size="sm" color="subdued">Projects</Text>
+    <Text size="2xl" weight="bold" color="accent">
+      15
+    </Text>
+    <Text size="sm" color="subdued">
+      Projects
+    </Text>
   </Stack>
 </Inline>
 ```

@@ -23,25 +23,33 @@ This monorepo contains the following packages:
 ## 🧩 Component Categories
 
 ### Layout Primitives
+
 Build any interface structure with flexible layout components:
+
 - **`Stack`** - Vertical layouts with consistent spacing
 - **`Inline`** - Horizontal layouts with alignment options
 - **`Separator`** - Visual content dividers
 
-### Display Primitives  
+### Display Primitives
+
 Present content with consistent typography and indicators:
+
 - **`Text`** - All text content with semantic colors and weights
 - **`Heading`** - Semantic headings with independent visual sizing
 - **`Badge`** - Status indicators and labels
 
 ### Foundation Components
+
 Core interactive and container components:
+
 - **`Card`** - Flexible content containers
 - **`Button`** - User actions with multiple variants
 - **`Input`** - Form controls and data entry
 
 ### Legacy Components
+
 These complex components will be refactored into compositional patterns:
+
 - StateVersion components (VersionViewer, VersionDiff, etc.)
 - OrganizationWorkspace components
 - Authentication components
@@ -179,7 +187,7 @@ The design system is built on a foundation of design tokens:
 Following Elastic's EUI principles, FreeUI provides flexible building blocks rather than bespoke components:
 
 - **Layout primitives**: Stack, Inline, Separator for structural composition
-- **Display primitives**: Text, Heading, Badge for content presentation  
+- **Display primitives**: Text, Heading, Badge for content presentation
 - **Foundation primitives**: Card, Button, Input for core functionality
 - **Compose don't create**: Build interfaces by combining primitives rather than creating specialized components
 

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { 
-  Stack, 
-  Inline, 
-  Card, 
-  Text, 
-  Heading, 
-  Button, 
+import {
+  Stack,
+  Inline,
+  Card,
+  Text,
+  Heading,
+  Button,
   Badge,
-  Separator 
+  Separator,
 } from "@rockminster/react";
 
 const meta: Meta = {
@@ -60,7 +60,8 @@ interface Organization {
 const mockOrg: Organization = {
   id: "org-123",
   name: "Acme Corporation",
-  description: "Building the future of digital experiences with cutting-edge technology and innovation.",
+  description:
+    "Building the future of digital experiences with cutting-edge technology and innovation.",
   plan: "enterprise",
   memberCount: 42,
   workspaceCount: 8,
@@ -81,8 +82,8 @@ export const OrganizationInfo: Story = {
                 {mockOrg.name}
               </Heading>
               <Inline gap="sm" align="center">
-                <Badge 
-                  variant={mockOrg.plan === "enterprise" ? "success" : "info"} 
+                <Badge
+                  variant={mockOrg.plan === "enterprise" ? "success" : "info"}
                   filled
                   size="sm"
                 >
@@ -93,26 +94,28 @@ export const OrganizationInfo: Story = {
                 </Text>
               </Inline>
             </Stack>
-            
+
             <Inline gap="sm">
-              <Button variant="ghost" size="sm">Settings</Button>
-              <Button variant="primary" size="sm">Upgrade</Button>
+              <Button variant="ghost" size="sm">
+                Settings
+              </Button>
+              <Button variant="primary" size="sm">
+                Upgrade
+              </Button>
             </Inline>
           </Inline>
-          
-          <Text color="subdued">
-            {mockOrg.description}
-          </Text>
+
+          <Text color="subdued">{mockOrg.description}</Text>
         </Stack>
-        
+
         <Separator />
-        
+
         {/* Metrics Section */}
         <Stack gap="md">
           <Text weight="semibold" size="sm" color="subdued">
             USAGE OVERVIEW
           </Text>
-          
+
           <Inline gap="xl" wrap>
             <Stack gap="xs" align="center">
               <Text size="xl" weight="bold" color="accent">
@@ -122,7 +125,7 @@ export const OrganizationInfo: Story = {
                 Team Members
               </Text>
             </Stack>
-            
+
             <Stack gap="xs" align="center">
               <Text size="xl" weight="bold" color="accent">
                 {mockOrg.workspaceCount}
@@ -131,7 +134,7 @@ export const OrganizationInfo: Story = {
                 Workspaces
               </Text>
             </Stack>
-            
+
             <Stack gap="xs" align="center">
               <Text size="xl" weight="bold" color="accent">
                 {mockOrg.storageUsed}GB
@@ -141,35 +144,42 @@ export const OrganizationInfo: Story = {
               </Text>
             </Stack>
           </Inline>
-          
+
           {/* Progress Bar Composed from Primitives */}
           <Stack gap="xs">
             <Inline justify="space-between">
-              <Text size="sm" weight="medium">Storage</Text>
+              <Text size="sm" weight="medium">
+                Storage
+              </Text>
               <Text size="sm" color="subdued">
-                {Math.round((mockOrg.storageUsed / mockOrg.storageLimit) * 100)}% used
+                {Math.round((mockOrg.storageUsed / mockOrg.storageLimit) * 100)}
+                % used
               </Text>
             </Inline>
-            <div style={{ 
-              width: "100%", 
-              height: "8px", 
-              backgroundColor: "var(--freeui-color-neutral-200)", 
-              borderRadius: "var(--freeui-border-radius-full)",
-              overflow: "hidden"
-            }}>
-              <div style={{
-                width: `${(mockOrg.storageUsed / mockOrg.storageLimit) * 100}%`,
-                height: "100%",
-                backgroundColor: "var(--freeui-color-brand-500)",
+            <div
+              style={{
+                width: "100%",
+                height: "8px",
+                backgroundColor: "var(--freeui-color-neutral-200)",
                 borderRadius: "var(--freeui-border-radius-full)",
-                transition: "width 0.3s ease"
-              }} />
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  width: `${(mockOrg.storageUsed / mockOrg.storageLimit) * 100}%`,
+                  height: "100%",
+                  backgroundColor: "var(--freeui-color-brand-500)",
+                  borderRadius: "var(--freeui-border-radius-full)",
+                  transition: "width 0.3s ease",
+                }}
+              />
             </div>
           </Stack>
         </Stack>
-        
+
         <Separator />
-        
+
         {/* Actions Section */}
         <Inline gap="sm" justify="end">
           <Button variant="outline" size="sm">
@@ -214,53 +224,77 @@ export const UserProfile: Story = {
       <Stack gap="md">
         <Inline gap="md" align="center">
           {/* Avatar placeholder */}
-          <div style={{
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            backgroundColor: "var(--freeui-color-brand-100)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0
-          }}>
-            <Text weight="semibold" color="accent">JD</Text>
+          <div
+            style={{
+              width: "48px",
+              height: "48px",
+              borderRadius: "50%",
+              backgroundColor: "var(--freeui-color-brand-100)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <Text weight="semibold" color="accent">
+              JD
+            </Text>
           </div>
-          
+
           <Stack gap="xs">
             <Text weight="semibold">John Doe</Text>
             <Text size="sm" color="subdued" as="code">
               john.doe@acme.com
             </Text>
             <Inline gap="xs">
-              <Badge variant="success" size="sm">Active</Badge>
-              <Badge variant="neutral" size="sm">Admin</Badge>
+              <Badge variant="success" size="sm">
+                Active
+              </Badge>
+              <Badge variant="neutral" size="sm">
+                Admin
+              </Badge>
             </Inline>
           </Stack>
         </Inline>
-        
+
         <Separator />
-        
+
         <Stack gap="sm">
           <Inline justify="space-between" align="center">
-            <Text size="sm" weight="medium">Last Login</Text>
-            <Text size="sm" color="subdued">2 hours ago</Text>
+            <Text size="sm" weight="medium">
+              Last Login
+            </Text>
+            <Text size="sm" color="subdued">
+              2 hours ago
+            </Text>
           </Inline>
-          
+
           <Inline justify="space-between" align="center">
-            <Text size="sm" weight="medium">Workspaces</Text>
-            <Text size="sm" color="subdued">3 active</Text>
+            <Text size="sm" weight="medium">
+              Workspaces
+            </Text>
+            <Text size="sm" color="subdued">
+              3 active
+            </Text>
           </Inline>
-          
+
           <Inline justify="space-between" align="center">
-            <Text size="sm" weight="medium">Role</Text>
-            <Text size="sm" color="subdued">Organization Admin</Text>
+            <Text size="sm" weight="medium">
+              Role
+            </Text>
+            <Text size="sm" color="subdued">
+              Organization Admin
+            </Text>
           </Inline>
         </Stack>
-        
+
         <Inline gap="sm" justify="end">
-          <Button variant="ghost" size="sm">Message</Button>
-          <Button variant="outline" size="sm">Edit Profile</Button>
+          <Button variant="ghost" size="sm">
+            Message
+          </Button>
+          <Button variant="outline" size="sm">
+            Edit Profile
+          </Button>
         </Inline>
       </Stack>
     </Card>
@@ -285,35 +319,37 @@ export const NotificationPanel: Story = {
           <Heading level={3} size="sm">
             Recent Activity
           </Heading>
-          <Button variant="ghost" size="sm">View All</Button>
+          <Button variant="ghost" size="sm">
+            View All
+          </Button>
         </Inline>
-        
+
         <Stack gap="sm">
           {[
-            { 
-              type: "success", 
-              title: "Deployment successful", 
-              desc: "Production environment updated", 
-              time: "5 min ago" 
+            {
+              type: "success",
+              title: "Deployment successful",
+              desc: "Production environment updated",
+              time: "5 min ago",
             },
-            { 
-              type: "info", 
-              title: "New team member", 
-              desc: "Sarah Chen joined the workspace", 
-              time: "2 hours ago" 
+            {
+              type: "info",
+              title: "New team member",
+              desc: "Sarah Chen joined the workspace",
+              time: "2 hours ago",
             },
-            { 
-              type: "warning", 
-              title: "Storage limit warning", 
-              desc: "85% of storage quota used", 
-              time: "1 day ago" 
+            {
+              type: "warning",
+              title: "Storage limit warning",
+              desc: "85% of storage quota used",
+              time: "1 day ago",
             },
           ].map((notification, index) => (
             <Stack key={index} gap="xs">
               <Inline gap="sm" align="start">
-                <Badge 
-                  variant={notification.type as "success" | "info" | "warning"} 
-                  size="sm" 
+                <Badge
+                  variant={notification.type as "success" | "info" | "warning"}
+                  size="sm"
                   style={{ marginTop: "2px", flexShrink: 0 }}
                 >
                   •

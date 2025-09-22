@@ -51,11 +51,7 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
     );
 
     return (
-      <div
-        ref={ref}
-        className={stackClass}
-        {...props}
-      >
+      <div ref={ref} className={stackClass} {...props}>
         {children}
       </div>
     );

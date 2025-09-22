@@ -104,7 +104,8 @@ export const WeightVariations: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates different font weights for creating visual hierarchy.",
+        story:
+          "Demonstrates different font weights for creating visual hierarchy.",
       },
     },
   },
@@ -124,7 +125,8 @@ export const ColorVariations: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Shows semantic color variants for different contexts and meanings.",
+        story:
+          "Shows semantic color variants for different contexts and meanings.",
       },
     },
   },
@@ -141,16 +143,18 @@ export const CompositionExample: Story = {
           Manage your account details and preferences
         </Text>
       </div>
-      
+
       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Text weight="medium" size="sm" style={{ minWidth: "80px" }}>
             Name:
           </Text>
           <Text>John Doe</Text>
-          <Badge variant="success" size="sm">Verified</Badge>
+          <Badge variant="success" size="sm">
+            Verified
+          </Badge>
         </div>
-        
+
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Text weight="medium" size="sm" style={{ minWidth: "80px" }}>
             Email:
@@ -159,7 +163,7 @@ export const CompositionExample: Story = {
             john.doe@example.com
           </Text>
         </div>
-        
+
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Text weight="medium" size="sm" style={{ minWidth: "80px" }}>
             Status:
@@ -168,14 +172,14 @@ export const CompositionExample: Story = {
             Active
           </Text>
         </div>
-        
+
         <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
           <Text weight="medium" size="sm" style={{ minWidth: "80px" }}>
             Bio:
           </Text>
           <Text size="sm" color="subdued" style={{ lineHeight: "1.5" }}>
-            Software engineer with 5+ years of experience building scalable
-            web applications. Passionate about design systems and user experience.
+            Software engineer with 5+ years of experience building scalable web
+            applications. Passionate about design systems and user experience.
           </Text>
         </div>
       </div>
@@ -184,7 +188,8 @@ export const CompositionExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example showing how Text components compose to build complex interfaces without specialized components.",
+        story:
+          "Example showing how Text components compose to build complex interfaces without specialized components.",
       },
     },
   },
@@ -192,22 +197,39 @@ export const CompositionExample: Story = {
 
 export const TruncationBehavior: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "300px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        maxWidth: "300px",
+      }}
+    >
       <div>
-        <Text weight="medium" size="sm" style={{ marginBottom: "4px", display: "block" }}>
+        <Text
+          weight="medium"
+          size="sm"
+          style={{ marginBottom: "4px", display: "block" }}
+        >
           Normal text (wraps):
         </Text>
         <Text>
-          This is a very long piece of text that will wrap naturally when it exceeds the container width.
+          This is a very long piece of text that will wrap naturally when it
+          exceeds the container width.
         </Text>
       </div>
-      
+
       <div>
-        <Text weight="medium" size="sm" style={{ marginBottom: "4px", display: "block" }}>
+        <Text
+          weight="medium"
+          size="sm"
+          style={{ marginBottom: "4px", display: "block" }}
+        >
           Truncated text (ellipsis):
         </Text>
         <Text truncate>
-          This is a very long piece of text that will be truncated with an ellipsis when it exceeds the container width.
+          This is a very long piece of text that will be truncated with an
+          ellipsis when it exceeds the container width.
         </Text>
       </div>
     </div>
@@ -215,7 +237,8 @@ export const TruncationBehavior: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates normal wrapping behavior versus truncation with ellipsis.",
+        story:
+          "Demonstrates normal wrapping behavior versus truncation with ellipsis.",
       },
     },
   },
