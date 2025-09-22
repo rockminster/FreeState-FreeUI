@@ -86,7 +86,7 @@ export interface DiffChunk {
   type: "addition" | "deletion" | "modification";
 }
 
-export interface VersionListProps {
+export interface VersionListProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Array of state versions to display */
   versions: StateVersion[];
   /** Currently selected version ID */
@@ -101,7 +101,7 @@ export interface VersionListProps {
   compact?: boolean;
 }
 
-export interface VersionViewerProps {
+export interface VersionViewerProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Version to display */
   version: StateVersion;
   /** Whether to show raw JSON or formatted view */
@@ -112,7 +112,7 @@ export interface VersionViewerProps {
   error?: string;
 }
 
-export interface VersionDiffProps {
+export interface VersionDiffProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Diff data to display */
   diffData: VersionDiffData;
   /** Layout orientation */
@@ -125,7 +125,7 @@ export interface VersionDiffProps {
   error?: string;
 }
 
-export interface AuditTrailProps {
+export interface AuditTrailProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Array of audit log entries */
   entries: AuditLogEntry[];
   /** Whether to show the loading state */
@@ -138,7 +138,7 @@ export interface AuditTrailProps {
   groupByDate?: boolean;
 }
 
-export interface RollbackButtonProps {
+export interface RollbackButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Version to rollback to */
   targetVersion: StateVersion;
   /** Current version being rolled back from */
