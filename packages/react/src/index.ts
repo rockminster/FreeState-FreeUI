@@ -24,3 +24,26 @@ export type {
   AuditTrailProps,
   RollbackButtonProps,
 } from "./StateVersion";
+
+// Organization and workspace management components
+export {
+  OrganizationCard,
+  WorkspaceCard,
+  PlanBadge,
+  RoleSelector,
+  UsageMeter,
+} from "./OrganizationWorkspace";
+export type {
+  PlanType,
+  UserRole,
+  PlanLimits,
+  PlanUsage,
+  Organization,
+  WorkspaceMember,
+  Workspace,
+  OrganizationCardProps,
+  WorkspaceCardProps,
+  PlanBadgeProps,
+  RoleSelectorProps,
+  UsageMeterProps,
+} from "./OrganizationWorkspace";
