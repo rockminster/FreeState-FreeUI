@@ -13,7 +13,10 @@ import type { RollbackButtonProps } from "./types";
  * - Accessible with proper ARIA labels
  * - Customizable size and variant
  */
-export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButtonProps>(
+export const RollbackButton = React.forwardRef<
+  HTMLButtonElement,
+  RollbackButtonProps
+>(
   (
     {
       targetVersion,
@@ -72,7 +75,7 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
 
     if (showConfirmation) {
       return (
-        <dialog 
+        <dialog
           className="freeui-rollback-confirmation"
           open
           onKeyDown={handleKeyDown}
@@ -81,23 +84,23 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
         >
           <div className="freeui-rollback-confirmation__content">
             <div className="freeui-rollback-confirmation__header">
-              <h4 
+              <h4
                 id="rollback-confirmation-title"
                 className="freeui-rollback-confirmation__title"
               >
                 Confirm Rollback
               </h4>
             </div>
-            
-            <div 
+
+            <div
               id="rollback-confirmation-description"
               className="freeui-rollback-confirmation__body"
             >
               <p className="freeui-rollback-confirmation__message">
-                Are you sure you want to rollback to version {targetVersion.version}?
-                This action cannot be undone.
+                Are you sure you want to rollback to version{" "}
+                {targetVersion.version}? This action cannot be undone.
               </p>
-              
+
               <div className="freeui-rollback-confirmation__comparison">
                 <div className="freeui-rollback-confirmation__version freeui-rollback-confirmation__version--current">
                   <div className="freeui-rollback-confirmation__version-label">
@@ -113,11 +116,14 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
                     by {currentVersion.author.name}
                   </div>
                 </div>
-                
-                <div className="freeui-rollback-confirmation__arrow" aria-hidden="true">
+
+                <div
+                  className="freeui-rollback-confirmation__arrow"
+                  aria-hidden="true"
+                >
                   ↩️
                 </div>
-                
+
                 <div className="freeui-rollback-confirmation__version freeui-rollback-confirmation__version--target">
                   <div className="freeui-rollback-confirmation__version-label">
                     Rollback To
@@ -133,7 +139,7 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
                   </div>
                 </div>
               </div>
-              
+
               {targetVersion.description && (
                 <div className="freeui-rollback-confirmation__description">
                   <div className="freeui-rollback-confirmation__description-label">
@@ -145,7 +151,7 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
                 </div>
               )}
             </div>
-            
+
             <div className="freeui-rollback-confirmation__actions">
               <Button
                 variant="outline"
@@ -185,11 +191,9 @@ export const RollbackButton = React.forwardRef<HTMLButtonElement, RollbackButton
         {...props}
       >
         Rollback to v{targetVersion.version}
-        <div 
-          id="rollback-button-description" 
-          className="freeui-sr-only"
-        >
-          Rollback to version {targetVersion.version} created on {formatDate(targetVersion.createdAt)} by {targetVersion.author.name}
+        <div id="rollback-button-description" className="freeui-sr-only">
+          Rollback to version {targetVersion.version} created on{" "}
+          {formatDate(targetVersion.createdAt)} by {targetVersion.author.name}
         </div>
       </Button>
     );

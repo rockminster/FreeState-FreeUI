@@ -60,7 +60,10 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
       return (
         <div key={index} className={chunkClass}>
           <div className="freeui-version-diff__chunk-header">
-            <span className="freeui-version-diff__chunk-prefix" aria-label={`${chunk.type} at ${chunk.path}`}>
+            <span
+              className="freeui-version-diff__chunk-prefix"
+              aria-label={`${chunk.type} at ${chunk.path}`}
+            >
               {prefix}
             </span>
             <span className="freeui-version-diff__chunk-path">
@@ -72,19 +75,19 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
               </span>
             )}
           </div>
-          
+
           {chunk.type === "deletion" && (
             <div className="freeui-version-diff__chunk-content freeui-version-diff__chunk-content--old">
               <code>{JSON.stringify(chunk.oldValue, null, 2)}</code>
             </div>
           )}
-          
+
           {chunk.type === "addition" && (
             <div className="freeui-version-diff__chunk-content freeui-version-diff__chunk-content--new">
               <code>{JSON.stringify(chunk.newValue, null, 2)}</code>
             </div>
           )}
-          
+
           {chunk.type === "modification" && (
             <>
               <div className="freeui-version-diff__chunk-content freeui-version-diff__chunk-content--old">
@@ -120,7 +123,7 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
               <code>{sourceContent}</code>
             </pre>
           </div>
-          
+
           <div className="freeui-version-diff__side">
             <div className="freeui-version-diff__side-header">
               <h4 className="freeui-version-diff__side-title">
@@ -164,7 +167,7 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
               </span>
             </div>
           </div>
-          
+
           <div className="freeui-version-diff__chunks">
             {allChunks.map(renderDiffChunk)}
           </div>
@@ -205,8 +208,13 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-version-diff__loading">
-            <div className="freeui-version-diff__loading-spinner" aria-hidden="true" />
-            <div className="freeui-version-diff__loading-text">Calculating diff...</div>
+            <div
+              className="freeui-version-diff__loading-spinner"
+              aria-hidden="true"
+            />
+            <div className="freeui-version-diff__loading-text">
+              Calculating diff...
+            </div>
           </div>
         </Card>
       );
@@ -229,12 +237,16 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
               </span>
             </div>
           </div>
-          
+
           <div className="freeui-version-diff__actions">
             <Button
               size="sm"
               variant="outline"
-              onClick={() => setCurrentLayout(currentLayout === "side-by-side" ? "unified" : "side-by-side")}
+              onClick={() =>
+                setCurrentLayout(
+                  currentLayout === "side-by-side" ? "unified" : "side-by-side"
+                )
+              }
               aria-label={`Switch to ${currentLayout === "side-by-side" ? "unified" : "side-by-side"} layout`}
             >
               {currentLayout === "side-by-side" ? "Unified" : "Side-by-side"}
@@ -243,7 +255,9 @@ export const VersionDiff = React.forwardRef<HTMLDivElement, VersionDiffProps>(
         </div>
 
         <div className="freeui-version-diff__content">
-          {currentLayout === "side-by-side" ? renderSideBySide() : renderUnified()}
+          {currentLayout === "side-by-side"
+            ? renderSideBySide()
+            : renderUnified()}
         </div>
       </Card>
     );

@@ -5,7 +5,8 @@ import { VersionViewer, StateVersion } from "@rockminster/react";
 const mockVersion: StateVersion = {
   id: "v1.3.0-abc123",
   version: "1.3.0",
-  description: "Added user authentication and profile management features with enhanced security",
+  description:
+    "Added user authentication and profile management features with enhanced security",
   createdAt: "2024-01-15T10:30:00Z",
   author: {
     id: "user-1",
@@ -41,12 +42,7 @@ const mockVersion: StateVersion = {
       },
     },
     api: {
-      endpoints: [
-        "/api/users",
-        "/api/auth",
-        "/api/profiles",
-        "/api/settings",
-      ],
+      endpoints: ["/api/users", "/api/auth", "/api/profiles", "/api/settings"],
       rateLimit: {
         requestsPerMinute: 100,
         burstSize: 20,
@@ -184,7 +180,8 @@ export const LargeContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Version viewer with large content to test scrolling and performance.",
+        story:
+          "Version viewer with large content to test scrolling and performance.",
       },
     },
   },

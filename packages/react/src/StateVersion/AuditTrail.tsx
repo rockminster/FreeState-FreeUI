@@ -29,7 +29,9 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
     ref
   ) => {
     const [visibleEntries, setVisibleEntries] = useState(maxEntries);
-    const [expandedEntries, setExpandedEntries] = useState<Set<string>>(new Set());
+    const [expandedEntries, setExpandedEntries] = useState<Set<string>>(
+      new Set()
+    );
 
     const formatDate = (isoString: string) => {
       const date = new Date(isoString);
@@ -88,20 +90,23 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
         return { ungrouped: entries };
       }
 
-      return entries.reduce((groups, entry) => {
-        const dateKey = formatDate(entry.timestamp);
-        if (!groups[dateKey]) {
-          groups[dateKey] = [];
-        }
-        groups[dateKey].push(entry);
-        return groups;
-      }, {} as Record<string, AuditLogEntry[]>);
+      return entries.reduce(
+        (groups, entry) => {
+          const dateKey = formatDate(entry.timestamp);
+          if (!groups[dateKey]) {
+            groups[dateKey] = [];
+          }
+          groups[dateKey].push(entry);
+          return groups;
+        },
+        {} as Record<string, AuditLogEntry[]>
+      );
     };
 
     const renderEntry = (entry: AuditLogEntry) => {
       const isExpanded = expandedEntries.has(entry.id);
       const operationColor = getOperationColor(entry.operation);
-      
+
       const entryClass = clsx(
         "freeui-audit-trail__entry",
         `freeui-audit-trail__entry--${operationColor}`,
@@ -113,26 +118,30 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
       return (
         <div key={entry.id} className={entryClass}>
           <div className="freeui-audit-trail__entry-timeline">
-            <div 
+            <div
               className="freeui-audit-trail__entry-icon"
               aria-label={`${entry.operation} operation`}
             >
               {getOperationIcon(entry.operation)}
             </div>
-            <div className="freeui-audit-trail__entry-line" aria-hidden="true" />
+            <div
+              className="freeui-audit-trail__entry-line"
+              aria-hidden="true"
+            />
           </div>
-          
+
           <div className="freeui-audit-trail__entry-content">
             <div className="freeui-audit-trail__entry-header">
               <div className="freeui-audit-trail__entry-main">
                 <div className="freeui-audit-trail__entry-operation">
-                  {entry.operation.charAt(0).toUpperCase() + entry.operation.slice(1)}
+                  {entry.operation.charAt(0).toUpperCase() +
+                    entry.operation.slice(1)}
                 </div>
                 <div className="freeui-audit-trail__entry-description">
                   {entry.description}
                 </div>
               </div>
-              
+
               <div className="freeui-audit-trail__entry-meta">
                 <div className="freeui-audit-trail__entry-user">
                   {entry.user.name}
@@ -141,7 +150,7 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
                   {formatTime(entry.timestamp)}
                 </div>
               </div>
-              
+
               {entry.metadata && Object.keys(entry.metadata).length > 0 && (
                 <Button
                   size="sm"
@@ -155,16 +164,16 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
                 </Button>
               )}
             </div>
-            
+
             {isExpanded && entry.metadata && (
-              <div 
+              <div
                 id={`entry-details-${entry.id}`}
                 className="freeui-audit-trail__entry-details"
               >
                 <h5 className="freeui-audit-trail__entry-details-title">
                   Additional Details
                 </h5>
-                
+
                 <div className="freeui-audit-trail__entry-details-content">
                   {entry.metadata.rollbackTo && (
                     <div className="freeui-audit-trail__entry-detail">
@@ -176,18 +185,19 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
                       </span>
                     </div>
                   )}
-                  
+
                   {entry.metadata.compareVersions && (
                     <div className="freeui-audit-trail__entry-detail">
                       <span className="freeui-audit-trail__entry-detail-label">
                         Compared versions:
                       </span>
                       <span className="freeui-audit-trail__entry-detail-value">
-                        {entry.metadata.compareVersions[0]} ↔ {entry.metadata.compareVersions[1]}
+                        {entry.metadata.compareVersions[0]} ↔{" "}
+                        {entry.metadata.compareVersions[1]}
                       </span>
                     </div>
                   )}
-                  
+
                   {entry.metadata.userAgent && (
                     <div className="freeui-audit-trail__entry-detail">
                       <span className="freeui-audit-trail__entry-detail-label">
@@ -198,7 +208,7 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
                       </span>
                     </div>
                   )}
-                  
+
                   {entry.metadata.ipAddress && (
                     <div className="freeui-audit-trail__entry-detail">
                       <span className="freeui-audit-trail__entry-detail-label">
@@ -243,8 +253,13 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-audit-trail__loading">
-            <div className="freeui-audit-trail__loading-spinner" aria-hidden="true" />
-            <div className="freeui-audit-trail__loading-text">Loading audit trail...</div>
+            <div
+              className="freeui-audit-trail__loading-spinner"
+              aria-hidden="true"
+            />
+            <div className="freeui-audit-trail__loading-text">
+              Loading audit trail...
+            </div>
           </div>
         </Card>
       );
@@ -276,8 +291,12 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
             {entries.length} operation{entries.length !== 1 ? "s" : ""}
           </div>
         </div>
-        
-        <div className="freeui-audit-trail__timeline" role="log" aria-label="Audit trail timeline">
+
+        <div
+          className="freeui-audit-trail__timeline"
+          role="log"
+          aria-label="Audit trail timeline"
+        >
           {Object.entries(groupedEntries).map(([dateKey, dateEntries]) => (
             <div key={dateKey} className="freeui-audit-trail__date-group">
               {groupByDate && dateKey !== "ungrouped" && (
@@ -285,19 +304,19 @@ export const AuditTrail = React.forwardRef<HTMLDivElement, AuditTrailProps>(
                   <h4 className="freeui-audit-trail__date-title">{dateKey}</h4>
                 </div>
               )}
-              
+
               <div className="freeui-audit-trail__entries">
                 {dateEntries.map(renderEntry)}
               </div>
             </div>
           ))}
         </div>
-        
+
         {entries.length > visibleEntries && (
           <div className="freeui-audit-trail__load-more">
             <Button
               variant="outline"
-              onClick={() => setVisibleEntries(prev => prev + maxEntries)}
+              onClick={() => setVisibleEntries((prev) => prev + maxEntries)}
             >
               Load more ({entries.length - visibleEntries} remaining)
             </Button>

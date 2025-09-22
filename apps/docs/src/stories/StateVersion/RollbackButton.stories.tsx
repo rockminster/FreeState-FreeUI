@@ -163,7 +163,10 @@ export const Disabled: Story = {
   },
 };
 
-const InteractiveDemoComponent = (args: { targetVersion: StateVersion; currentVersion: StateVersion }) => {
+const InteractiveDemoComponent = (args: {
+  targetVersion: StateVersion;
+  currentVersion: StateVersion;
+}) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [lastRollback, setLastRollback] = React.useState<string | null>(null);
 
@@ -177,20 +180,29 @@ const InteractiveDemoComponent = (args: { targetVersion: StateVersion; currentVe
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        alignItems: "center",
+      }}
+    >
       <RollbackButton
         {...args}
         loading={isLoading}
         onRollback={handleRollback}
       />
       {lastRollback && (
-        <div style={{ 
-          padding: "0.5rem 1rem", 
-          backgroundColor: "#22c55e", 
-          color: "white", 
-          borderRadius: "0.375rem",
-          fontSize: "0.875rem"
-        }}>
+        <div
+          style={{
+            padding: "0.5rem 1rem",
+            backgroundColor: "#22c55e",
+            color: "white",
+            borderRadius: "0.375rem",
+            fontSize: "0.875rem",
+          }}
+        >
           Successfully rolled back to {lastRollback}
         </div>
       )}
@@ -207,7 +219,8 @@ export const InteractiveDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Interactive demo showing the complete rollback flow with loading and success states.",
+        story:
+          "Interactive demo showing the complete rollback flow with loading and success states.",
       },
     },
   },
@@ -217,7 +230,8 @@ export const VersionComparison: Story = {
   args: {
     targetVersion: {
       ...targetVersion,
-      description: "This is a much longer description that demonstrates how the confirmation dialog handles longer text content and ensures good readability",
+      description:
+        "This is a much longer description that demonstrates how the confirmation dialog handles longer text content and ensures good readability",
     },
     currentVersion,
   },
@@ -244,7 +258,7 @@ export const MinimalVersions: Story = {
     },
     currentVersion: {
       id: "v1.1.0",
-      version: "1.1.0", 
+      version: "1.1.0",
       description: "Update",
       createdAt: "2023-12-15T12:00:00Z",
       author: { id: "user-2", name: "Dev2" },
@@ -256,7 +270,8 @@ export const MinimalVersions: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Rollback button with minimal version data (no emails, tags, etc.).",
+        story:
+          "Rollback button with minimal version data (no emails, tags, etc.).",
       },
     },
   },

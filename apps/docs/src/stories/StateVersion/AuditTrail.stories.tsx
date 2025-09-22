@@ -44,7 +44,8 @@ const mockAuditEntries: AuditLogEntry[] = [
     description: "Compared versions 1.2.0 and 1.3.0",
     metadata: {
       compareVersions: ["v1.2.0-ghi789", "v1.3.0-abc123"],
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
     },
   },
   {
@@ -104,7 +105,8 @@ const mockAuditEntries: AuditLogEntry[] = [
     timestamp: "2024-01-05T09:15:00Z",
     description: "Created version 1.2.0 with UI redesign",
     metadata: {
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
       ipAddress: "192.168.1.102",
     },
   },
@@ -205,7 +207,8 @@ export const LimitedEntries: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Audit trail with limited initial entries and load more functionality.",
+        story:
+          "Audit trail with limited initial entries and load more functionality.",
       },
     },
   },
@@ -221,7 +224,8 @@ export const Loading: Story = {
 export const Error: Story = {
   args: {
     entries: [],
-    error: "Failed to load audit trail. Please check your permissions and try again.",
+    error:
+      "Failed to load audit trail. Please check your permissions and try again.",
   },
 };
 
@@ -303,7 +307,8 @@ export const OperationTypes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstration of all operation types with their respective icons and colors.",
+        story:
+          "Demonstration of all operation types with their respective icons and colors.",
       },
     },
   },

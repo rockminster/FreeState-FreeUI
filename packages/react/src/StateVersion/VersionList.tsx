@@ -93,8 +93,13 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-version-list__loading">
-            <div className="freeui-version-list__loading-spinner" aria-hidden="true" />
-            <div className="freeui-version-list__loading-text">Loading versions...</div>
+            <div
+              className="freeui-version-list__loading-spinner"
+              aria-hidden="true"
+            />
+            <div className="freeui-version-list__loading-text">
+              Loading versions...
+            </div>
           </div>
         </Card>
       );
@@ -126,13 +131,10 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
         <div className="freeui-version-list__items" role="list">
           {versions.map((version) => {
             const isSelected = selectedVersionId === version.id;
-            const itemClass = clsx(
-              "freeui-version-list__item",
-              {
-                "freeui-version-list__item--selected": isSelected,
-                "freeui-version-list__item--compact": compact,
-              }
-            );
+            const itemClass = clsx("freeui-version-list__item", {
+              "freeui-version-list__item--selected": isSelected,
+              "freeui-version-list__item--compact": compact,
+            });
 
             return (
               <button
@@ -152,7 +154,7 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
                     {formatDate(version.createdAt)}
                   </div>
                 </div>
-                
+
                 {!compact && (
                   <div
                     id={`version-${version.id}-description`}
@@ -174,10 +176,7 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
                 {version.tags && version.tags.length > 0 && (
                   <div className="freeui-version-list__item-tags">
                     {version.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="freeui-version-list__item-tag"
-                      >
+                      <span key={tag} className="freeui-version-list__item-tag">
                         {tag}
                       </span>
                     ))}
@@ -185,7 +184,10 @@ export const VersionList = React.forwardRef<HTMLDivElement, VersionListProps>(
                 )}
 
                 {isSelected && (
-                  <div className="freeui-version-list__item-selected-indicator" aria-hidden="true">
+                  <div
+                    className="freeui-version-list__item-selected-indicator"
+                    aria-hidden="true"
+                  >
                     ✓
                   </div>
                 )}

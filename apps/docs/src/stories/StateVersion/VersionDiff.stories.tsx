@@ -248,7 +248,9 @@ export const Error: Story = {
 };
 
 const InteractiveComponent = (args: { diffData: VersionDiffData }) => {
-  const [layout, setLayout] = React.useState<"side-by-side" | "unified">("side-by-side");
+  const [layout, setLayout] = React.useState<"side-by-side" | "unified">(
+    "side-by-side"
+  );
   const [showLineNumbers, setShowLineNumbers] = React.useState(true);
 
   return (

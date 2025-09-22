@@ -101,7 +101,8 @@ export interface VersionListProps extends React.HTMLAttributes<HTMLDivElement> {
   compact?: boolean;
 }
 
-export interface VersionViewerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface VersionViewerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /** Version to display */
   version: StateVersion;
   /** Whether to show raw JSON or formatted view */
@@ -138,7 +139,8 @@ export interface AuditTrailProps extends React.HTMLAttributes<HTMLDivElement> {
   groupByDate?: boolean;
 }
 
-export interface RollbackButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface RollbackButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Version to rollback to */
   targetVersion: StateVersion;
   /** Current version being rolled back from */

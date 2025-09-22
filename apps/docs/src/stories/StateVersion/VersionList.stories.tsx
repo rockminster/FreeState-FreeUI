@@ -55,7 +55,8 @@ const mockVersions: StateVersion[] = [
   {
     id: "v1.2.0-ghi789",
     version: "1.2.0",
-    description: "Major UI redesign with improved accessibility and mobile support",
+    description:
+      "Major UI redesign with improved accessibility and mobile support",
     createdAt: "2024-01-05T09:15:00Z",
     author: {
       id: "user-3",
@@ -186,7 +187,8 @@ export const Loading: Story = {
 export const Error: Story = {
   args: {
     versions: [],
-    error: "Failed to load versions. Please check your connection and try again.",
+    error:
+      "Failed to load versions. Please check your connection and try again.",
   },
 };
 

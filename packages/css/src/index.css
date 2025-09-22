@@ -1352,11 +1352,13 @@ h6 {
   margin-bottom: var(--freeui-spacing-1);
 }
 
-.freeui-rollback-confirmation__version--current .freeui-rollback-confirmation__version-number {
+.freeui-rollback-confirmation__version--current
+  .freeui-rollback-confirmation__version-number {
   color: var(--freeui-color-semantic-warning-600);
 }
 
-.freeui-rollback-confirmation__version--target .freeui-rollback-confirmation__version-number {
+.freeui-rollback-confirmation__version--target
+  .freeui-rollback-confirmation__version-number {
   color: var(--freeui-color-brand-600);
 }
 
@@ -1414,27 +1416,27 @@ h6 {
   .freeui-version-diff__side-by-side {
     grid-template-columns: 1fr;
   }
-  
+
   .freeui-version-diff__side:first-child {
     border-right: none;
     border-bottom: 1px solid var(--freeui-color-neutral-200);
   }
-  
+
   .freeui-audit-trail__entry-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--freeui-spacing-2);
   }
-  
+
   .freeui-audit-trail__entry-meta {
     text-align: left;
   }
-  
+
   .freeui-rollback-confirmation__comparison {
     flex-direction: column;
     gap: var(--freeui-spacing-2);
   }
-  
+
   .freeui-rollback-confirmation__arrow {
     transform: rotate(90deg);
   }

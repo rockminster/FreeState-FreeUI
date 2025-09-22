@@ -15,7 +15,10 @@ import type { VersionViewerProps } from "./types";
  * - Loading and error states
  * - Accessible with proper ARIA labels
  */
-export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps>(
+export const VersionViewer = React.forwardRef<
+  HTMLDivElement,
+  VersionViewerProps
+>(
   (
     {
       version,
@@ -86,7 +89,10 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-version-viewer__error">
-            <div className="freeui-version-viewer__error-icon" aria-hidden="true">
+            <div
+              className="freeui-version-viewer__error-icon"
+              aria-hidden="true"
+            >
               ⚠️
             </div>
             <div className="freeui-version-viewer__error-message">{error}</div>
@@ -99,8 +105,13 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
       return (
         <Card ref={ref} className={containerClass} {...props}>
           <div className="freeui-version-viewer__loading">
-            <div className="freeui-version-viewer__loading-spinner" aria-hidden="true" />
-            <div className="freeui-version-viewer__loading-text">Loading version...</div>
+            <div
+              className="freeui-version-viewer__loading-spinner"
+              aria-hidden="true"
+            />
+            <div className="freeui-version-viewer__loading-text">
+              Loading version...
+            </div>
           </div>
         </Card>
       );
@@ -113,15 +124,17 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
             <h3 className="freeui-version-viewer__version">
               Version {version.version}
             </h3>
-            <div className="freeui-version-viewer__id">
-              ID: {version.id}
-            </div>
+            <div className="freeui-version-viewer__id">ID: {version.id}</div>
           </div>
           <div className="freeui-version-viewer__actions">
             <Button
               size="sm"
               variant="outline"
-              onClick={() => setCurrentViewMode(currentViewMode === "formatted" ? "raw" : "formatted")}
+              onClick={() =>
+                setCurrentViewMode(
+                  currentViewMode === "formatted" ? "raw" : "formatted"
+                )
+              }
               aria-label={`Switch to ${currentViewMode === "formatted" ? "raw" : "formatted"} view`}
             >
               {currentViewMode === "formatted" ? "Raw" : "Formatted"}
@@ -139,21 +152,27 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
 
         <div className="freeui-version-viewer__metadata">
           <div className="freeui-version-viewer__metadata-item">
-            <span className="freeui-version-viewer__metadata-label">Description:</span>
+            <span className="freeui-version-viewer__metadata-label">
+              Description:
+            </span>
             <span className="freeui-version-viewer__metadata-value">
               {version.description}
             </span>
           </div>
-          
+
           <div className="freeui-version-viewer__metadata-item">
-            <span className="freeui-version-viewer__metadata-label">Created:</span>
+            <span className="freeui-version-viewer__metadata-label">
+              Created:
+            </span>
             <span className="freeui-version-viewer__metadata-value">
               {formatDate(version.createdAt)}
             </span>
           </div>
-          
+
           <div className="freeui-version-viewer__metadata-item">
-            <span className="freeui-version-viewer__metadata-label">Author:</span>
+            <span className="freeui-version-viewer__metadata-label">
+              Author:
+            </span>
             <span className="freeui-version-viewer__metadata-value">
               {version.author.name}
               {version.author.email && (
@@ -163,16 +182,18 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
               )}
             </span>
           </div>
-          
+
           <div className="freeui-version-viewer__metadata-item">
             <span className="freeui-version-viewer__metadata-label">Size:</span>
             <span className="freeui-version-viewer__metadata-value">
               {formatSize(version.size)}
             </span>
           </div>
-          
+
           <div className="freeui-version-viewer__metadata-item">
-            <span className="freeui-version-viewer__metadata-label">Checksum:</span>
+            <span className="freeui-version-viewer__metadata-label">
+              Checksum:
+            </span>
             <span className="freeui-version-viewer__metadata-value freeui-version-viewer__checksum">
               {version.checksum}
             </span>
@@ -180,13 +201,12 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
 
           {version.tags && version.tags.length > 0 && (
             <div className="freeui-version-viewer__metadata-item">
-              <span className="freeui-version-viewer__metadata-label">Tags:</span>
+              <span className="freeui-version-viewer__metadata-label">
+                Tags:
+              </span>
               <div className="freeui-version-viewer__tags">
                 {version.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="freeui-version-viewer__tag"
-                  >
+                  <span key={tag} className="freeui-version-viewer__tag">
                     {tag}
                   </span>
                 ))}
@@ -202,9 +222,7 @@ export const VersionViewer = React.forwardRef<HTMLDivElement, VersionViewerProps
             </h4>
           </div>
           <pre className="freeui-version-viewer__content-code">
-            <code>
-              {formatContent(version.content, currentViewMode)}
-            </code>
+            <code>{formatContent(version.content, currentViewMode)}</code>
           </pre>
         </div>
       </Card>
