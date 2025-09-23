@@ -100,21 +100,27 @@ export const Variants: Story = {
   render: () => (
     <Stack gap="lg">
       <div>
-        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>Solid Timeline</h4>
+        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>
+          Solid Timeline
+        </h4>
         <div style={{ height: "100px", display: "flex", alignItems: "center" }}>
           <Timeline orientation="vertical" variant="solid" />
         </div>
       </div>
-      
+
       <div>
-        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>Dashed Timeline</h4>
+        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>
+          Dashed Timeline
+        </h4>
         <div style={{ height: "100px", display: "flex", alignItems: "center" }}>
           <Timeline orientation="vertical" variant="dashed" />
         </div>
       </div>
-      
+
       <div>
-        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>Dotted Timeline</h4>
+        <h4 style={{ marginBottom: "var(--freeui-spacing-2)" }}>
+          Dotted Timeline
+        </h4>
         <div style={{ height: "100px", display: "flex", alignItems: "center" }}>
           <Timeline orientation="vertical" variant="dotted" />
         </div>
@@ -132,14 +138,14 @@ export const Thickness: Story = {
           <Timeline orientation="vertical" thickness="thin" />
         </div>
       </Stack>
-      
+
       <Stack gap="sm" align="center">
         <span style={{ fontSize: "var(--freeui-font-size-sm)" }}>Normal</span>
         <div style={{ height: "100px" }}>
           <Timeline orientation="vertical" thickness="normal" />
         </div>
       </Stack>
-      
+
       <Stack gap="sm" align="center">
         <span style={{ fontSize: "var(--freeui-font-size-sm)" }}>Thick</span>
         <div style={{ height: "100px" }}>
@@ -154,34 +160,39 @@ export const CompositionExample: Story = {
   render: () => (
     <div style={{ position: "relative", padding: "var(--freeui-spacing-8)" }}>
       {/* Timeline backbone */}
-      <Timeline 
-        orientation="vertical" 
-        variant="solid" 
+      <Timeline
+        orientation="vertical"
+        variant="solid"
         thickness="normal"
-        style={{ 
-          position: "absolute", 
-          left: "32px", 
-          top: "var(--freeui-spacing-8)", 
-          height: "400px" 
-        }} 
+        style={{
+          position: "absolute",
+          left: "32px",
+          top: "var(--freeui-spacing-8)",
+          height: "400px",
+        }}
       />
-      
+
       {/* Timeline items composed with other primitives */}
       <Stack gap="xl">
-        <div style={{ position: "relative", paddingLeft: "var(--freeui-spacing-12)" }}>
+        <div
+          style={{
+            position: "relative",
+            paddingLeft: "var(--freeui-spacing-12)",
+          }}
+        >
           {/* Timeline marker */}
-          <div 
-            style={{ 
-              position: "absolute", 
-              left: "24px", 
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
               top: "var(--freeui-spacing-3)",
-              width: "16px", 
-              height: "16px", 
-              borderRadius: "50%", 
+              width: "16px",
+              height: "16px",
+              borderRadius: "50%",
               backgroundColor: "var(--freeui-color-semantic-success-500)",
               border: "2px solid var(--freeui-color-white)",
-              zIndex: 1 
-            }} 
+              zIndex: 1,
+            }}
           />
           <Card padding="md" shadow="sm">
             <Stack gap="xs">
@@ -189,27 +200,37 @@ export const CompositionExample: Story = {
               <span style={{ color: "var(--freeui-color-neutral-600)" }}>
                 Initial project setup completed
               </span>
-              <span style={{ fontSize: "var(--freeui-font-size-xs)", color: "var(--freeui-color-neutral-500)" }}>
+              <span
+                style={{
+                  fontSize: "var(--freeui-font-size-xs)",
+                  color: "var(--freeui-color-neutral-500)",
+                }}
+              >
                 2 hours ago
               </span>
             </Stack>
           </Card>
         </div>
-        
-        <div style={{ position: "relative", paddingLeft: "var(--freeui-spacing-12)" }}>
+
+        <div
+          style={{
+            position: "relative",
+            paddingLeft: "var(--freeui-spacing-12)",
+          }}
+        >
           {/* Timeline marker */}
-          <div 
-            style={{ 
-              position: "absolute", 
-              left: "24px", 
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
               top: "var(--freeui-spacing-3)",
-              width: "16px", 
-              height: "16px", 
-              borderRadius: "50%", 
+              width: "16px",
+              height: "16px",
+              borderRadius: "50%",
               backgroundColor: "var(--freeui-color-semantic-info-500)",
               border: "2px solid var(--freeui-color-white)",
-              zIndex: 1 
-            }} 
+              zIndex: 1,
+            }}
           />
           <Card padding="md" shadow="sm">
             <Stack gap="xs">
@@ -217,27 +238,37 @@ export const CompositionExample: Story = {
               <span style={{ color: "var(--freeui-color-neutral-600)" }}>
                 Pull request submitted for review
               </span>
-              <span style={{ fontSize: "var(--freeui-font-size-xs)", color: "var(--freeui-color-neutral-500)" }}>
+              <span
+                style={{
+                  fontSize: "var(--freeui-font-size-xs)",
+                  color: "var(--freeui-color-neutral-500)",
+                }}
+              >
                 1 hour ago
               </span>
             </Stack>
           </Card>
         </div>
-        
-        <div style={{ position: "relative", paddingLeft: "var(--freeui-spacing-12)" }}>
+
+        <div
+          style={{
+            position: "relative",
+            paddingLeft: "var(--freeui-spacing-12)",
+          }}
+        >
           {/* Timeline marker */}
-          <div 
-            style={{ 
-              position: "absolute", 
-              left: "24px", 
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
               top: "var(--freeui-spacing-3)",
-              width: "16px", 
-              height: "16px", 
-              borderRadius: "50%", 
+              width: "16px",
+              height: "16px",
+              borderRadius: "50%",
               backgroundColor: "var(--freeui-color-neutral-300)",
               border: "2px solid var(--freeui-color-white)",
-              zIndex: 1 
-            }} 
+              zIndex: 1,
+            }}
           />
           <Card padding="md" shadow="sm">
             <Stack gap="xs">
@@ -245,7 +276,12 @@ export const CompositionExample: Story = {
               <span style={{ color: "var(--freeui-color-neutral-600)" }}>
                 Waiting for approval to deploy
               </span>
-              <span style={{ fontSize: "var(--freeui-font-size-xs)", color: "var(--freeui-color-neutral-500)" }}>
+              <span
+                style={{
+                  fontSize: "var(--freeui-font-size-xs)",
+                  color: "var(--freeui-color-neutral-500)",
+                }}
+              >
                 30 minutes ago
               </span>
             </Stack>

@@ -18,7 +18,12 @@ export type {
 
 // Layout components for composition
 export { Stack, Inline, Separator, Timeline } from "./layout";
-export type { StackProps, InlineProps, SeparatorProps, TimelineProps } from "./layout";
+export type {
+  StackProps,
+  InlineProps,
+  SeparatorProps,
+  TimelineProps,
+} from "./layout";
 
 // Display components for data presentation
 export { Text, Heading, Badge, Diff } from "./display";

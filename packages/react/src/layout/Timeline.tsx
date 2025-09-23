@@ -32,7 +32,7 @@ export interface TimelineProps extends React.HTMLAttributes<HTMLDivElement> {
  * - Configurable thickness and spacing
  * - Pure primitive - composable with other layout components
  * - Design token-based styling
- * 
+ *
  * Use with Stack, Inline, and absolute positioning to create complex timeline layouts.
  */
 export const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(
