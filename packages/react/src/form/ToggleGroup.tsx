@@ -7,7 +7,8 @@ export interface ToggleGroupOption {
   disabled?: boolean;
 }
 
-export interface ToggleGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface ToggleGroupProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   /**
    * The options for the toggle group
    */
@@ -128,13 +129,10 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
               <button
                 key={option.value}
                 type="button"
-                className={clsx(
-                  "freeui-toggle-group-option",
-                  {
-                    "freeui-toggle-group-option--active": isActive,
-                    "freeui-toggle-group-option--disabled": isDisabled,
-                  }
-                )}
+                className={clsx("freeui-toggle-group-option", {
+                  "freeui-toggle-group-option--active": isActive,
+                  "freeui-toggle-group-option--disabled": isDisabled,
+                })}
                 disabled={isDisabled}
                 onClick={() => handleToggle(option.value)}
                 aria-pressed={isActive}

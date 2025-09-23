@@ -1,7 +1,8 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface StatusIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface StatusIndicatorProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The status level
    */
@@ -43,7 +44,10 @@ export interface StatusIndicatorProps extends React.HTMLAttributes<HTMLDivElemen
  * - Accessible with proper ARIA attributes
  * - Compositional design for dashboards
  */
-export const StatusIndicator = React.forwardRef<HTMLDivElement, StatusIndicatorProps>(
+export const StatusIndicator = React.forwardRef<
+  HTMLDivElement,
+  StatusIndicatorProps
+>(
   (
     {
       status,
@@ -94,7 +98,9 @@ export const StatusIndicator = React.forwardRef<HTMLDivElement, StatusIndicatorP
           role="status"
           aria-label={`Status: ${displayStatus}`}
         />
-        {label && <span className="freeui-status-indicator-label">{label}</span>}
+        {label && (
+          <span className="freeui-status-indicator-label">{label}</span>
+        )}
         {showStatus && (
           <span className="freeui-status-indicator-text">{displayStatus}</span>
         )}

@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { ToggleGroup, Stack, Inline, Card, Text, Heading } from "@rockminster/react";
+import {
+  ToggleGroup,
+  Stack,
+  Inline,
+  Card,
+  Text,
+  Heading,
+} from "@rockminster/react";
 
 const meta: Meta<typeof ToggleGroup> = {
   title: "Form/ToggleGroup",
@@ -148,7 +155,8 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Toggle groups in different sizes for various dashboard contexts.",
+        story:
+          "Toggle groups in different sizes for various dashboard contexts.",
       },
     },
   },
@@ -156,7 +164,10 @@ export const Sizes: Story = {
 
 export const MetricsDashboardExample: Story = {
   render: function MetricsDashboardExample() {
-    const [activeMetrics, setActiveMetrics] = React.useState<string[]>(["cpu", "memory"]);
+    const [activeMetrics, setActiveMetrics] = React.useState<string[]>([
+      "cpu",
+      "memory",
+    ]);
     const [timeRange, setTimeRange] = React.useState<string>("1h");
     const [chartType, setChartType] = React.useState<string>("line");
 
@@ -166,7 +177,7 @@ export const MetricsDashboardExample: Story = {
           <Heading level={3} size="sm">
             Metrics Dashboard Controls
           </Heading>
-          
+
           <Stack gap="md">
             <ToggleGroup
               options={metricOptions}
@@ -175,7 +186,7 @@ export const MetricsDashboardExample: Story = {
               label="Select Metrics to Display"
               onChange={(value) => setActiveMetrics(value as string[])}
             />
-            
+
             <Inline gap="lg" wrap>
               <ToggleGroup
                 options={timeOptions}
@@ -184,7 +195,7 @@ export const MetricsDashboardExample: Story = {
                 size="sm"
                 onChange={(value) => setTimeRange(value as string)}
               />
-              
+
               <ToggleGroup
                 options={chartTypeOptions}
                 singleValue={chartType}
@@ -195,19 +206,20 @@ export const MetricsDashboardExample: Story = {
               />
             </Inline>
           </Stack>
-          
-          <Card padding="md" style={{ backgroundColor: "var(--freeui-color-neutral-50)" }}>
+
+          <Card
+            padding="md"
+            style={{ backgroundColor: "var(--freeui-color-neutral-50)" }}
+          >
             <Stack gap="xs">
-              <Text size="sm" weight="semibold">Current Selection:</Text>
+              <Text size="sm" weight="semibold">
+                Current Selection:
+              </Text>
               <Text size="sm">
                 Metrics: {activeMetrics.join(", ") || "None"}
               </Text>
-              <Text size="sm">
-                Time Range: {timeRange}
-              </Text>
-              <Text size="sm">
-                Chart Type: {chartType}
-              </Text>
+              <Text size="sm">Time Range: {timeRange}</Text>
+              <Text size="sm">Chart Type: {chartType}</Text>
             </Stack>
           </Card>
         </Stack>
@@ -217,7 +229,8 @@ export const MetricsDashboardExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Interactive example showing how ToggleGroup components work together in a metrics dashboard control panel.",
+        story:
+          "Interactive example showing how ToggleGroup components work together in a metrics dashboard control panel.",
       },
     },
   },
@@ -225,7 +238,10 @@ export const MetricsDashboardExample: Story = {
 
 export const AlertingConfiguration: Story = {
   render: function AlertingConfiguration() {
-    const [enabledAlerts, setEnabledAlerts] = React.useState<string[]>(["high_cpu", "low_memory"]);
+    const [enabledAlerts, setEnabledAlerts] = React.useState<string[]>([
+      "high_cpu",
+      "low_memory",
+    ]);
     const [severity, setSeverity] = React.useState<string>("warning");
 
     const alertOptions = [
@@ -248,7 +264,7 @@ export const AlertingConfiguration: Story = {
           <Heading level={3} size="sm">
             Alert Configuration
           </Heading>
-          
+
           <ToggleGroup
             options={alertOptions}
             value={enabledAlerts}
@@ -256,7 +272,7 @@ export const AlertingConfiguration: Story = {
             label="Enabled Alert Types"
             onChange={(value) => setEnabledAlerts(value as string[])}
           />
-          
+
           <ToggleGroup
             options={severityOptions}
             singleValue={severity}
@@ -264,8 +280,11 @@ export const AlertingConfiguration: Story = {
             variant="outline"
             onChange={(value) => setSeverity(value as string)}
           />
-          
-          <Card padding="sm" style={{ backgroundColor: "var(--freeui-color-neutral-25)" }}>
+
+          <Card
+            padding="sm"
+            style={{ backgroundColor: "var(--freeui-color-neutral-25)" }}
+          >
             <Text size="sm">
               <strong>{enabledAlerts.length}</strong> alert type(s) enabled at{" "}
               <strong>{severity}</strong> level or higher
@@ -278,7 +297,8 @@ export const AlertingConfiguration: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example of using ToggleGroup for alert and monitoring configuration in an observability system.",
+        story:
+          "Example of using ToggleGroup for alert and monitoring configuration in an observability system.",
       },
     },
   },

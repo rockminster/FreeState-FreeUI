@@ -63,7 +63,9 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
     },
     ref
   ) => {
-    const percentage = indeterminate ? 0 : Math.min(Math.max((value / max) * 100, 0), 100);
+    const percentage = indeterminate
+      ? 0
+      : Math.min(Math.max((value / max) * 100, 0), 100);
 
     return (
       <div

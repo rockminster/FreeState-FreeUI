@@ -64,15 +64,15 @@ export const AllVariants: Story = {
       <Alert variant="info" title="Information">
         System maintenance scheduled for tonight at 2 AM UTC.
       </Alert>
-      
+
       <Alert variant="success" title="Success">
         All services are operating normally. System health is optimal.
       </Alert>
-      
+
       <Alert variant="warning" title="Warning">
         CPU usage is approaching 80%. Consider scaling resources.
       </Alert>
-      
+
       <Alert variant="danger" title="Critical Error">
         Database connection failed. Immediate attention required.
       </Alert>
@@ -81,7 +81,8 @@ export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: "All available alert variants showing different severity levels for various system conditions.",
+        story:
+          "All available alert variants showing different severity levels for various system conditions.",
       },
     },
   },
@@ -90,13 +91,28 @@ export const AllVariants: Story = {
 export const Dismissible: Story = {
   render: function Dismissible() {
     const [alerts, setAlerts] = React.useState([
-      { id: 1, variant: "warning" as const, title: "High Memory Usage", message: "Memory usage at 85%" },
-      { id: 2, variant: "danger" as const, title: "Service Outage", message: "API gateway is down" },
-      { id: 3, variant: "info" as const, title: "Maintenance", message: "Scheduled maintenance in 1 hour" },
+      {
+        id: 1,
+        variant: "warning" as const,
+        title: "High Memory Usage",
+        message: "Memory usage at 85%",
+      },
+      {
+        id: 2,
+        variant: "danger" as const,
+        title: "Service Outage",
+        message: "API gateway is down",
+      },
+      {
+        id: 3,
+        variant: "info" as const,
+        title: "Maintenance",
+        message: "Scheduled maintenance in 1 hour",
+      },
     ]);
 
     const dismissAlert = (id: number) => {
-      setAlerts(alerts.filter(alert => alert.id !== id));
+      setAlerts(alerts.filter((alert) => alert.id !== id));
     };
 
     return (
@@ -121,7 +137,8 @@ export const Dismissible: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Dismissible alerts that can be closed by the user, useful for temporary notifications.",
+        story:
+          "Dismissible alerts that can be closed by the user, useful for temporary notifications.",
       },
     },
   },
@@ -133,11 +150,11 @@ export const Sizes: Story = {
       <Alert variant="info" size="sm" title="Small Alert">
         Compact alert for minimal space.
       </Alert>
-      
+
       <Alert variant="warning" size="md" title="Medium Alert">
         Standard alert size for most use cases.
       </Alert>
-      
+
       <Alert variant="danger" size="lg" title="Large Alert">
         Prominent alert for critical messages that need attention.
       </Alert>
@@ -146,7 +163,8 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Alert components in different sizes for various dashboard contexts and importance levels.",
+        story:
+          "Alert components in different sizes for various dashboard contexts and importance levels.",
       },
     },
   },
@@ -159,19 +177,33 @@ export const WithIcons: Story = {
         variant="success"
         title="Backup Complete"
         icon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <polyline points="20,6 9,17 4,12"></polyline>
           </svg>
         }
       >
         Database backup completed successfully at 3:45 AM.
       </Alert>
-      
+
       <Alert
         variant="warning"
         title="Resource Alert"
         icon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
             <path d="M12 9v4"></path>
             <path d="m12 17 .01 0"></path>
@@ -185,7 +217,8 @@ export const WithIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Alerts with custom icons to enhance visual communication of the message type.",
+        story:
+          "Alerts with custom icons to enhance visual communication of the message type.",
       },
     },
   },
@@ -199,33 +232,34 @@ export const MonitoringDashboard: Story = {
         variant: "danger" as const,
         title: "Critical: Database Connection",
         message: "Primary database connection lost. Failover initiated.",
-        timestamp: "2 minutes ago"
+        timestamp: "2 minutes ago",
       },
       {
         id: 2,
         variant: "warning" as const,
         title: "High CPU Usage",
         message: "CPU usage at 89% on server prod-web-01",
-        timestamp: "5 minutes ago"
+        timestamp: "5 minutes ago",
       },
       {
         id: 3,
         variant: "warning" as const,
         title: "Memory Usage Alert",
         message: "Memory usage approaching limit on multiple instances",
-        timestamp: "8 minutes ago"
+        timestamp: "8 minutes ago",
       },
       {
         id: 4,
         variant: "success" as const,
         title: "Service Restored",
-        message: "Authentication service has been restored and is operating normally",
-        timestamp: "15 minutes ago"
-      }
+        message:
+          "Authentication service has been restored and is operating normally",
+        timestamp: "15 minutes ago",
+      },
     ]);
 
     const dismissAlert = (id: number) => {
-      setAlerts(alerts.filter(alert => alert.id !== id));
+      setAlerts(alerts.filter((alert) => alert.id !== id));
     };
 
     return (
@@ -233,7 +267,7 @@ export const MonitoringDashboard: Story = {
         <Heading level={3} size="sm">
           System Alerts & Notifications
         </Heading>
-        
+
         <Card padding="md">
           <Stack gap="sm">
             {alerts.length === 0 ? (
@@ -249,20 +283,18 @@ export const MonitoringDashboard: Story = {
                 >
                   <Stack gap="xs">
                     <Text>{alert.message}</Text>
-                    <Text size="sm" color="subdued">{alert.timestamp}</Text>
+                    <Text size="sm" color="subdued">
+                      {alert.timestamp}
+                    </Text>
                   </Stack>
                 </Alert>
               ))
             )}
           </Stack>
         </Card>
-        
+
         {alerts.length > 0 && (
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={() => setAlerts([])}
-          >
+          <Button variant="outline" size="sm" onClick={() => setAlerts([])}>
             Dismiss All Alerts
           </Button>
         )}
@@ -272,7 +304,8 @@ export const MonitoringDashboard: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example of using Alert components in a monitoring dashboard to show system alerts with timestamps and dismissal functionality.",
+        story:
+          "Example of using Alert components in a monitoring dashboard to show system alerts with timestamps and dismissal functionality.",
       },
     },
   },

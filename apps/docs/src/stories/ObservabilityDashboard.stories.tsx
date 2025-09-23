@@ -104,11 +104,36 @@ const logLevelOptions = [
 ];
 
 const mockLogs = [
-  { timestamp: "2024-01-20 14:32:15", level: "ERROR", service: "auth", message: "Failed authentication attempt from 192.168.1.100" },
-  { timestamp: "2024-01-20 14:31:42", level: "WARN", service: "api", message: "High response time detected: 2.3s" },
-  { timestamp: "2024-01-20 14:30:18", level: "INFO", service: "db", message: "Connection pool resized to 50 connections" },
-  { timestamp: "2024-01-20 14:29:55", level: "ERROR", service: "cache", message: "Redis connection timeout" },
-  { timestamp: "2024-01-20 14:29:12", level: "INFO", service: "api", message: "Health check completed successfully" },
+  {
+    timestamp: "2024-01-20 14:32:15",
+    level: "ERROR",
+    service: "auth",
+    message: "Failed authentication attempt from 192.168.1.100",
+  },
+  {
+    timestamp: "2024-01-20 14:31:42",
+    level: "WARN",
+    service: "api",
+    message: "High response time detected: 2.3s",
+  },
+  {
+    timestamp: "2024-01-20 14:30:18",
+    level: "INFO",
+    service: "db",
+    message: "Connection pool resized to 50 connections",
+  },
+  {
+    timestamp: "2024-01-20 14:29:55",
+    level: "ERROR",
+    service: "cache",
+    message: "Redis connection timeout",
+  },
+  {
+    timestamp: "2024-01-20 14:29:12",
+    level: "INFO",
+    service: "api",
+    message: "Health check completed successfully",
+  },
 ];
 
 const mockAlerts = [
@@ -116,28 +141,35 @@ const mockAlerts = [
     id: 1,
     variant: "danger" as const,
     title: "Critical: Cache Service Down",
-    message: "Redis cache cluster is unresponsive. Application performance degraded.",
-    timestamp: "2 minutes ago"
+    message:
+      "Redis cache cluster is unresponsive. Application performance degraded.",
+    timestamp: "2 minutes ago",
   },
   {
     id: 2,
     variant: "warning" as const,
     title: "High Database Response Time",
     message: "Average query response time exceeded 1.5s threshold",
-    timestamp: "8 minutes ago"
-  }
+    timestamp: "8 minutes ago",
+  },
 ];
 
 export const ComprehensiveObservabilityDashboard: Story = {
   render: function ComprehensiveObservabilityDashboard() {
-    const [selectedMetrics, setSelectedMetrics] = React.useState<string[]>(["cpu", "memory"]);
+    const [selectedMetrics, setSelectedMetrics] = React.useState<string[]>([
+      "cpu",
+      "memory",
+    ]);
     const [timeRange, setTimeRange] = React.useState<string>("1h");
-    const [logLevels, setLogLevels] = React.useState<string[]>(["error", "warn"]);
+    const [logLevels, setLogLevels] = React.useState<string[]>([
+      "error",
+      "warn",
+    ]);
     const [autoRefresh, setAutoRefresh] = React.useState(true);
     const [alerts, setAlerts] = React.useState(mockAlerts);
 
     const dismissAlert = (id: number) => {
-      setAlerts(alerts.filter(alert => alert.id !== id));
+      setAlerts(alerts.filter((alert) => alert.id !== id));
     };
 
     return (
@@ -156,7 +188,8 @@ export const ComprehensiveObservabilityDashboard: Story = {
                 System Observability Dashboard
               </Heading>
               <Text color="subdued">
-                Real-time monitoring, metrics, and alerting for your infrastructure
+                Real-time monitoring, metrics, and alerting for your
+                infrastructure
               </Text>
             </Stack>
             <Inline gap="sm">
@@ -200,7 +233,9 @@ export const ComprehensiveObservabilityDashboard: Story = {
                   >
                     <Stack gap="xs">
                       <Text>{alert.message}</Text>
-                      <Text size="sm" color="subdued">{alert.timestamp}</Text>
+                      <Text size="sm" color="subdued">
+                        {alert.timestamp}
+                      </Text>
                     </Stack>
                   </Alert>
                 ))}
@@ -214,7 +249,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
               <Heading level={3} size="sm">
                 Dashboard Configuration
               </Heading>
-              
+
               <Inline gap="lg" wrap>
                 <ToggleGroup
                   options={metricOptions}
@@ -223,7 +258,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                   label="Active Metrics"
                   onChange={(value) => setSelectedMetrics(value as string[])}
                 />
-                
+
                 <Select
                   options={timeRangeOptions}
                   value={timeRange}
@@ -248,10 +283,14 @@ export const ComprehensiveObservabilityDashboard: Story = {
                 <Heading level={3} size="sm">
                   Service Health
                 </Heading>
-                
+
                 <Stack gap="sm">
                   {systemServices.map((service) => (
-                    <Inline key={service.name} justify="space-between" align="center">
+                    <Inline
+                      key={service.name}
+                      justify="space-between"
+                      align="center"
+                    >
                       <Stack gap="xs">
                         <Text weight="medium">{service.name}</Text>
                         <Text size="sm" color="subdued">
@@ -275,7 +314,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                 <Heading level={3} size="sm">
                   Resource Usage
                 </Heading>
-                
+
                 <Stack gap="sm">
                   <Progress
                     value={72}
@@ -311,7 +350,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                 <Heading level={3} size="sm">
                   Current Metrics
                 </Heading>
-                
+
                 <div
                   style={{
                     display: "grid",
@@ -327,7 +366,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                       Avg Response
                     </Text>
                   </Stack>
-                  
+
                   <Stack gap="xs" align="center">
                     <Text size="xl" weight="bold" color="accent">
                       2.4%
@@ -336,7 +375,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                       Error Rate
                     </Text>
                   </Stack>
-                  
+
                   <Stack gap="xs" align="center">
                     <Text size="xl" weight="bold" color="accent">
                       1,247
@@ -345,7 +384,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                       Requests/min
                     </Text>
                   </Stack>
-                  
+
                   <Stack gap="xs" align="center">
                     <Text size="xl" weight="bold" color="accent">
                       99.7%
@@ -374,7 +413,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                   onChange={(value) => setLogLevels(value as string[])}
                 />
               </Inline>
-              
+
               <div
                 style={{
                   maxHeight: "300px",
@@ -386,24 +425,41 @@ export const ComprehensiveObservabilityDashboard: Story = {
               >
                 <Stack gap="xs" style={{ padding: "12px" }}>
                   {mockLogs
-                    .filter(log => logLevels.includes(log.level.toLowerCase()))
+                    .filter((log) =>
+                      logLevels.includes(log.level.toLowerCase())
+                    )
                     .map((log, index) => (
-                      <Inline key={index} gap="sm" align="start" style={{ fontFamily: "monospace", fontSize: "13px" }}>
-                        <Text size="sm" color="subdued" style={{ minWidth: "130px" }}>
+                      <Inline
+                        key={index}
+                        gap="sm"
+                        align="start"
+                        style={{ fontFamily: "monospace", fontSize: "13px" }}
+                      >
+                        <Text
+                          size="sm"
+                          color="subdued"
+                          style={{ minWidth: "130px" }}
+                        >
                           {log.timestamp}
                         </Text>
                         <Badge
                           variant={
-                            log.level === "ERROR" ? "danger" :
-                            log.level === "WARN" ? "warning" :
-                            "default"
+                            log.level === "ERROR"
+                              ? "danger"
+                              : log.level === "WARN"
+                                ? "warning"
+                                : "default"
                           }
                           size="sm"
                           style={{ minWidth: "60px" }}
                         >
                           {log.level}
                         </Badge>
-                        <Text size="sm" weight="medium" style={{ minWidth: "80px" }}>
+                        <Text
+                          size="sm"
+                          weight="medium"
+                          style={{ minWidth: "80px" }}
+                        >
                           {log.service}
                         </Text>
                         <Text size="sm">{log.message}</Text>
@@ -420,7 +476,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
               <Heading level={3} size="sm">
                 Recent Events
               </Heading>
-              
+
               <div style={{ position: "relative", padding: "16px 0" }}>
                 <Timeline
                   orientation="vertical"
@@ -431,7 +487,7 @@ export const ComprehensiveObservabilityDashboard: Story = {
                     height: "200px",
                   }}
                 />
-                
+
                 <Stack gap="lg" style={{ paddingLeft: "50px" }}>
                   <div style={{ position: "relative" }}>
                     <div
@@ -442,16 +498,21 @@ export const ComprehensiveObservabilityDashboard: Story = {
                         width: "12px",
                         height: "12px",
                         borderRadius: "50%",
-                        backgroundColor: "var(--freeui-color-semantic-danger-500)",
+                        backgroundColor:
+                          "var(--freeui-color-semantic-danger-500)",
                       }}
                     />
                     <Stack gap="xs">
                       <Text weight="medium">Cache Service Failure</Text>
-                      <Text size="sm" color="subdued">2 minutes ago</Text>
-                      <Text size="sm">Redis cluster went offline, fallback to database</Text>
+                      <Text size="sm" color="subdued">
+                        2 minutes ago
+                      </Text>
+                      <Text size="sm">
+                        Redis cluster went offline, fallback to database
+                      </Text>
                     </Stack>
                   </div>
-                  
+
                   <div style={{ position: "relative" }}>
                     <div
                       style={{
@@ -461,16 +522,21 @@ export const ComprehensiveObservabilityDashboard: Story = {
                         width: "12px",
                         height: "12px",
                         borderRadius: "50%",
-                        backgroundColor: "var(--freeui-color-semantic-warning-500)",
+                        backgroundColor:
+                          "var(--freeui-color-semantic-warning-500)",
                       }}
                     />
                     <Stack gap="xs">
                       <Text weight="medium">High Database Load</Text>
-                      <Text size="sm" color="subdued">8 minutes ago</Text>
-                      <Text size="sm">Query response time increased to 1.8s average</Text>
+                      <Text size="sm" color="subdued">
+                        8 minutes ago
+                      </Text>
+                      <Text size="sm">
+                        Query response time increased to 1.8s average
+                      </Text>
                     </Stack>
                   </div>
-                  
+
                   <div style={{ position: "relative" }}>
                     <div
                       style={{
@@ -480,13 +546,18 @@ export const ComprehensiveObservabilityDashboard: Story = {
                         width: "12px",
                         height: "12px",
                         borderRadius: "50%",
-                        backgroundColor: "var(--freeui-color-semantic-success-500)",
+                        backgroundColor:
+                          "var(--freeui-color-semantic-success-500)",
                       }}
                     />
                     <Stack gap="xs">
                       <Text weight="medium">Deployment Completed</Text>
-                      <Text size="sm" color="subdued">25 minutes ago</Text>
-                      <Text size="sm">API v2.1.3 deployed successfully to production</Text>
+                      <Text size="sm" color="subdued">
+                        25 minutes ago
+                      </Text>
+                      <Text size="sm">
+                        API v2.1.3 deployed successfully to production
+                      </Text>
                     </Stack>
                   </div>
                 </Stack>

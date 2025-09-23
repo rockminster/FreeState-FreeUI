@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Progress, Stack, Inline, Card, Text, Heading } from "@rockminster/react";
+import {
+  Progress,
+  Stack,
+  Inline,
+  Card,
+  Text,
+  Heading,
+} from "@rockminster/react";
 
 const meta: Meta<typeof Progress> = {
   title: "Display/Progress",
@@ -85,7 +92,8 @@ export const Variants: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Different progress variants for various metric thresholds and alert levels.",
+        story:
+          "Different progress variants for various metric thresholds and alert levels.",
       },
     },
   },
@@ -102,7 +110,8 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Progress bars in different sizes for various dashboard contexts.",
+        story:
+          "Progress bars in different sizes for various dashboard contexts.",
       },
     },
   },
@@ -119,7 +128,8 @@ export const Indeterminate: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Indeterminate progress bars for loading states and ongoing operations.",
+        story:
+          "Indeterminate progress bars for loading states and ongoing operations.",
       },
     },
   },
@@ -131,7 +141,7 @@ export const SystemMetricsDashboard: Story = {
       <Heading level={3} size="sm">
         System Resources
       </Heading>
-      
+
       <Card padding="md">
         <Stack gap="md">
           <Progress
@@ -164,26 +174,32 @@ export const SystemMetricsDashboard: Story = {
           />
         </Stack>
       </Card>
-      
+
       <Card padding="md">
         <Stack gap="md">
           <Heading level={4} size="xs">
             Application Health
           </Heading>
-          
+
           <Inline gap="md" wrap>
             <Stack gap="xs" style={{ minWidth: "120px" }}>
-              <Text size="sm" color="subdued">API Response</Text>
+              <Text size="sm" color="subdued">
+                API Response
+              </Text>
               <Progress value={92} variant="success" size="sm" showValue />
             </Stack>
-            
+
             <Stack gap="xs" style={{ minWidth: "120px" }}>
-              <Text size="sm" color="subdued">Database</Text>
+              <Text size="sm" color="subdued">
+                Database
+              </Text>
               <Progress value={78} variant="warning" size="sm" showValue />
             </Stack>
-            
+
             <Stack gap="xs" style={{ minWidth: "120px" }}>
-              <Text size="sm" color="subdued">Cache Hit Rate</Text>
+              <Text size="sm" color="subdued">
+                Cache Hit Rate
+              </Text>
               <Progress value={96} variant="success" size="sm" showValue />
             </Stack>
           </Inline>
@@ -194,7 +210,8 @@ export const SystemMetricsDashboard: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example of using Progress components in a system monitoring dashboard to show various metrics and their health status.",
+        story:
+          "Example of using Progress components in a system monitoring dashboard to show various metrics and their health status.",
       },
     },
   },

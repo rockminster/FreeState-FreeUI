@@ -142,7 +142,7 @@ export const MetricsDashboardExample: Story = {
         <Heading level={3} size="sm">
           Dashboard Configuration
         </Heading>
-        
+
         <Select
           options={metricOptions}
           label="Primary Metric"
@@ -150,7 +150,7 @@ export const MetricsDashboardExample: Story = {
           placeholder="Choose primary metric..."
           defaultValue="cpu"
         />
-        
+
         <Select
           options={timeRangeOptions}
           label="Time Range"
@@ -158,7 +158,7 @@ export const MetricsDashboardExample: Story = {
           placeholder="Select time range..."
           defaultValue="1h"
         />
-        
+
         <Inline gap="sm">
           <Select
             options={[
@@ -170,7 +170,7 @@ export const MetricsDashboardExample: Story = {
             size="sm"
             defaultValue="line"
           />
-          
+
           <Select
             options={[
               { value: "auto", label: "Auto Refresh" },
@@ -189,7 +189,8 @@ export const MetricsDashboardExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example of using Select components in an observability dashboard configuration panel.",
+        story:
+          "Example of using Select components in an observability dashboard configuration panel.",
       },
     },
   },
