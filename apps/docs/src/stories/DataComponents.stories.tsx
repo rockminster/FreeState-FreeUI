@@ -178,16 +178,16 @@ This example shows how to combine Timeline, ActivityList, and ActivityItem compo
   },
 };
 
-export const FilteringInterface: Story = {
-  render: () => {
-    const [filters, setFilters] = React.useState({
-      user: "",
-      dateFrom: "",
-      dateTo: "",
-      eventType: ""
-    });
+// Component for the filtering interface demo
+const FilteringInterfaceDemo = () => {
+  const [filters, setFilters] = React.useState({
+    user: "",
+    dateFrom: "",
+    dateTo: "",
+    eventType: ""
+  });
 
-    return (
+  return (
       <div style={{ padding: "24px", backgroundColor: "var(--freeui-color-neutral-50)" }}>
         <Stack gap="lg">
           <FilterPanel
@@ -286,7 +286,10 @@ export const FilteringInterface: Story = {
         </Stack>
       </div>
     );
-  },
+};
+
+export const FilteringInterface: Story = {
+  render: () => <FilteringInterfaceDemo />,
   parameters: {
     docs: {
       description: {
