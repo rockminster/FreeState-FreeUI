@@ -59,7 +59,7 @@ export interface ToggleGroupProps extends Omit<React.HTMLAttributes<HTMLDivEleme
  *
  * Features:
  * - Single or multi-select modes
- * - Keyboard navigation support
+ * - Native keyboard navigation support (Enter/Space via button)
  * - Accessible with proper ARIA attributes
  * - Multiple sizes and variants
  * - Compositional design for metric selection
@@ -94,13 +94,6 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
       } else {
         const newValue = activeValue.includes(optionValue) ? "" : optionValue;
         onChange?.(newValue);
-      }
-    };
-
-    const handleKeyDown = (event: React.KeyboardEvent, optionValue: string) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        handleToggle(optionValue);
       }
     };
 
@@ -144,7 +137,6 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
                 )}
                 disabled={isDisabled}
                 onClick={() => handleToggle(option.value)}
-                onKeyDown={(e) => handleKeyDown(e, option.value)}
                 aria-pressed={isActive}
                 aria-disabled={isDisabled}
               >
