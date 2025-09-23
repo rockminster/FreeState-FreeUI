@@ -1,47 +1,48 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface ActivityItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ActivityItemProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Primary title/action of the activity
    */
   title: string;
-  
+
   /**
    * Description or details of the activity
    */
   description?: string;
-  
+
   /**
    * Timestamp of the activity
    */
   timestamp?: string;
-  
+
   /**
    * User or actor who performed the activity
    */
   actor?: string;
-  
+
   /**
    * Visual indicator (icon, avatar, etc.)
    */
   indicator?: React.ReactNode;
-  
+
   /**
    * Activity status/type
    */
   status?: "default" | "success" | "warning" | "error" | "info";
-  
+
   /**
    * Additional metadata or badges
    */
   metadata?: React.ReactNode;
-  
+
   /**
    * Whether the item is clickable
    */
   clickable?: boolean;
-  
+
   /**
    * Click handler
    */
@@ -50,7 +51,7 @@ export interface ActivityItemProps extends React.HTMLAttributes<HTMLDivElement> 
 
 /**
  * ActivityItem component for displaying individual activities or events
- * 
+ *
  * Features:
  * - Flexible content structure (title, description, timestamp, actor)
  * - Visual status indicators
@@ -60,19 +61,22 @@ export interface ActivityItemProps extends React.HTMLAttributes<HTMLDivElement> 
  * - Accessible structure with proper semantics
  */
 export const ActivityItem = React.forwardRef<HTMLDivElement, ActivityItemProps>(
-  ({ 
-    title, 
-    description, 
-    timestamp, 
-    actor, 
-    indicator, 
-    status = "default", 
-    metadata,
-    clickable = false,
-    onClick,
-    className, 
-    ...props 
-  }, ref) => {
+  (
+    {
+      title,
+      description,
+      timestamp,
+      actor,
+      indicator,
+      status = "default",
+      metadata,
+      clickable = false,
+      onClick,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     if (clickable) {
       return (
         <button
@@ -88,30 +92,32 @@ export const ActivityItem = React.forwardRef<HTMLDivElement, ActivityItemProps>(
           {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
         >
           {indicator && (
-            <div className="freeui-activity-item__indicator">
-              {indicator}
-            </div>
+            <div className="freeui-activity-item__indicator">{indicator}</div>
           )}
-          
+
           <div className="freeui-activity-item__content">
             <div className="freeui-activity-item__header">
               <div className="freeui-activity-item__main">
                 <h3 className="freeui-activity-item__title">{title}</h3>
                 {description && (
-                  <p className="freeui-activity-item__description">{description}</p>
+                  <p className="freeui-activity-item__description">
+                    {description}
+                  </p>
                 )}
               </div>
-              
+
               <div className="freeui-activity-item__meta">
                 {actor && (
                   <div className="freeui-activity-item__actor">{actor}</div>
                 )}
                 {timestamp && (
-                  <time className="freeui-activity-item__timestamp">{timestamp}</time>
+                  <time className="freeui-activity-item__timestamp">
+                    {timestamp}
+                  </time>
                 )}
               </div>
             </div>
-            
+
             {metadata && (
               <div className="freeui-activity-item__metadata">{metadata}</div>
             )}
@@ -119,7 +125,7 @@ export const ActivityItem = React.forwardRef<HTMLDivElement, ActivityItemProps>(
         </button>
       );
     }
-    
+
     return (
       <div
         ref={ref}
@@ -131,30 +137,32 @@ export const ActivityItem = React.forwardRef<HTMLDivElement, ActivityItemProps>(
         {...props}
       >
         {indicator && (
-          <div className="freeui-activity-item__indicator">
-            {indicator}
-          </div>
+          <div className="freeui-activity-item__indicator">{indicator}</div>
         )}
-        
+
         <div className="freeui-activity-item__content">
           <div className="freeui-activity-item__header">
             <div className="freeui-activity-item__main">
               <h3 className="freeui-activity-item__title">{title}</h3>
               {description && (
-                <p className="freeui-activity-item__description">{description}</p>
+                <p className="freeui-activity-item__description">
+                  {description}
+                </p>
               )}
             </div>
-            
+
             <div className="freeui-activity-item__meta">
               {actor && (
                 <div className="freeui-activity-item__actor">{actor}</div>
               )}
               {timestamp && (
-                <time className="freeui-activity-item__timestamp">{timestamp}</time>
+                <time className="freeui-activity-item__timestamp">
+                  {timestamp}
+                </time>
               )}
             </div>
           </div>
-          
+
           {metadata && (
             <div className="freeui-activity-item__metadata">{metadata}</div>
           )}
@@ -166,27 +174,28 @@ export const ActivityItem = React.forwardRef<HTMLDivElement, ActivityItemProps>(
 
 ActivityItem.displayName = "ActivityItem";
 
-export interface ActivityListProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ActivityListProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Activity items
    */
   children: React.ReactNode;
-  
+
   /**
    * Whether to show dividers between items
    */
   dividers?: boolean;
-  
+
   /**
    * Loading state
    */
   loading?: boolean;
-  
+
   /**
    * Empty state content
    */
   emptyState?: React.ReactNode;
-  
+
   /**
    * Error state content
    */
@@ -195,7 +204,7 @@ export interface ActivityListProps extends React.HTMLAttributes<HTMLDivElement> 
 
 /**
  * ActivityList component for displaying a list of activities
- * 
+ *
  * Features:
  * - Container for ActivityItem components
  * - Optional dividers between items
@@ -204,20 +213,27 @@ export interface ActivityListProps extends React.HTMLAttributes<HTMLDivElement> 
  * - Responsive design
  */
 export const ActivityList = React.forwardRef<HTMLDivElement, ActivityListProps>(
-  ({ 
-    children, 
-    dividers = false, 
-    loading = false, 
-    emptyState, 
-    errorState, 
-    className, 
-    ...props 
-  }, ref) => {
+  (
+    {
+      children,
+      dividers = false,
+      loading = false,
+      emptyState,
+      errorState,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     if (loading) {
       return (
-        <div 
-          ref={ref} 
-          className={clsx("freeui-activity-list", "freeui-activity-list--loading", className)}
+        <div
+          ref={ref}
+          className={clsx(
+            "freeui-activity-list",
+            "freeui-activity-list--loading",
+            className
+          )}
           {...props}
         >
           <div className="freeui-activity-list__loading">
@@ -227,38 +243,42 @@ export const ActivityList = React.forwardRef<HTMLDivElement, ActivityListProps>(
         </div>
       );
     }
-    
+
     if (errorState) {
       return (
-        <div 
-          ref={ref} 
-          className={clsx("freeui-activity-list", "freeui-activity-list--error", className)}
+        <div
+          ref={ref}
+          className={clsx(
+            "freeui-activity-list",
+            "freeui-activity-list--error",
+            className
+          )}
           {...props}
         >
-          <div className="freeui-activity-list__error">
-            {errorState}
-          </div>
+          <div className="freeui-activity-list__error">{errorState}</div>
         </div>
       );
     }
-    
+
     // Check if children is an empty array or has no valid children
     const hasChildren = React.Children.count(children) > 0;
-    
+
     if (!hasChildren && emptyState) {
       return (
-        <div 
-          ref={ref} 
-          className={clsx("freeui-activity-list", "freeui-activity-list--empty", className)}
+        <div
+          ref={ref}
+          className={clsx(
+            "freeui-activity-list",
+            "freeui-activity-list--empty",
+            className
+          )}
           {...props}
         >
-          <div className="freeui-activity-list__empty">
-            {emptyState}
-          </div>
+          <div className="freeui-activity-list__empty">{emptyState}</div>
         </div>
       );
     }
-    
+
     return (
       <div
         ref={ref}

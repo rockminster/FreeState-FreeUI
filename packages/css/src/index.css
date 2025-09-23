@@ -1262,7 +1262,7 @@ h6 {
 }
 
 .freeui-filter-group__toggle-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1273,7 +1273,7 @@ h6 {
 }
 
 .freeui-filter-group--collapsed .freeui-filter-group__toggle-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1533,13 +1533,13 @@ h6 {
   .freeui-filter-group__content {
     grid-template-columns: 1fr;
   }
-  
+
   .freeui-activity-item__header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--freeui-spacing-2);
   }
-  
+
   .freeui-activity-item__meta {
     text-align: left;
     flex-direction: row;

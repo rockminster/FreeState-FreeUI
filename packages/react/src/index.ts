@@ -31,7 +31,17 @@ export type {
 } from "./display";
 
 // Data components for structured information display
-export { Timeline, TimelineItem, FilterPanel, FilterGroup, FilterField, ExportMenu, ExportButton, ActivityList, ActivityItem } from "./data";
+export {
+  Timeline,
+  TimelineItem,
+  FilterPanel,
+  FilterGroup,
+  FilterField,
+  ExportMenu,
+  ExportButton,
+  ActivityList,
+  ActivityItem,
+} from "./data";
 export type {
   TimelineProps,
   TimelineItemProps,

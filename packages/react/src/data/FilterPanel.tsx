@@ -6,12 +6,12 @@ export interface FilterFieldProps {
    * Field label
    */
   label: string;
-  
+
   /**
    * Field content (input, select, etc.)
    */
   children: React.ReactNode;
-  
+
   /**
    * Whether the field is required
    */
@@ -27,13 +27,13 @@ export const FilterField = React.forwardRef<HTMLDivElement, FilterFieldProps>(
     const fieldId = `filter-field-${generatedId}`;
 
     // Clone children to add the id for label association
-    const childrenWithId = React.isValidElement(children) 
+    const childrenWithId = React.isValidElement(children)
       ? (() => {
           const childElement = children as React.ReactElement;
-          return React.cloneElement(childElement, { 
+          return React.cloneElement(childElement, {
             id: fieldId,
-            'aria-required': required ? 'true' : undefined,
-            ...(childElement.props || {})
+            "aria-required": required ? "true" : undefined,
+            ...(childElement.props || {}),
           });
         })()
       : children;
@@ -57,17 +57,17 @@ export interface FilterGroupProps extends React.HTMLAttributes<HTMLDivElement> {
    * Group title
    */
   title?: string;
-  
+
   /**
    * Filter fields
    */
   children: React.ReactNode;
-  
+
   /**
    * Whether the group is collapsible
    */
   collapsible?: boolean;
-  
+
   /**
    * Whether the group is initially collapsed
    */
@@ -78,14 +78,17 @@ export interface FilterGroupProps extends React.HTMLAttributes<HTMLDivElement> {
  * FilterGroup component for organizing related filters
  */
 export const FilterGroup = React.forwardRef<HTMLDivElement, FilterGroupProps>(
-  ({ 
-    title, 
-    children, 
-    collapsible = false, 
-    defaultCollapsed = false, 
-    className, 
-    ...props 
-  }, ref) => {
+  (
+    {
+      title,
+      children,
+      collapsible = false,
+      defaultCollapsed = false,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
 
     return (
@@ -133,17 +136,17 @@ export interface FilterPanelProps extends React.HTMLAttributes<HTMLDivElement> {
    * Panel title
    */
   title?: string;
-  
+
   /**
    * Filter groups and fields
    */
   children: React.ReactNode;
-  
+
   /**
    * Action buttons (Apply, Clear, etc.)
    */
   actions?: React.ReactNode;
-  
+
   /**
    * Whether to show a border
    */
@@ -152,7 +155,7 @@ export interface FilterPanelProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * FilterPanel component for containing and organizing filters
- * 
+ *
  * Features:
  * - Organized structure for filter UI
  * - Support for grouping filters

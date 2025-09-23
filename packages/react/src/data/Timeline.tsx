@@ -1,22 +1,23 @@
 import React from "react";
 import { clsx } from "clsx";
 
-export interface TimelineItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TimelineItemProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The content of the timeline item
    */
   children: React.ReactNode;
-  
+
   /**
    * Icon or visual indicator for the timeline item
    */
   icon?: React.ReactNode;
-  
+
   /**
    * Whether this is the last item in the timeline
    */
   isLast?: boolean;
-  
+
   /**
    * Visual variant for different item types
    */
@@ -25,7 +26,7 @@ export interface TimelineItemProps extends React.HTMLAttributes<HTMLDivElement> 
 
 /**
  * TimelineItem component for displaying chronological events
- * 
+ *
  * Features:
  * - Visual timeline connector line
  * - Customizable icon/indicator
@@ -34,7 +35,17 @@ export interface TimelineItemProps extends React.HTMLAttributes<HTMLDivElement> 
  * - Composable with any content
  */
 export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ children, icon, isLast = false, variant = "default", className, ...props }, ref) => {
+  (
+    {
+      children,
+      icon,
+      isLast = false,
+      variant = "default",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -67,7 +78,7 @@ export interface TimelineProps extends React.HTMLAttributes<HTMLDivElement> {
    * Timeline items
    */
   children: React.ReactNode;
-  
+
   /**
    * Orientation of the timeline
    */
@@ -76,7 +87,7 @@ export interface TimelineProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /**
  * Timeline container component for displaying chronological content
- * 
+ *
  * Features:
  * - Vertical and horizontal orientations
  * - Accessible timeline structure

@@ -7,17 +7,17 @@ export interface ExportOption {
    * Option value
    */
   value: string;
-  
+
   /**
    * Display label
    */
   label: string;
-  
+
   /**
    * Optional description
    */
   description?: string;
-  
+
   /**
    * Whether this option is disabled
    */
@@ -29,22 +29,22 @@ export interface ExportMenuProps {
    * Available export options
    */
   options: ExportOption[];
-  
+
   /**
    * Callback when an option is selected
    */
   onExport: (value: string) => void;
-  
+
   /**
    * Whether the export is in progress
    */
   loading?: boolean;
-  
+
   /**
    * Custom trigger button
    */
   trigger?: React.ReactNode;
-  
+
   /**
    * Menu placement
    */
@@ -53,7 +53,7 @@ export interface ExportMenuProps {
 
 /**
  * ExportMenu component for selecting export formats
- * 
+ *
  * Features:
  * - Dropdown menu with export options
  * - Support for descriptions and disabled states
@@ -62,28 +62,35 @@ export interface ExportMenuProps {
  * - Accessible keyboard navigation
  */
 export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
-  ({ 
-    options, 
-    onExport, 
-    loading = false, 
-    trigger, 
-    placement = "bottom-start",
-    ...props 
-  }, ref) => {
+  (
+    {
+      options,
+      onExport,
+      loading = false,
+      trigger,
+      placement = "bottom-start",
+      ...props
+    },
+    ref
+  ) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const menuRef = React.useRef<HTMLDivElement>(null);
 
     // Close menu when clicking outside
     React.useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
-        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        if (
+          menuRef.current &&
+          !menuRef.current.contains(event.target as Node)
+        ) {
           setIsOpen(false);
         }
       };
 
       if (isOpen) {
         document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        return () =>
+          document.removeEventListener("mousedown", handleClickOutside);
       }
     }, [isOpen]);
 
@@ -111,16 +118,15 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
     };
 
     return (
-      <div 
-        ref={ref} 
-        className="freeui-export-menu" 
-        role="group"
-        {...props}
-      >
+      <div ref={ref} className="freeui-export-menu" role="group" {...props}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-        <div ref={menuRef} className="freeui-export-menu__container" onKeyDown={handleKeyDown}>
+        <div
+          ref={menuRef}
+          className="freeui-export-menu__container"
+          onKeyDown={handleKeyDown}
+        >
           {trigger ? (
-            <div 
+            <div
               onClick={() => !loading && setIsOpen(!isOpen)}
               onKeyDown={handleTriggerKeyDown}
               role="button"
@@ -141,9 +147,9 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
               {loading ? "Exporting..." : "Export"}
             </Button>
           )}
-          
+
           {isOpen && (
-            <div 
+            <div
               className={clsx(
                 "freeui-export-menu__dropdown",
                 `freeui-export-menu__dropdown--${placement}`
@@ -154,14 +160,14 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
                 <button
                   key={option.value}
                   type="button"
-                  className={clsx(
-                    "freeui-export-menu__option",
-                    {
-                      "freeui-export-menu__option--disabled": option.disabled || loading,
-                    }
-                  )}
+                  className={clsx("freeui-export-menu__option", {
+                    "freeui-export-menu__option--disabled":
+                      option.disabled || loading,
+                  })}
                   disabled={option.disabled || loading}
-                  onClick={() => handleOptionClick(option.value, option.disabled)}
+                  onClick={() =>
+                    handleOptionClick(option.value, option.disabled)
+                  }
                   role="menuitem"
                 >
                   <div className="freeui-export-menu__option-content">
@@ -191,32 +197,32 @@ export interface ExportButtonProps {
    * Export format or action
    */
   format: string;
-  
+
   /**
    * Callback when export is triggered
    */
   onExport: () => void;
-  
+
   /**
    * Whether the export is in progress
    */
   loading?: boolean;
-  
+
   /**
    * Button variant
    */
   variant?: "primary" | "secondary" | "outline" | "ghost";
-  
+
   /**
    * Button size
    */
   size?: "sm" | "md" | "lg";
-  
+
   /**
    * Custom label (defaults to "Export {format}")
    */
   label?: string;
-  
+
   /**
    * Icon to display
    */
@@ -225,26 +231,32 @@ export interface ExportButtonProps {
 
 /**
  * ExportButton component for single export actions
- * 
+ *
  * Features:
  * - Simple export button for single format
  * - Loading state support
  * - Customizable appearance
  * - Accessible button implementation
  */
-export const ExportButton = React.forwardRef<HTMLButtonElement, ExportButtonProps>(
-  ({ 
-    format, 
-    onExport, 
-    loading = false, 
-    variant = "outline", 
-    size = "md",
-    label,
-    icon,
-    ...props 
-  }, ref) => {
+export const ExportButton = React.forwardRef<
+  HTMLButtonElement,
+  ExportButtonProps
+>(
+  (
+    {
+      format,
+      onExport,
+      loading = false,
+      variant = "outline",
+      size = "md",
+      label,
+      icon,
+      ...props
+    },
+    ref
+  ) => {
     const buttonLabel = label || `Export ${format.toUpperCase()}`;
-    
+
     return (
       <Button
         ref={ref}
