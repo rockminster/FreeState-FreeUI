@@ -279,9 +279,7 @@ export const SubscriptionOverview: Story = {
                 <Heading level={2} size="md">
                   Current Plan
                 </Heading>
-                <Text color="subdued">
-                  You are currently on the Pro plan
-                </Text>
+                <Text color="subdued">You are currently on the Pro plan</Text>
               </Stack>
               <Badge variant="success" size="lg">
                 Pro Plan
@@ -337,7 +335,10 @@ export const SubscriptionOverview: Story = {
 
             <Stack gap="md">
               {currentUsage.map((metric, index) => {
-                const percentage = getUsagePercentage(metric.used, metric.limit);
+                const percentage = getUsagePercentage(
+                  metric.used,
+                  metric.limit
+                );
                 const isOverage = metric.used > metric.limit;
 
                 return (
@@ -346,7 +347,8 @@ export const SubscriptionOverview: Story = {
                       <Text weight="medium">{metric.name}</Text>
                       <Inline gap="xs" align="center">
                         <Text size="sm">
-                          {metric.used.toLocaleString()} / {metric.limit.toLocaleString()} {metric.unit}
+                          {metric.used.toLocaleString()} /{" "}
+                          {metric.limit.toLocaleString()} {metric.unit}
                         </Text>
                         {isOverage && (
                           <Badge variant="warning" size="sm">
@@ -373,8 +375,8 @@ export const SubscriptionOverview: Story = {
                           backgroundColor: isOverage
                             ? "var(--freeui-color-semantic-warning-500)"
                             : percentage > 80
-                            ? "var(--freeui-color-semantic-warning-500)"
-                            : "var(--freeui-color-brand-500)",
+                              ? "var(--freeui-color-semantic-warning-500)"
+                              : "var(--freeui-color-brand-500)",
                           borderRadius: "var(--freeui-border-radius-full)",
                           transition: "width 0.3s ease",
                         }}
@@ -383,8 +385,9 @@ export const SubscriptionOverview: Story = {
 
                     {metric.overage && metric.overagePrice && (
                       <Text size="sm" color="subdued">
-                        Overage: {metric.overage.toLocaleString()} {metric.unit} ×{" "}
-                        {formatCurrency(metric.overagePrice)} = {formatCurrency(metric.overage * metric.overagePrice)}
+                        Overage: {metric.overage.toLocaleString()} {metric.unit}{" "}
+                        × {formatCurrency(metric.overagePrice)} ={" "}
+                        {formatCurrency(metric.overage * metric.overagePrice)}
                       </Text>
                     )}
                   </Stack>
@@ -392,11 +395,13 @@ export const SubscriptionOverview: Story = {
               })}
             </Stack>
 
-            {currentUsage.some(m => m.overage) && (
+            {currentUsage.some((m) => m.overage) && (
               <Card
                 padding="md"
                 shadow="none"
-                style={{ backgroundColor: "var(--freeui-color-semantic-warning-50)" }}
+                style={{
+                  backgroundColor: "var(--freeui-color-semantic-warning-50)",
+                }}
               >
                 <Stack gap="sm">
                   <Inline gap="xs" align="center">
@@ -406,8 +411,12 @@ export const SubscriptionOverview: Story = {
                     <Badge variant="warning">
                       {formatCurrency(
                         currentUsage
-                          .filter(m => m.overage && m.overagePrice)
-                          .reduce((total, m) => total + ((m.overage ?? 0) * (m.overagePrice ?? 0)), 0)
+                          .filter((m) => m.overage && m.overagePrice)
+                          .reduce(
+                            (total, m) =>
+                              total + (m.overage ?? 0) * (m.overagePrice ?? 0),
+                            0
+                          )
                       )}
                     </Badge>
                   </Inline>
@@ -430,18 +439,10 @@ export const SubscriptionOverview: Story = {
 
         {/* Action Items */}
         <Inline gap="md" wrap>
-          <Button variant="outline">
-            Download Invoice
-          </Button>
-          <Button variant="outline">
-            Billing History
-          </Button>
-          <Button variant="outline">
-            Payment Methods
-          </Button>
-          <Button variant="primary">
-            Billing Settings
-          </Button>
+          <Button variant="outline">Download Invoice</Button>
+          <Button variant="outline">Billing History</Button>
+          <Button variant="outline">Payment Methods</Button>
+          <Button variant="primary">Billing Settings</Button>
         </Inline>
       </Stack>
     </div>
@@ -520,8 +521,8 @@ export const PlanComparison: Story = {
                 borderColor: plan.isCurrentPlan
                   ? "var(--freeui-color-brand-500)"
                   : plan.isPopular
-                  ? "var(--freeui-color-brand-200)"
-                  : "var(--freeui-color-neutral-200)",
+                    ? "var(--freeui-color-brand-200)"
+                    : "var(--freeui-color-neutral-200)",
                 position: "relative",
               }}
             >
@@ -554,9 +555,7 @@ export const PlanComparison: Story = {
                     <Text size="3xl" weight="bold">
                       {formatCurrency(plan.price)}
                     </Text>
-                    <Text color="subdued">
-                      /{plan.interval}
-                    </Text>
+                    <Text color="subdued">/{plan.interval}</Text>
                   </Inline>
                   {plan.price > 0 && (
                     <Text size="sm" color="subdued">
@@ -580,7 +579,8 @@ export const PlanComparison: Story = {
                             width: "16px",
                             height: "16px",
                             borderRadius: "50%",
-                            backgroundColor: "var(--freeui-color-semantic-success-500)",
+                            backgroundColor:
+                              "var(--freeui-color-semantic-success-500)",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -599,17 +599,23 @@ export const PlanComparison: Story = {
 
                 {/* Action Button */}
                 <Button
-                  variant={plan.isCurrentPlan ? "outline" : plan.isPopular ? "primary" : "outline"}
+                  variant={
+                    plan.isCurrentPlan
+                      ? "outline"
+                      : plan.isPopular
+                        ? "primary"
+                        : "outline"
+                  }
                   size="md"
                   style={{ width: "100%" }}
                 >
                   {plan.isCurrentPlan
                     ? "Current Plan"
                     : plan.price === 0
-                    ? "Downgrade to Free"
-                    : plan.price > 29
-                    ? "Upgrade"
-                    : "Get Started"}
+                      ? "Downgrade to Free"
+                      : plan.price > 29
+                        ? "Upgrade"
+                        : "Get Started"}
                 </Button>
               </Stack>
             </Card>
@@ -624,8 +630,8 @@ export const PlanComparison: Story = {
         >
           <Stack gap="sm" align="center">
             <Text size="sm" color="subdued">
-              All plans include 14-day free trial. No credit card required for Free plan.
-              Cancel anytime.
+              All plans include 14-day free trial. No credit card required for
+              Free plan. Cancel anytime.
             </Text>
             <Inline justify="center" gap="sm">
               <Button variant="ghost" size="sm">
@@ -728,7 +734,8 @@ export const BillingInformation: Story = {
               <Stack gap="xs">
                 <Text>{mockBillingInfo.address.street}</Text>
                 <Text>
-                  {mockBillingInfo.address.city}, {mockBillingInfo.address.state}{" "}
+                  {mockBillingInfo.address.city},{" "}
+                  {mockBillingInfo.address.state}{" "}
                   {mockBillingInfo.address.zipCode}
                 </Text>
                 <Text>{mockBillingInfo.address.country}</Text>
@@ -778,7 +785,8 @@ export const BillingInformation: Story = {
                         }}
                       >
                         <Text size="xs" weight="bold" color="subdued">
-                          {method.brand?.slice(0, 4).toUpperCase() || method.type.toUpperCase()}
+                          {method.brand?.slice(0, 4).toUpperCase() ||
+                            method.type.toUpperCase()}
                         </Text>
                       </div>
                       <Stack gap="xs">
@@ -849,7 +857,8 @@ export const BillingInformation: Story = {
                     <Stack gap="xs">
                       <Text weight="medium">{invoice.description}</Text>
                       <Text size="sm" color="subdued">
-                        {formatDate(invoice.date)} • Invoice #{invoice.id.toUpperCase()}
+                        {formatDate(invoice.date)} • Invoice #
+                        {invoice.id.toUpperCase()}
                       </Text>
                     </Stack>
 
@@ -859,12 +868,13 @@ export const BillingInformation: Story = {
                           invoice.status === "paid"
                             ? "success"
                             : invoice.status === "pending"
-                            ? "warning"
-                            : "error"
+                              ? "warning"
+                              : "error"
                         }
                         size="sm"
                       >
-                        {invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)}
+                        {invoice.status.charAt(0).toUpperCase() +
+                          invoice.status.slice(1)}
                       </Badge>
                       <Text weight="medium">
                         {formatCurrency(invoice.amount)}
