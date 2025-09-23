@@ -1133,22 +1133,26 @@ h6 {
 
 .freeui-timeline--dashed {
   background: none;
-  border-top: var(--freeui-timeline-border-width) dashed var(--freeui-color-neutral-200);
+  border-top: var(--freeui-timeline-border-width) dashed
+    var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--vertical.freeui-timeline--dashed {
   border-top: none;
-  border-left: var(--freeui-timeline-border-width) dashed var(--freeui-color-neutral-200);
+  border-left: var(--freeui-timeline-border-width) dashed
+    var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--dotted {
   background: none;
-  border-top: var(--freeui-timeline-border-width) dotted var(--freeui-color-neutral-200);
+  border-top: var(--freeui-timeline-border-width) dotted
+    var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--vertical.freeui-timeline--dotted {
   border-top: none;
-  border-left: var(--freeui-timeline-border-width) dotted var(--freeui-color-neutral-200);
+  border-left: var(--freeui-timeline-border-width) dotted
+    var(--freeui-color-neutral-200);
 }
 
 /* Timeline thickness */
