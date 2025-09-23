@@ -1108,80 +1108,108 @@ h6 {
 
 /* Timeline Component */
 .freeui-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--freeui-spacing-2);
+  border: none;
+  background-color: var(--freeui-color-neutral-200);
+  position: relative;
+  /* CSS custom properties for border width to reduce duplication */
+  --freeui-timeline-border-width: 2px;
 }
 
 .freeui-timeline--horizontal {
-  flex-direction: row;
-  align-items: flex-start;
+  width: 100%;
+  height: var(--freeui-timeline-border-width);
 }
 
-.freeui-timeline-item {
-  display: flex;
-  gap: var(--freeui-spacing-3);
-  position: relative;
+.freeui-timeline--vertical {
+  width: var(--freeui-timeline-border-width);
+  height: 100%;
+  min-height: 2rem;
 }
 
-.freeui-timeline-item__indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.freeui-timeline-item__icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--freeui-color-white);
-  border: 2px solid var(--freeui-color-neutral-300);
-  z-index: 1;
-  font-size: var(--freeui-font-size-sm);
-}
-
-.freeui-timeline-item__default-icon {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--freeui-color-neutral-400);
-}
-
-.freeui-timeline-item--success .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-success-500);
-  background-color: var(--freeui-color-semantic-success-50);
-}
-
-.freeui-timeline-item--info .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-info-500);
-  background-color: var(--freeui-color-semantic-info-50);
-}
-
-.freeui-timeline-item--warning .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-warning-500);
-  background-color: var(--freeui-color-semantic-warning-50);
-}
-
-.freeui-timeline-item--error .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-error-500);
-  background-color: var(--freeui-color-semantic-error-50);
-}
-
-.freeui-timeline-item__line {
-  width: 2px;
+/* Timeline variants */
+.freeui-timeline--solid {
   background-color: var(--freeui-color-neutral-200);
-  flex: 1;
-  margin-top: var(--freeui-spacing-2);
-  min-height: 40px;
 }
 
-.freeui-timeline-item__content {
-  flex: 1;
-  min-width: 0;
+.freeui-timeline--dashed {
+  background: none;
+  border-top: var(--freeui-timeline-border-width) dashed
+    var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--vertical.freeui-timeline--dashed {
+  border-top: none;
+  border-left: var(--freeui-timeline-border-width) dashed
+    var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--dotted {
+  background: none;
+  border-top: var(--freeui-timeline-border-width) dotted
+    var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--vertical.freeui-timeline--dotted {
+  border-top: none;
+  border-left: var(--freeui-timeline-border-width) dotted
+    var(--freeui-color-neutral-200);
+}
+
+/* Timeline thickness */
+.freeui-timeline--thin {
+  --freeui-timeline-border-width: 1px;
+}
+
+.freeui-timeline--thick {
+  --freeui-timeline-border-width: 4px;
+}
+
+/* Timeline margin using CSS logical properties */
+.freeui-timeline--margin-none {
+  margin: 0;
+}
+
+.freeui-timeline {
+  /* Default horizontal margins for all orientations */
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.freeui-timeline--vertical {
+  /* Use logical properties for vertical timelines */
+  margin-block: 0;
+  margin-inline: var(--freeui-timeline-margin-inline, 0);
+}
+
+.freeui-timeline--horizontal {
+  /* Use logical properties for horizontal timelines */
+  margin-block: var(--freeui-timeline-margin-block, 0);
+  margin-inline: 0;
+}
+
+.freeui-timeline--margin-xs {
+  --freeui-timeline-margin-block: var(--freeui-spacing-1);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-1);
+}
+
+.freeui-timeline--margin-sm {
+  --freeui-timeline-margin-block: var(--freeui-spacing-2);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-2);
+}
+
+.freeui-timeline--margin-md {
+  --freeui-timeline-margin-block: var(--freeui-spacing-4);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-4);
+}
+
+.freeui-timeline--margin-lg {
+  --freeui-timeline-margin-block: var(--freeui-spacing-6);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-6);
+}
+
+.freeui-timeline--margin-xl {
+  --freeui-timeline-margin-block: var(--freeui-spacing-8);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-8);
 }
 
 /* FilterPanel Component */
