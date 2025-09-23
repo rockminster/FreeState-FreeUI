@@ -1111,15 +1111,17 @@ h6 {
   border: none;
   background-color: var(--freeui-color-neutral-200);
   position: relative;
+  /* CSS custom properties for border width to reduce duplication */
+  --freeui-timeline-border-width: 2px;
 }
 
 .freeui-timeline--horizontal {
   width: 100%;
-  height: 2px;
+  height: var(--freeui-timeline-border-width);
 }
 
 .freeui-timeline--vertical {
-  width: 2px;
+  width: var(--freeui-timeline-border-width);
   height: 100%;
   min-height: 2rem;
 }
@@ -1131,116 +1133,79 @@ h6 {
 
 .freeui-timeline--dashed {
   background: none;
-  border-top: 2px dashed var(--freeui-color-neutral-200);
+  border-top: var(--freeui-timeline-border-width) dashed var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--vertical.freeui-timeline--dashed {
   border-top: none;
-  border-left: 2px dashed var(--freeui-color-neutral-200);
+  border-left: var(--freeui-timeline-border-width) dashed var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--dotted {
   background: none;
-  border-top: 2px dotted var(--freeui-color-neutral-200);
+  border-top: var(--freeui-timeline-border-width) dotted var(--freeui-color-neutral-200);
 }
 
 .freeui-timeline--vertical.freeui-timeline--dotted {
   border-top: none;
-  border-left: 2px dotted var(--freeui-color-neutral-200);
+  border-left: var(--freeui-timeline-border-width) dotted var(--freeui-color-neutral-200);
 }
 
 /* Timeline thickness */
-.freeui-timeline--thin.freeui-timeline--horizontal {
-  height: 1px;
+.freeui-timeline--thin {
+  --freeui-timeline-border-width: 1px;
 }
 
-.freeui-timeline--thin.freeui-timeline--vertical {
-  width: 1px;
+.freeui-timeline--thick {
+  --freeui-timeline-border-width: 4px;
 }
 
-.freeui-timeline--thin.freeui-timeline--dashed {
-  border-top-width: 1px;
-}
-
-.freeui-timeline--thin.freeui-timeline--vertical.freeui-timeline--dashed {
-  border-left-width: 1px;
-}
-
-.freeui-timeline--thin.freeui-timeline--dotted {
-  border-top-width: 1px;
-}
-
-.freeui-timeline--thin.freeui-timeline--vertical.freeui-timeline--dotted {
-  border-left-width: 1px;
-}
-
-.freeui-timeline--thick.freeui-timeline--horizontal {
-  height: 4px;
-}
-
-.freeui-timeline--thick.freeui-timeline--vertical {
-  width: 4px;
-}
-
-.freeui-timeline--thick.freeui-timeline--dashed {
-  border-top-width: 4px;
-}
-
-.freeui-timeline--thick.freeui-timeline--vertical.freeui-timeline--dashed {
-  border-left-width: 4px;
-}
-
-.freeui-timeline--thick.freeui-timeline--dotted {
-  border-top-width: 4px;
-}
-
-.freeui-timeline--thick.freeui-timeline--vertical.freeui-timeline--dotted {
-  border-left-width: 4px;
-}
-
-/* Timeline margin */
+/* Timeline margin using CSS logical properties */
 .freeui-timeline--margin-none {
   margin: 0;
 }
 
+.freeui-timeline {
+  /* Default horizontal margins for all orientations */
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.freeui-timeline--vertical {
+  /* Use logical properties for vertical timelines */
+  margin-block: 0;
+  margin-inline: var(--freeui-timeline-margin-inline, 0);
+}
+
+.freeui-timeline--horizontal {
+  /* Use logical properties for horizontal timelines */
+  margin-block: var(--freeui-timeline-margin-block, 0);
+  margin-inline: 0;
+}
+
 .freeui-timeline--margin-xs {
-  margin: var(--freeui-spacing-1) 0;
+  --freeui-timeline-margin-block: var(--freeui-spacing-1);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-1);
 }
 
 .freeui-timeline--margin-sm {
-  margin: var(--freeui-spacing-2) 0;
+  --freeui-timeline-margin-block: var(--freeui-spacing-2);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-2);
 }
 
 .freeui-timeline--margin-md {
-  margin: var(--freeui-spacing-4) 0;
+  --freeui-timeline-margin-block: var(--freeui-spacing-4);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-4);
 }
 
 .freeui-timeline--margin-lg {
-  margin: var(--freeui-spacing-6) 0;
+  --freeui-timeline-margin-block: var(--freeui-spacing-6);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-6);
 }
 
 .freeui-timeline--margin-xl {
-  margin: var(--freeui-spacing-8) 0;
-}
-
-.freeui-timeline--vertical.freeui-timeline--margin-xs {
-  margin: 0 var(--freeui-spacing-1);
-}
-
-.freeui-timeline--vertical.freeui-timeline--margin-sm {
-  margin: 0 var(--freeui-spacing-2);
-}
-
-.freeui-timeline--vertical.freeui-timeline--margin-md {
-  margin: 0 var(--freeui-spacing-4);
-}
-
-.freeui-timeline--vertical.freeui-timeline--margin-lg {
-  margin: 0 var(--freeui-spacing-6);
-}
-
-.freeui-timeline--vertical.freeui-timeline--margin-xl {
-  margin: 0 var(--freeui-spacing-8);
+  --freeui-timeline-margin-block: var(--freeui-spacing-8);
+  --freeui-timeline-margin-inline: var(--freeui-spacing-8);
 }
 
 /* FilterPanel Component */
