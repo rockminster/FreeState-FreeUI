@@ -28,11 +28,14 @@ export const FilterField = React.forwardRef<HTMLDivElement, FilterFieldProps>(
 
     // Clone children to add the id for label association
     const childrenWithId = React.isValidElement(children) 
-      ? React.cloneElement(children as React.ReactElement, { 
-          id: fieldId,
-          'aria-required': required ? 'true' : undefined,
-          ...((children as React.ReactElement).props || {})
-        })
+      ? (() => {
+          const childElement = children as React.ReactElement;
+          return React.cloneElement(childElement, { 
+            id: fieldId,
+            'aria-required': required ? 'true' : undefined,
+            ...(childElement.props || {})
+          });
+        })()
       : children;
 
     return (

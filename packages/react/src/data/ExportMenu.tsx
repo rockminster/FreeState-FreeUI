@@ -111,14 +111,14 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
     };
 
     return (
-      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div 
         ref={ref} 
         className="freeui-export-menu" 
-        onKeyDown={handleKeyDown}
+        role="group"
         {...props}
       >
-        <div ref={menuRef} className="freeui-export-menu__container">
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+        <div ref={menuRef} className="freeui-export-menu__container" onKeyDown={handleKeyDown}>
           {trigger ? (
             <div 
               onClick={() => !loading && setIsOpen(!isOpen)}
@@ -127,7 +127,6 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
               tabIndex={0}
               aria-expanded={isOpen}
               aria-haspopup="menu"
-              // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             >
               {trigger}
             </div>
