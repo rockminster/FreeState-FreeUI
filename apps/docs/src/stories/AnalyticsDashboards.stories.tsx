@@ -846,7 +846,12 @@ Shows how performance monitoring interfaces can be built using compositional des
 
 export const ComprehensiveAnalyticsSuite: Story = {
   render: () => (
-    <div style={{ padding: "24px", backgroundColor: "var(--freeui-color-neutral-50)" }}>
+    <div
+      style={{
+        padding: "24px",
+        backgroundColor: "var(--freeui-color-neutral-50)",
+      }}
+    >
       <Stack gap="xl">
         {/* Main Header */}
         <Inline justify="space-between" align="center">
@@ -855,7 +860,8 @@ export const ComprehensiveAnalyticsSuite: Story = {
               FreeState Analytics Suite
             </Heading>
             <Text color="subdued">
-              Comprehensive monitoring and analytics dashboard for usage, security, and performance
+              Comprehensive monitoring and analytics dashboard for usage,
+              security, and performance
             </Text>
           </Stack>
           <Inline gap="sm">
@@ -874,7 +880,7 @@ export const ComprehensiveAnalyticsSuite: Story = {
             <Heading level={2} size="md">
               System Overview
             </Heading>
-            
+
             <Inline gap="xl" wrap>
               {/* API Health */}
               <Stack gap="xs" align="center">
@@ -895,7 +901,12 @@ export const ComprehensiveAnalyticsSuite: Story = {
               <Stack gap="xs" align="center">
                 <Inline gap="xs" align="center">
                   <Text size="xl" weight="bold" color="accent">
-                    {Math.round((mockStorageMetrics.totalUsed / mockStorageMetrics.totalLimit) * 100)}%
+                    {Math.round(
+                      (mockStorageMetrics.totalUsed /
+                        mockStorageMetrics.totalLimit) *
+                        100
+                    )}
+                    %
                   </Text>
                   <Badge variant="warning" size="sm">
                     Monitor
@@ -925,7 +936,9 @@ export const ComprehensiveAnalyticsSuite: Story = {
               <Stack gap="xs" align="center">
                 <Inline gap="xs" align="center">
                   <Text size="xl" weight="bold" color="accent">
-                    {formatDuration(mockPerformanceMetrics.avgOperationDuration)}
+                    {formatDuration(
+                      mockPerformanceMetrics.avgOperationDuration
+                    )}
                   </Text>
                   <Badge variant="success" size="sm">
                     Good
@@ -940,11 +953,13 @@ export const ComprehensiveAnalyticsSuite: Story = {
         </Card>
 
         {/* Dashboard Grid */}
-        <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", 
-          gap: "24px" 
-        }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+            gap: "24px",
+          }}
+        >
           {/* API Usage Summary */}
           <Card padding="lg" shadow="sm">
             <Stack gap="md">
@@ -956,23 +971,25 @@ export const ComprehensiveAnalyticsSuite: Story = {
                   View Details
                 </Button>
               </Inline>
-              
+
               <Stack gap="sm">
-                {mockApiMetrics.topEndpoints.slice(0, 3).map((endpoint, index) => (
-                  <Inline key={index} justify="space-between" align="center">
-                    <Text as="code" size="sm">
-                      {endpoint.endpoint}
-                    </Text>
-                    <Inline gap="xs" align="center">
-                      <Text size="sm" weight="medium">
-                        {endpoint.calls}
+                {mockApiMetrics.topEndpoints
+                  .slice(0, 3)
+                  .map((endpoint, index) => (
+                    <Inline key={index} justify="space-between" align="center">
+                      <Text as="code" size="sm">
+                        {endpoint.endpoint}
                       </Text>
-                      <Text size="xs" color="subdued">
-                        calls
-                      </Text>
+                      <Inline gap="xs" align="center">
+                        <Text size="sm" weight="medium">
+                          {endpoint.calls}
+                        </Text>
+                        <Text size="xs" color="subdued">
+                          calls
+                        </Text>
+                      </Inline>
                     </Inline>
-                  </Inline>
-                ))}
+                  ))}
               </Stack>
             </Stack>
           </Card>
@@ -988,26 +1005,28 @@ export const ComprehensiveAnalyticsSuite: Story = {
                   View Details
                 </Button>
               </Inline>
-              
+
               <Stack gap="sm">
-                {mockSecurityMetrics.recentEvents.slice(0, 2).map((event, index) => (
-                  <Stack key={index} gap="xs">
-                    <Inline justify="space-between" align="center">
-                      <Badge
-                        variant={event.severity === "high" ? "danger" : "warning"}
-                        size="sm"
-                      >
-                        {event.type.replace("_", " ").toUpperCase()}
-                      </Badge>
-                      <Text size="xs" color="subdued">
-                        {formatTime(event.timestamp)}
-                      </Text>
-                    </Inline>
-                    <Text size="sm">
-                      {event.details}
-                    </Text>
-                  </Stack>
-                ))}
+                {mockSecurityMetrics.recentEvents
+                  .slice(0, 2)
+                  .map((event, index) => (
+                    <Stack key={index} gap="xs">
+                      <Inline justify="space-between" align="center">
+                        <Badge
+                          variant={
+                            event.severity === "high" ? "danger" : "warning"
+                          }
+                          size="sm"
+                        >
+                          {event.type.replace("_", " ").toUpperCase()}
+                        </Badge>
+                        <Text size="xs" color="subdued">
+                          {formatTime(event.timestamp)}
+                        </Text>
+                      </Inline>
+                      <Text size="sm">{event.details}</Text>
+                    </Stack>
+                  ))}
               </Stack>
             </Stack>
           </Card>
@@ -1023,14 +1042,16 @@ export const ComprehensiveAnalyticsSuite: Story = {
                   View Details
                 </Button>
               </Inline>
-              
+
               <Stack gap="sm">
                 <Inline justify="space-between" align="center">
                   <Text size="sm" color="subdued">
                     Avg Operation Duration
                   </Text>
                   <Text size="sm" weight="medium">
-                    {formatDuration(mockPerformanceMetrics.avgOperationDuration)}
+                    {formatDuration(
+                      mockPerformanceMetrics.avgOperationDuration
+                    )}
                   </Text>
                 </Inline>
                 <Inline justify="space-between" align="center">
@@ -1069,17 +1090,18 @@ export const ComprehensiveAnalyticsSuite: Story = {
                   Manage Storage
                 </Button>
               </Inline>
-              
+
               <Stack gap="sm">
                 <Inline justify="space-between" align="center">
                   <Text size="sm" color="subdued">
                     Total Used
                   </Text>
                   <Text size="sm" weight="medium">
-                    {formatFileSize(mockStorageMetrics.totalUsed)} / {formatFileSize(mockStorageMetrics.totalLimit)}
+                    {formatFileSize(mockStorageMetrics.totalUsed)} /{" "}
+                    {formatFileSize(mockStorageMetrics.totalLimit)}
                   </Text>
                 </Inline>
-                
+
                 {/* Storage Progress Bar */}
                 <div
                   style={{
@@ -1100,7 +1122,7 @@ export const ComprehensiveAnalyticsSuite: Story = {
                     }}
                   />
                 </div>
-                
+
                 <Inline justify="space-between" align="center">
                   <Text size="sm" color="subdued">
                     State Files
@@ -1115,12 +1137,16 @@ export const ComprehensiveAnalyticsSuite: Story = {
         </div>
 
         {/* Action Items */}
-        <Card padding="lg" shadow="sm" style={{ backgroundColor: "var(--freeui-color-neutral-25)" }}>
+        <Card
+          padding="lg"
+          shadow="sm"
+          style={{ backgroundColor: "var(--freeui-color-neutral-25)" }}
+        >
           <Stack gap="md">
             <Heading level={3} size="sm">
               Recommended Actions
             </Heading>
-            
+
             <Stack gap="sm">
               <Inline justify="space-between" align="center">
                 <Stack gap="xs">
@@ -1128,39 +1154,47 @@ export const ComprehensiveAnalyticsSuite: Story = {
                     Review storage usage trends
                   </Text>
                   <Text size="sm" color="subdued">
-                    Storage usage at {Math.round((mockStorageMetrics.totalUsed / mockStorageMetrics.totalLimit) * 100)}% - consider cleanup
+                    Storage usage at{" "}
+                    {Math.round(
+                      (mockStorageMetrics.totalUsed /
+                        mockStorageMetrics.totalLimit) *
+                        100
+                    )}
+                    % - consider cleanup
                   </Text>
                 </Stack>
                 <Button variant="outline" size="sm">
                   Review
                 </Button>
               </Inline>
-              
+
               <Separator />
-              
+
               <Inline justify="space-between" align="center">
                 <Stack gap="xs">
                   <Text weight="medium" size="sm">
                     Investigate failed authentication attempts
                   </Text>
                   <Text size="sm" color="subdued">
-                    {mockSecurityMetrics.failedAttempts} failed attempts detected today
+                    {mockSecurityMetrics.failedAttempts} failed attempts
+                    detected today
                   </Text>
                 </Stack>
                 <Button variant="outline" size="sm">
                   Investigate
                 </Button>
               </Inline>
-              
+
               <Separator />
-              
+
               <Inline justify="space-between" align="center">
                 <Stack gap="xs">
                   <Text weight="medium" size="sm">
                     Optimize slow operations
                   </Text>
                   <Text size="sm" color="subdued">
-                    {mockPerformanceMetrics.slowestOperations.length} operations taking &gt; 10s
+                    {mockPerformanceMetrics.slowestOperations.length} operations
+                    taking &gt; 10s
                   </Text>
                 </Stack>
                 <Button variant="outline" size="sm">

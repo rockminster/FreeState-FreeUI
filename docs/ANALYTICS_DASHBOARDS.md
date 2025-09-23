@@ -16,6 +16,7 @@ Monitors API usage, storage consumption, and bandwidth metrics:
 - **Storage Details**: Largest files, usage visualization with progress bars
 
 **Key Components Used:**
+
 - Stack, Inline (layout)
 - Card (containers)
 - Text, Heading (content)
@@ -31,6 +32,7 @@ Tracks authentication failures, blocked IPs, and security events:
 - **Threat Intelligence**: Color-coded alerts based on threat levels
 
 **Key Components Used:**
+
 - Stack, Inline (layout)
 - Card (event containers)
 - Badge (severity indicators)
@@ -46,6 +48,7 @@ Monitors operation durations, lock performance, and system bottlenecks:
 - **Performance Indicators**: Color-coded badges for different performance levels
 
 **Key Components Used:**
+
 - Stack, Inline (layout)
 - Card (metric containers)
 - Badge (performance indicators)
