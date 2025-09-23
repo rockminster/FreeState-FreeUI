@@ -12,8 +12,7 @@ import {
 } from "@rockminster/react";
 import type { 
   AuditEntry, 
-  AuditFilterState, 
-  AuditEventType 
+  AuditFilterState
 } from "@rockminster/react";
 
 const meta: Meta<typeof AuditTrail> = {
@@ -220,7 +219,6 @@ const mockAuditEntries: AuditEntry[] = [
 
 // Filtered entries for different scenarios
 const recentEntries = mockAuditEntries.slice(0, 4);
-const errorEntries = mockAuditEntries.filter(entry => entry.severity === "error");
 const permissionEntries = mockAuditEntries.filter(entry => entry.type === "permission_change");
 
 export const Default: Story = {
@@ -269,129 +267,132 @@ export const SecurityEvents: Story = {
   },
 };
 
+// Interactive demo component
+function InteractiveAuditDemoComponent() {
+  const [filteredEntries, setFilteredEntries] = useState<AuditEntry[]>(mockAuditEntries);
+  const [filters, setFilters] = useState<AuditFilterState>({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const applyFilters = (newFilters: AuditFilterState) => {
+    setFilters(newFilters);
+    setIsLoading(true);
+    
+    // Simulate filtering delay
+    setTimeout(() => {
+      let filtered = [...mockAuditEntries];
+
+      if (newFilters.user) {
+        filtered = filtered.filter(entry => 
+          entry.user.toLowerCase().includes(newFilters.user!.toLowerCase())
+        );
+      }
+
+      if (newFilters.workspace) {
+        filtered = filtered.filter(entry => 
+          entry.workspace?.toLowerCase().includes(newFilters.workspace!.toLowerCase())
+        );
+      }
+
+      if (newFilters.eventType) {
+        filtered = filtered.filter(entry => entry.type === newFilters.eventType);
+      }
+
+      if (newFilters.searchQuery) {
+        const query = newFilters.searchQuery.toLowerCase();
+        filtered = filtered.filter(entry => 
+          entry.operation.toLowerCase().includes(query) ||
+          entry.description.toLowerCase().includes(query)
+        );
+      }
+
+      if (newFilters.dateFrom) {
+        const fromDate = new Date(newFilters.dateFrom);
+        filtered = filtered.filter(entry => new Date(entry.timestamp) >= fromDate);
+      }
+
+      if (newFilters.dateTo) {
+        const toDate = new Date(newFilters.dateTo);
+        toDate.setHours(23, 59, 59, 999); // End of day
+        filtered = filtered.filter(entry => new Date(entry.timestamp) <= toDate);
+      }
+
+      setFilteredEntries(filtered);
+      setIsLoading(false);
+    }, 500);
+  };
+
+  const clearFilters = () => {
+    setFilters({});
+    setFilteredEntries(mockAuditEntries);
+  };
+
+  const handleExport = () => {
+    console.log("Exporting audit trail...", { entries: filteredEntries.length, filters });
+    alert(`Would export ${filteredEntries.length} audit entries`);
+  };
+
+  return (
+    <div style={{ 
+      padding: "24px", 
+      backgroundColor: "var(--freeui-color-neutral-50)",
+      minHeight: "100vh"
+    }}>
+      <Stack gap="xl">
+        {/* Header */}
+        <Card padding="lg">
+          <Inline justify="space-between" align="center">
+            <Stack gap="xs">
+              <Heading level={1} size="lg">
+                Audit & Compliance Dashboard
+              </Heading>
+              <p style={{ 
+                margin: 0, 
+                color: "var(--freeui-color-neutral-600)",
+                fontSize: "var(--freeui-font-size-sm)"
+              }}>
+                Monitor system activity, track changes, and maintain compliance with comprehensive audit logging
+              </p>
+            </Stack>
+            <Button variant="primary" onClick={handleExport}>
+              Export Report
+            </Button>
+          </Inline>
+        </Card>
+
+        {/* Filter Controls */}
+        <AuditFilter
+          filters={filters}
+          onFiltersChange={applyFilters}
+          onClearFilters={clearFilters}
+          onExport={handleExport}
+          loading={isLoading}
+        />
+
+        {/* Export Options */}
+        <AuditExport
+          entries={filteredEntries}
+          loading={isLoading}
+        />
+
+        {/* Audit Trail */}
+        <AuditTrail
+          entries={filteredEntries}
+          title={`Audit Trail ${filters && Object.keys(filters).length > 0 ? '(Filtered)' : ''}`}
+          loading={isLoading}
+          hasMoreEntries={filteredEntries.length >= 8}
+          onLoadMore={() => {
+            console.log("Loading more entries...");
+            alert("In a real application, this would load more audit entries");
+          }}
+        />
+      </Stack>
+    </div>
+  );
+}
+
 // Interactive demo with filtering and export
 export const InteractiveAuditDemo: Story = {
-  render: () => {
-    const [filteredEntries, setFilteredEntries] = useState<AuditEntry[]>(mockAuditEntries);
-    const [filters, setFilters] = useState<AuditFilterState>({});
-    const [isLoading, setIsLoading] = useState(false);
-
-    const applyFilters = (newFilters: AuditFilterState) => {
-      setFilters(newFilters);
-      setIsLoading(true);
-      
-      // Simulate filtering delay
-      setTimeout(() => {
-        let filtered = [...mockAuditEntries];
-
-        if (newFilters.user) {
-          filtered = filtered.filter(entry => 
-            entry.user.toLowerCase().includes(newFilters.user!.toLowerCase())
-          );
-        }
-
-        if (newFilters.workspace) {
-          filtered = filtered.filter(entry => 
-            entry.workspace?.toLowerCase().includes(newFilters.workspace!.toLowerCase())
-          );
-        }
-
-        if (newFilters.eventType) {
-          filtered = filtered.filter(entry => entry.type === newFilters.eventType);
-        }
-
-        if (newFilters.searchQuery) {
-          const query = newFilters.searchQuery.toLowerCase();
-          filtered = filtered.filter(entry => 
-            entry.operation.toLowerCase().includes(query) ||
-            entry.description.toLowerCase().includes(query)
-          );
-        }
-
-        if (newFilters.dateFrom) {
-          const fromDate = new Date(newFilters.dateFrom);
-          filtered = filtered.filter(entry => new Date(entry.timestamp) >= fromDate);
-        }
-
-        if (newFilters.dateTo) {
-          const toDate = new Date(newFilters.dateTo);
-          toDate.setHours(23, 59, 59, 999); // End of day
-          filtered = filtered.filter(entry => new Date(entry.timestamp) <= toDate);
-        }
-
-        setFilteredEntries(filtered);
-        setIsLoading(false);
-      }, 500);
-    };
-
-    const clearFilters = () => {
-      setFilters({});
-      setFilteredEntries(mockAuditEntries);
-    };
-
-    const handleExport = () => {
-      console.log("Exporting audit trail...", { entries: filteredEntries.length, filters });
-      alert(`Would export ${filteredEntries.length} audit entries`);
-    };
-
-    return (
-      <div style={{ 
-        padding: "24px", 
-        backgroundColor: "var(--freeui-color-neutral-50)",
-        minHeight: "100vh"
-      }}>
-        <Stack gap="xl">
-          {/* Header */}
-          <Card padding="lg">
-            <Inline justify="space-between" align="center">
-              <Stack gap="xs">
-                <Heading level={1} size="lg">
-                  Audit & Compliance Dashboard
-                </Heading>
-                <p style={{ 
-                  margin: 0, 
-                  color: "var(--freeui-color-neutral-600)",
-                  fontSize: "var(--freeui-font-size-sm)"
-                }}>
-                  Monitor system activity, track changes, and maintain compliance with comprehensive audit logging
-                </p>
-              </Stack>
-              <Button variant="primary" onClick={handleExport}>
-                Export Report
-              </Button>
-            </Inline>
-          </Card>
-
-          {/* Filter Controls */}
-          <AuditFilter
-            filters={filters}
-            onFiltersChange={applyFilters}
-            onClearFilters={clearFilters}
-            onExport={handleExport}
-            loading={isLoading}
-          />
-
-          {/* Export Options */}
-          <AuditExport
-            entries={filteredEntries}
-            loading={isLoading}
-          />
-
-          {/* Audit Trail */}
-          <AuditTrail
-            entries={filteredEntries}
-            title={`Audit Trail ${filters && Object.keys(filters).length > 0 ? '(Filtered)' : ''}`}
-            loading={isLoading}
-            hasMoreEntries={filteredEntries.length >= 8}
-            onLoadMore={() => {
-              console.log("Loading more entries...");
-              alert("In a real application, this would load more audit entries");
-            }}
-          />
-        </Stack>
-      </div>
-    );
-  },
+  render: () => <InteractiveAuditDemoComponent />,
   parameters: {
     docs: {
       description: {
