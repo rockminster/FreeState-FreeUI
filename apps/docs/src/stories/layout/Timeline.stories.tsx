@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Timeline, Stack, Inline, Card, Separator } from "@rockminster/react";
+import { Timeline, Stack, Inline, Card } from "@rockminster/react";
 
 const meta: Meta<typeof Timeline> = {
   title: "Layout/Timeline",
