@@ -121,8 +121,18 @@ export const Indeterminate: Story = {
   render: () => (
     <Stack gap="lg" style={{ width: "300px" }}>
       <Progress indeterminate value={0} label="Loading metrics..." />
-      <Progress indeterminate value={0} label="Analyzing data..." variant="warning" />
-      <Progress indeterminate value={0} label="Processing alerts..." variant="danger" />
+      <Progress
+        indeterminate
+        value={0}
+        label="Analyzing data..."
+        variant="warning"
+      />
+      <Progress
+        indeterminate
+        value={0}
+        label="Processing alerts..."
+        variant="danger"
+      />
     </Stack>
   ),
   parameters: {
