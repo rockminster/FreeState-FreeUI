@@ -407,7 +407,7 @@ export const SubscriptionOverview: Story = {
                       {formatCurrency(
                         currentUsage
                           .filter(m => m.overage && m.overagePrice)
-                          .reduce((total, m) => total + (m.overage! * m.overagePrice!), 0)
+                          .reduce((total, m) => total + ((m.overage ?? 0) * (m.overagePrice ?? 0)), 0)
                       )}
                     </Badge>
                   </Inline>
@@ -584,9 +584,10 @@ export const PlanComparison: Story = {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
+                            color: "var(--freeui-color-neutral-0)",
                           }}
                         >
-                          <Text size="xs" weight="bold" style={{ color: "white" }}>
+                          <Text size="xs" weight="bold">
                             ✓
                           </Text>
                         </div>
@@ -621,8 +622,8 @@ export const PlanComparison: Story = {
           shadow="none"
           style={{ backgroundColor: "var(--freeui-color-neutral-100)" }}
         >
-          <Stack gap="sm">
-            <Text size="sm" color="subdued" style={{ textAlign: "center" }}>
+          <Stack gap="sm" align="center">
+            <Text size="sm" color="subdued">
               All plans include 14-day free trial. No credit card required for Free plan.
               Cancel anytime.
             </Text>
