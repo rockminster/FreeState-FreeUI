@@ -29,3 +29,14 @@ export type {
   DiffProps,
   DiffLine,
 } from "./display";
+
+// Audit and compliance components
+export { AuditTrail, AuditFilter, AuditExport } from "./audit";
+export type {
+  AuditTrailProps,
+  AuditEntry,
+  AuditEventType,
+  AuditFilterProps,
+  AuditFilterState,
+  AuditExportProps,
+} from "./audit";
