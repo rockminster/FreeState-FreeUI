@@ -9,3 +9,9 @@ export type { SwitchProps } from "./Switch";
 
 export { RadioButton, RadioGroup } from "./RadioButton";
 export type { RadioButtonProps, RadioGroupProps } from "./RadioButton";
+
+export { Select } from "./Select";
+export type { SelectProps, SelectOption } from "./Select";
+
+export { ToggleGroup } from "./ToggleGroup";
+export type { ToggleGroupProps, ToggleGroupOption } from "./ToggleGroup";

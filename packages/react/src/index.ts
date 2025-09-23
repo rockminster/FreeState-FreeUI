@@ -7,13 +7,25 @@ export { Card } from "./Card";
 export type { CardProps } from "./Card";
 
 // Form components for user input
-export { Checkbox, Slider, Switch, RadioButton, RadioGroup } from "./form";
+export {
+  Checkbox,
+  Slider,
+  Switch,
+  RadioButton,
+  RadioGroup,
+  Select,
+  ToggleGroup,
+} from "./form";
 export type {
   CheckboxProps,
   SliderProps,
   SwitchProps,
   RadioButtonProps,
   RadioGroupProps,
+  SelectProps,
+  SelectOption,
+  ToggleGroupProps,
+  ToggleGroupOption,
 } from "./form";
 
 // Layout components for composition
@@ -26,11 +38,22 @@ export type {
 } from "./layout";
 
 // Display components for data presentation
-export { Text, Heading, Badge, Diff } from "./display";
+export {
+  Text,
+  Heading,
+  Badge,
+  Diff,
+  Progress,
+  StatusIndicator,
+  Alert,
+} from "./display";
 export type {
   TextProps,
   HeadingProps,
   BadgeProps,
   DiffProps,
   DiffLine,
+  ProgressProps,
+  StatusIndicatorProps,
+  AlertProps,
 } from "./display";
