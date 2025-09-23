@@ -550,7 +550,7 @@ export const SecurityAccessDashboard: Story = {
                   <Text size="xl" weight="bold" color="accent">
                     {mockSecurityMetrics.blockedIPs}
                   </Text>
-                  <Badge variant="error" size="sm">
+                  <Badge variant="danger" size="sm">
                     Blocked
                   </Badge>
                 </Inline>
@@ -596,7 +596,7 @@ export const SecurityAccessDashboard: Story = {
                           <Badge
                             variant={
                               event.severity === "high"
-                                ? "error"
+                                ? "danger"
                                 : event.severity === "medium"
                                   ? "warning"
                                   : "info"
@@ -614,7 +614,7 @@ export const SecurityAccessDashboard: Story = {
                       <Badge
                         variant={
                           event.severity === "high"
-                            ? "error"
+                            ? "danger"
                             : event.severity === "medium"
                               ? "warning"
                               : "neutral"
@@ -728,7 +728,7 @@ export const PerformanceMetricsDashboard: Story = {
                   <Text size="xl" weight="bold" color="accent">
                     {mockPerformanceMetrics.lockContentions.length}
                   </Text>
-                  <Badge variant="error" size="sm">
+                  <Badge variant="danger" size="sm">
                     Contentions
                   </Badge>
                 </Inline>
@@ -809,7 +809,7 @@ export const PerformanceMetricsDashboard: Story = {
                           <Text weight="semibold" color="accent">
                             {formatDuration(contention.waitTime)} wait
                           </Text>
-                          <Badge variant="error" size="sm">
+                          <Badge variant="danger" size="sm">
                             Contention
                           </Badge>
                         </Inline>
@@ -994,7 +994,7 @@ export const ComprehensiveAnalyticsSuite: Story = {
                   <Stack key={index} gap="xs">
                     <Inline justify="space-between" align="center">
                       <Badge
-                        variant={event.severity === "high" ? "error" : "warning"}
+                        variant={event.severity === "high" ? "danger" : "warning"}
                         size="sm"
                       >
                         {event.type.replace("_", " ").toUpperCase()}
