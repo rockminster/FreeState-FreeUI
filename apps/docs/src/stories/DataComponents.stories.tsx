@@ -129,9 +129,9 @@ const FilteringInterfaceDemo = () => {
               />
               <ExportMenu
                 options={[
-                  { format: "csv", label: "CSV File" },
-                  { format: "json", label: "JSON File" },
-                  { format: "pdf", label: "PDF Report" },
+                  { value: "csv", label: "CSV File" },
+                  { value: "json", label: "JSON File" },
+                  { value: "pdf", label: "PDF Report" },
                 ]}
                 onExport={(format) => alert(`Exporting ${format}...`)}
               />
@@ -218,10 +218,10 @@ export const ExportOptions: Story = {
           <h4>Export Menu</h4>
           <ExportMenu
             options={[
-              { format: "csv", label: "CSV File" },
-              { format: "json", label: "JSON Data" },
-              { format: "pdf", label: "PDF Report" },
-              { format: "xlsx", label: "Excel Spreadsheet" },
+              { value: "csv", label: "CSV File" },
+              { value: "json", label: "JSON Data" },
+              { value: "pdf", label: "PDF Report" },
+              { value: "xlsx", label: "Excel Spreadsheet" },
             ]}
             onExport={(format) => alert(`Exporting ${format.toUpperCase()}...`)}
           />
