@@ -34,5 +34,3 @@ export type {
   DiffProps,
   DiffLine,
 } from "./display";
-
-
