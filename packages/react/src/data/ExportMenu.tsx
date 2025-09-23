@@ -94,6 +94,15 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
       }
     };
 
+    const handleTriggerKeyDown = (event: React.KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        if (!loading) {
+          setIsOpen(!isOpen);
+        }
+      }
+    };
+
     const handleOptionClick = (value: string, disabled?: boolean) => {
       if (!disabled && !loading) {
         onExport(value);
@@ -102,6 +111,7 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
     };
 
     return (
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div 
         ref={ref} 
         className="freeui-export-menu" 
@@ -112,10 +122,12 @@ export const ExportMenu = React.forwardRef<HTMLDivElement, ExportMenuProps>(
           {trigger ? (
             <div 
               onClick={() => !loading && setIsOpen(!isOpen)}
+              onKeyDown={handleTriggerKeyDown}
               role="button"
               tabIndex={0}
               aria-expanded={isOpen}
               aria-haspopup="menu"
+              // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             >
               {trigger}
             </div>

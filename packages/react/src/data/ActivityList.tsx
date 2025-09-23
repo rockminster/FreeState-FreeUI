@@ -255,6 +255,23 @@ export const ActivityList = React.forwardRef<HTMLDivElement, ActivityListProps>(
         </div>
       );
     }
+
+    // Check if children is an empty array or has no valid children
+    const hasChildren = React.Children.count(children) > 0;
+    
+    if (!hasChildren && emptyState) {
+      return (
+        <div 
+          ref={ref} 
+          className={clsx("freeui-activity-list", "freeui-activity-list--empty", className)}
+          {...props}
+        >
+          <div className="freeui-activity-list__empty">
+            {emptyState}
+          </div>
+        </div>
+      );
+    }
     
     return (
       <div

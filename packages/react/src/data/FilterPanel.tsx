@@ -1,6 +1,5 @@
 import React from "react";
 import { clsx } from "clsx";
-import { Button } from "../Button";
 
 export interface FilterFieldProps {
   /**
@@ -24,13 +23,25 @@ export interface FilterFieldProps {
  */
 export const FilterField = React.forwardRef<HTMLDivElement, FilterFieldProps>(
   ({ label, children, required = false, ...props }, ref) => {
+    const generatedId = React.useId();
+    const fieldId = `filter-field-${generatedId}`;
+
+    // Clone children to add the id for label association
+    const childrenWithId = React.isValidElement(children) 
+      ? React.cloneElement(children as React.ReactElement, { 
+          id: fieldId,
+          'aria-required': required ? 'true' : undefined,
+          ...((children as React.ReactElement).props || {})
+        })
+      : children;
+
     return (
       <div ref={ref} className="freeui-filter-field" {...props}>
-        <label className="freeui-filter-field__label">
+        <label className="freeui-filter-field__label" htmlFor={fieldId}>
           {label}
           {required && <span className="freeui-filter-field__required">*</span>}
         </label>
-        <div className="freeui-filter-field__control">{children}</div>
+        <div className="freeui-filter-field__control">{childrenWithId}</div>
       </div>
     );
   }
