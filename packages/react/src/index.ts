@@ -29,3 +29,28 @@ export type {
   DiffProps,
   DiffLine,
 } from "./display";
+
+// Data components for structured information display
+export {
+  Timeline,
+  TimelineItem,
+  FilterPanel,
+  FilterGroup,
+  FilterField,
+  ExportMenu,
+  ExportButton,
+  ActivityList,
+  ActivityItem,
+} from "./data";
+export type {
+  TimelineProps,
+  TimelineItemProps,
+  FilterPanelProps,
+  FilterGroupProps,
+  FilterFieldProps,
+  ExportMenuProps,
+  ExportButtonProps,
+  ExportOption,
+  ActivityListProps,
+  ActivityItemProps,
+} from "./data";
