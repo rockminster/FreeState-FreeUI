@@ -514,7 +514,7 @@ export const PlanComparison: Story = {
             <Card
               key={plan.id}
               padding="lg"
-              shadow={plan.isPopular ? "lg" : "sm"}
+              shadow={plan.isPopular ? "md" : "sm"}
               style={{
                 borderWidth: plan.isCurrentPlan ? "2px" : "1px",
                 borderStyle: "solid",
@@ -539,7 +539,7 @@ export const PlanComparison: Story = {
                       </Badge>
                     )}
                     {plan.isCurrentPlan && (
-                      <Badge variant="brand" size="sm">
+                      <Badge variant="info" size="sm">
                         Current Plan
                       </Badge>
                     )}
@@ -552,7 +552,7 @@ export const PlanComparison: Story = {
                 {/* Pricing */}
                 <Stack gap="xs">
                   <Inline gap="xs" align="baseline">
-                    <Text size="3xl" weight="bold">
+                    <Text size="xl" weight="bold">
                       {formatCurrency(plan.price)}
                     </Text>
                     <Text color="subdued">/{plan.interval}</Text>
@@ -795,7 +795,7 @@ export const BillingInformation: Story = {
                             **** **** **** {method.lastFour}
                           </Text>
                           {method.isDefault && (
-                            <Badge variant="brand" size="sm">
+                            <Badge variant="info" size="sm">
                               Default
                             </Badge>
                           )}
@@ -869,7 +869,7 @@ export const BillingInformation: Story = {
                             ? "success"
                             : invoice.status === "pending"
                               ? "warning"
-                              : "error"
+                              : "danger"
                         }
                         size="sm"
                       >
