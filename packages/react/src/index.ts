@@ -17,8 +17,8 @@ export type {
 } from "./form";
 
 // Layout components for composition
-export { Stack, Inline, Separator } from "./layout";
-export type { StackProps, InlineProps, SeparatorProps } from "./layout";
+export { Stack, Inline, Separator, Timeline } from "./layout";
+export type { StackProps, InlineProps, SeparatorProps, TimelineProps } from "./layout";
 
 // Display components for data presentation
 export { Text, Heading, Badge, Diff } from "./display";
@@ -32,8 +32,6 @@ export type {
 
 // Data components for structured information display
 export {
-  Timeline,
-  TimelineItem,
   FilterPanel,
   FilterGroup,
   FilterField,
@@ -43,8 +41,6 @@ export {
   ActivityItem,
 } from "./data";
 export type {
-  TimelineProps,
-  TimelineItemProps,
   FilterPanelProps,
   FilterGroupProps,
   FilterFieldProps,

@@ -1108,80 +1108,139 @@ h6 {
 
 /* Timeline Component */
 .freeui-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--freeui-spacing-2);
-}
-
-.freeui-timeline--horizontal {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.freeui-timeline-item {
-  display: flex;
-  gap: var(--freeui-spacing-3);
+  border: none;
+  background-color: var(--freeui-color-neutral-200);
   position: relative;
 }
 
-.freeui-timeline-item__indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
+.freeui-timeline--horizontal {
+  width: 100%;
+  height: 2px;
 }
 
-.freeui-timeline-item__icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--freeui-color-white);
-  border: 2px solid var(--freeui-color-neutral-300);
-  z-index: 1;
-  font-size: var(--freeui-font-size-sm);
-}
-
-.freeui-timeline-item__default-icon {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--freeui-color-neutral-400);
-}
-
-.freeui-timeline-item--success .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-success-500);
-  background-color: var(--freeui-color-semantic-success-50);
-}
-
-.freeui-timeline-item--info .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-info-500);
-  background-color: var(--freeui-color-semantic-info-50);
-}
-
-.freeui-timeline-item--warning .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-warning-500);
-  background-color: var(--freeui-color-semantic-warning-50);
-}
-
-.freeui-timeline-item--error .freeui-timeline-item__icon {
-  border-color: var(--freeui-color-semantic-error-500);
-  background-color: var(--freeui-color-semantic-error-50);
-}
-
-.freeui-timeline-item__line {
+.freeui-timeline--vertical {
   width: 2px;
-  background-color: var(--freeui-color-neutral-200);
-  flex: 1;
-  margin-top: var(--freeui-spacing-2);
-  min-height: 40px;
+  height: 100%;
+  min-height: 2rem;
 }
 
-.freeui-timeline-item__content {
-  flex: 1;
-  min-width: 0;
+/* Timeline variants */
+.freeui-timeline--solid {
+  background-color: var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--dashed {
+  background: none;
+  border-top: 2px dashed var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--vertical.freeui-timeline--dashed {
+  border-top: none;
+  border-left: 2px dashed var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--dotted {
+  background: none;
+  border-top: 2px dotted var(--freeui-color-neutral-200);
+}
+
+.freeui-timeline--vertical.freeui-timeline--dotted {
+  border-top: none;
+  border-left: 2px dotted var(--freeui-color-neutral-200);
+}
+
+/* Timeline thickness */
+.freeui-timeline--thin.freeui-timeline--horizontal {
+  height: 1px;
+}
+
+.freeui-timeline--thin.freeui-timeline--vertical {
+  width: 1px;
+}
+
+.freeui-timeline--thin.freeui-timeline--dashed {
+  border-top-width: 1px;
+}
+
+.freeui-timeline--thin.freeui-timeline--vertical.freeui-timeline--dashed {
+  border-left-width: 1px;
+}
+
+.freeui-timeline--thin.freeui-timeline--dotted {
+  border-top-width: 1px;
+}
+
+.freeui-timeline--thin.freeui-timeline--vertical.freeui-timeline--dotted {
+  border-left-width: 1px;
+}
+
+.freeui-timeline--thick.freeui-timeline--horizontal {
+  height: 4px;
+}
+
+.freeui-timeline--thick.freeui-timeline--vertical {
+  width: 4px;
+}
+
+.freeui-timeline--thick.freeui-timeline--dashed {
+  border-top-width: 4px;
+}
+
+.freeui-timeline--thick.freeui-timeline--vertical.freeui-timeline--dashed {
+  border-left-width: 4px;
+}
+
+.freeui-timeline--thick.freeui-timeline--dotted {
+  border-top-width: 4px;
+}
+
+.freeui-timeline--thick.freeui-timeline--vertical.freeui-timeline--dotted {
+  border-left-width: 4px;
+}
+
+/* Timeline margin */
+.freeui-timeline--margin-none {
+  margin: 0;
+}
+
+.freeui-timeline--margin-xs {
+  margin: var(--freeui-spacing-1) 0;
+}
+
+.freeui-timeline--margin-sm {
+  margin: var(--freeui-spacing-2) 0;
+}
+
+.freeui-timeline--margin-md {
+  margin: var(--freeui-spacing-4) 0;
+}
+
+.freeui-timeline--margin-lg {
+  margin: var(--freeui-spacing-6) 0;
+}
+
+.freeui-timeline--margin-xl {
+  margin: var(--freeui-spacing-8) 0;
+}
+
+.freeui-timeline--vertical.freeui-timeline--margin-xs {
+  margin: 0 var(--freeui-spacing-1);
+}
+
+.freeui-timeline--vertical.freeui-timeline--margin-sm {
+  margin: 0 var(--freeui-spacing-2);
+}
+
+.freeui-timeline--vertical.freeui-timeline--margin-md {
+  margin: 0 var(--freeui-spacing-4);
+}
+
+.freeui-timeline--vertical.freeui-timeline--margin-lg {
+  margin: 0 var(--freeui-spacing-6);
+}
+
+.freeui-timeline--vertical.freeui-timeline--margin-xl {
+  margin: 0 var(--freeui-spacing-8);
 }
 
 /* FilterPanel Component */

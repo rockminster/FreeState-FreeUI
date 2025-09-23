@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import {
-  Timeline,
-  TimelineItem,
   FilterPanel,
   FilterGroup,
   FilterField,
@@ -18,31 +16,25 @@ import {
   Heading,
 } from "@rockminster/react";
 
-const meta: Meta<typeof Timeline> = {
-  title: "Data Components/Timeline",
-  component: Timeline,
+const meta: Meta<typeof FilterPanel> = {
+  title: "Data Components/Data Components",
+  component: FilterPanel,
   parameters: {
     layout: "padded",
     docs: {
       description: {
         component: `
-The Timeline component provides a visual representation of chronological events. It's a reusable component that can be used to build audit trails, activity feeds, process flows, and more.
+Data Components provide structured interfaces for displaying and interacting with data. These components focus on data filtering, exporting, and activity tracking.
 
-## Features
+## Components
 
-- **Flexible Content**: Accepts any content within TimelineItem components
-- **Visual Indicators**: Customizable icons and status variants
-- **Accessibility**: Proper ARIA roles and semantic structure
-- **Responsive**: Works across different screen sizes
-- **Composable**: Can be combined with other components for rich displays
+- **FilterPanel**: Container for grouping filter controls
+- **ExportMenu/ExportButton**: Data export functionality
+- **ActivityList**: Display of chronological activities
 
-## Use Cases
+## Composition Philosophy
 
-- Audit trails and activity logs
-- Process flows and workflows
-- Historical data display
-- Event chronologies
-- Status updates and notifications
+These components work together to create comprehensive data management interfaces while maintaining the design system's compositional approach.
         `,
       },
     },
@@ -50,185 +42,8 @@ The Timeline component provides a visual representation of chronological events.
 };
 
 export default meta;
-type Story = StoryObj<typeof Timeline>;
+type Story = StoryObj<typeof FilterPanel>;
 
-export const Default: Story = {
-  render: () => (
-    <Timeline>
-      <TimelineItem icon="📝">
-        <Stack gap="xs">
-          <Heading level={4} size="sm">
-            Document Updated
-          </Heading>
-          <p style={{ margin: 0, color: "var(--freeui-color-neutral-600)" }}>
-            Project requirements document was updated with new specifications
-          </p>
-          <div
-            style={{
-              fontSize: "var(--freeui-font-size-xs)",
-              color: "var(--freeui-color-neutral-500)",
-            }}
-          >
-            2 hours ago by Sarah Chen
-          </div>
-        </Stack>
-      </TimelineItem>
-
-      <TimelineItem icon="✅" variant="success">
-        <Stack gap="xs">
-          <Heading level={4} size="sm">
-            Review Completed
-          </Heading>
-          <p style={{ margin: 0, color: "var(--freeui-color-neutral-600)" }}>
-            Code review was completed and approved by the team lead
-          </p>
-          <div
-            style={{
-              fontSize: "var(--freeui-font-size-xs)",
-              color: "var(--freeui-color-neutral-500)",
-            }}
-          >
-            4 hours ago by Mike Wilson
-          </div>
-        </Stack>
-      </TimelineItem>
-
-      <TimelineItem icon="🚀" variant="info" isLast>
-        <Stack gap="xs">
-          <Heading level={4} size="sm">
-            Deployment Started
-          </Heading>
-          <p style={{ margin: 0, color: "var(--freeui-color-neutral-600)" }}>
-            Production deployment initiated for version 2.1.0
-          </p>
-          <div
-            style={{
-              fontSize: "var(--freeui-font-size-xs)",
-              color: "var(--freeui-color-neutral-500)",
-            }}
-          >
-            6 hours ago by Deploy Bot
-          </div>
-        </Stack>
-      </TimelineItem>
-    </Timeline>
-  ),
-};
-
-export const ActivityFeed: Story = {
-  render: () => (
-    <div
-      style={{
-        padding: "24px",
-        backgroundColor: "var(--freeui-color-neutral-50)",
-      }}
-    >
-      <Stack gap="lg">
-        <Heading level={2}>Recent Activity</Heading>
-
-        <ActivityList dividers>
-          <ActivityItem
-            title="Permission Updated"
-            description="User role changed from Viewer to Editor for workspace access"
-            timestamp="2 min ago"
-            actor="admin@company.com"
-            status="info"
-            indicator={
-              <Badge variant="info" size="sm">
-                PERM
-              </Badge>
-            }
-            metadata={
-              <Inline gap="xs">
-                <Badge variant="neutral" size="sm">
-                  workspace: production
-                </Badge>
-                <Badge variant="neutral" size="sm">
-                  role: editor
-                </Badge>
-              </Inline>
-            }
-          />
-
-          <ActivityItem
-            title="State File Modified"
-            description="Terraform state updated with new infrastructure changes"
-            timestamp="15 min ago"
-            actor="sarah.chen@company.com"
-            status="success"
-            indicator={
-              <Badge variant="success" size="sm">
-                STATE
-              </Badge>
-            }
-            metadata={
-              <Inline gap="xs">
-                <Badge variant="neutral" size="sm">
-                  environment: staging
-                </Badge>
-                <Badge variant="neutral" size="sm">
-                  resources: +3
-                </Badge>
-              </Inline>
-            }
-          />
-
-          <ActivityItem
-            title="API Key Rotated"
-            description="Scheduled rotation of production API key completed successfully"
-            timestamp="1 hour ago"
-            actor="system"
-            status="warning"
-            indicator={
-              <Badge variant="warning" size="sm">
-                API
-              </Badge>
-            }
-            metadata={
-              <Badge variant="neutral" size="sm">
-                key: prod_api_2024
-              </Badge>
-            }
-          />
-
-          <ActivityItem
-            title="Login Failed"
-            description="Multiple failed login attempts detected from unusual location"
-            timestamp="2 hours ago"
-            actor="security.monitor"
-            status="error"
-            indicator={
-              <Badge variant="danger" size="sm">
-                SEC
-              </Badge>
-            }
-            metadata={
-              <Inline gap="xs">
-                <Badge variant="danger" size="sm">
-                  attempts: 5
-                </Badge>
-                <Badge variant="neutral" size="sm">
-                  ip: 203.0.113.45
-                </Badge>
-              </Inline>
-            }
-          />
-        </ActivityList>
-      </Stack>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: `
-This example shows how to combine Timeline, ActivityList, and ActivityItem components to create a comprehensive activity feed. Each activity includes relevant metadata displayed as badges.
-        `,
-      },
-    },
-  },
-};
-
-// Component for the filtering interface demo
 const FilteringInterfaceDemo = () => {
   const [filters, setFilters] = React.useState({
     user: "",
@@ -261,7 +76,7 @@ const FilteringInterfaceDemo = () => {
           <FilterGroup title="Basic Filters">
             <FilterField label="User">
               <Input
-                placeholder="Enter username or email..."
+                placeholder="Filter by user..."
                 value={filters.user}
                 onChange={(e) =>
                   setFilters({ ...filters, user: e.target.value })
@@ -269,175 +84,110 @@ const FilteringInterfaceDemo = () => {
               />
             </FilterField>
 
+            <Inline gap="md">
+              <FilterField label="From Date">
+                <Input
+                  type="date"
+                  value={filters.dateFrom}
+                  onChange={(e) =>
+                    setFilters({ ...filters, dateFrom: e.target.value })
+                  }
+                />
+              </FilterField>
+
+              <FilterField label="To Date">
+                <Input
+                  type="date"
+                  value={filters.dateTo}
+                  onChange={(e) =>
+                    setFilters({ ...filters, dateTo: e.target.value })
+                  }
+                />
+              </FilterField>
+            </Inline>
+
             <FilterField label="Event Type">
-              <select
+              <Input
+                placeholder="Select event type..."
                 value={filters.eventType}
                 onChange={(e) =>
                   setFilters({ ...filters, eventType: e.target.value })
                 }
-                style={{
-                  padding: "var(--freeui-spacing-2) var(--freeui-spacing-3)",
-                  border: "1px solid var(--freeui-color-neutral-300)",
-                  borderRadius: "var(--freeui-border-radius-md)",
-                  fontSize: "var(--freeui-font-size-sm)",
-                  backgroundColor: "var(--freeui-color-white)",
-                  width: "100%",
-                }}
-              >
-                <option value="">All Events</option>
-                <option value="state_change">State Changes</option>
-                <option value="permission_change">Permission Changes</option>
-                <option value="api_key_event">API Key Events</option>
-                <option value="login">Login Events</option>
-              </select>
+              />
             </FilterField>
           </FilterGroup>
 
-          <FilterGroup title="Date Range" collapsible>
-            <FilterField label="From Date">
-              <Input
-                type="date"
-                value={filters.dateFrom}
-                onChange={(e) =>
-                  setFilters({ ...filters, dateFrom: e.target.value })
-                }
+          <FilterGroup title="Export Options">
+            <Inline gap="sm">
+              <ExportButton
+                format="csv"
+                onExport={() => alert("Exporting CSV...")}
               />
-            </FilterField>
-
-            <FilterField label="To Date">
-              <Input
-                type="date"
-                value={filters.dateTo}
-                onChange={(e) =>
-                  setFilters({ ...filters, dateTo: e.target.value })
-                }
+              <ExportButton
+                format="json"
+                onExport={() => alert("Exporting JSON...")}
               />
-            </FilterField>
+              <ExportMenu
+                options={[
+                  { format: "csv", label: "CSV File" },
+                  { format: "json", label: "JSON File" },
+                  { format: "pdf", label: "PDF Report" },
+                ]}
+                onExport={(format) => alert(`Exporting ${format}...`)}
+              />
+            </Inline>
           </FilterGroup>
         </FilterPanel>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        {/* Sample data display */}
+        <Stack gap="md">
           <Heading level={3}>Filtered Results</Heading>
-          <Inline gap="sm">
-            <ExportButton
-              format="csv"
-              onExport={() => console.log("Exporting CSV...")}
+          <ActivityList>
+            <ActivityItem
+              title="User login"
+              description="User authentication successful"
+              timestamp="2 hours ago"
+              actor="john.doe@example.com"
+              status="success"
+              indicator="🔓"
+              metadata={<Badge variant="success">Success</Badge>}
             />
-            <ExportMenu
-              options={[
-                {
-                  value: "csv",
-                  label: "CSV",
-                  description: "Comma-separated values for spreadsheets",
-                },
-                {
-                  value: "json",
-                  label: "JSON",
-                  description: "Structured data format",
-                },
-                {
-                  value: "pdf",
-                  label: "PDF",
-                  description: "Printable document format",
-                },
-              ]}
-              onExport={(format) => console.log(`Exporting ${format}...`)}
+            <ActivityItem
+              title="File upload"
+              description="Document.pdf uploaded to project folder"
+              timestamp="1 hour ago"
+              actor="jane.smith@example.com"
+              status="info"
+              indicator="📄"
+              metadata={<Badge variant="info">Upload</Badge>}
             />
-          </Inline>
-        </div>
-
-        <ActivityList>
-          <ActivityItem
-            title="Filtered Event 1"
-            description="This event matches the current filter criteria"
-            timestamp="1 hour ago"
-            actor="user@example.com"
-            indicator={
-              <Badge variant="info" size="sm">
-                INFO
-              </Badge>
-            }
-          />
-          <ActivityItem
-            title="Filtered Event 2"
-            description="Another event that meets the filter requirements"
-            timestamp="3 hours ago"
-            actor="another.user@example.com"
-            indicator={
-              <Badge variant="success" size="sm">
-                OK
-              </Badge>
-            }
-          />
-        </ActivityList>
+            <ActivityItem
+              title="Permission change"
+              description="User role updated to administrator"
+              timestamp="30 minutes ago"
+              actor="admin@example.com"
+              status="warning"
+              indicator="⚠️"
+              metadata={<Badge variant="warning">Admin</Badge>}
+            />
+          </ActivityList>
+        </Stack>
       </Stack>
     </div>
   );
 };
 
-export const FilteringInterface: Story = {
+export const Default: Story = {
   render: () => <FilteringInterfaceDemo />,
   parameters: {
     docs: {
       description: {
         story: `
-This example demonstrates a complete filtering interface using FilterPanel, FilterGroup, FilterField, and ExportMenu components. Users can filter data and export results in different formats.
+This example demonstrates a complete data management interface using FilterPanel, FilterGroup, FilterField, ExportMenu, and ActivityList components. Users can filter data and export results in different formats.
         `,
       },
     },
   },
-};
-
-export const TimelineVariants: Story = {
-  render: () => (
-    <div style={{ padding: "24px" }}>
-      <Stack gap="xl">
-        <div>
-          <Heading
-            level={3}
-            style={{ marginBottom: "var(--freeui-spacing-4)" }}
-          >
-            Timeline with Status Variants
-          </Heading>
-          <Timeline>
-            <TimelineItem variant="success" icon="✅">
-              <Stack gap="xs">
-                <strong>Success Event</strong>
-                <span>Operation completed successfully</span>
-              </Stack>
-            </TimelineItem>
-
-            <TimelineItem variant="warning" icon="⚠️">
-              <Stack gap="xs">
-                <strong>Warning Event</strong>
-                <span>Potential issue detected</span>
-              </Stack>
-            </TimelineItem>
-
-            <TimelineItem variant="error" icon="❌">
-              <Stack gap="xs">
-                <strong>Error Event</strong>
-                <span>Operation failed</span>
-              </Stack>
-            </TimelineItem>
-
-            <TimelineItem variant="info" icon="ℹ️" isLast>
-              <Stack gap="xs">
-                <strong>Info Event</strong>
-                <span>Informational message</span>
-              </Stack>
-            </TimelineItem>
-          </Timeline>
-        </div>
-      </Stack>
-    </div>
-  ),
 };
 
 export const ExportOptions: Story = {
@@ -456,50 +206,76 @@ export const ExportOptions: Story = {
             <ExportButton
               format="json"
               onExport={() => alert("Exporting JSON...")}
-              variant="outline"
             />
             <ExportButton
               format="pdf"
               onExport={() => alert("Exporting PDF...")}
-              loading
             />
           </Inline>
         </div>
 
         <div>
-          <h4>Export Menu with Options</h4>
+          <h4>Export Menu</h4>
           <ExportMenu
             options={[
-              {
-                value: "csv",
-                label: "CSV Format",
-                description:
-                  "Comma-separated values for Excel and other spreadsheet applications",
-              },
-              {
-                value: "json",
-                label: "JSON Format",
-                description:
-                  "Structured data format for API consumption and data processing",
-              },
-              {
-                value: "xml",
-                label: "XML Format",
-                description:
-                  "Extensible markup language for enterprise systems",
-                disabled: true,
-              },
-              {
-                value: "pdf",
-                label: "PDF Document",
-                description:
-                  "Portable document format for reports and archival",
-              },
+              { format: "csv", label: "CSV File" },
+              { format: "json", label: "JSON Data" },
+              { format: "pdf", label: "PDF Report" },
+              { format: "xlsx", label: "Excel Spreadsheet" },
             ]}
-            onExport={(format) => alert(`Exporting ${format}...`)}
-            placement="bottom-start"
+            onExport={(format) => alert(`Exporting ${format.toUpperCase()}...`)}
           />
         </div>
+      </Stack>
+    </div>
+  ),
+};
+
+export const ActivityFeed: Story = {
+  render: () => (
+    <div style={{ padding: "24px" }}>
+      <Stack gap="md">
+        <Heading level={3}>Activity Feed</Heading>
+        <ActivityList>
+          <ActivityItem
+            title="System backup completed"
+            description="Weekly backup process finished successfully"
+            timestamp="5 minutes ago"
+            actor="system"
+            status="success"
+            indicator="💾"
+            metadata={<Badge variant="success">Automated</Badge>}
+          />
+          <ActivityItem
+            title="New user registration"
+            description="User created account and verified email"
+            timestamp="15 minutes ago"
+            actor="sarah.connor@example.com"
+            status="info"
+            indicator="👤"
+            metadata={<Badge variant="info">New User</Badge>}
+          />
+          <ActivityItem
+            title="Failed login attempt"
+            description="Multiple failed authentication attempts detected"
+            timestamp="1 hour ago"
+            actor="unknown.user@suspicious.com"
+            status="error"
+            indicator="🚨"
+            metadata={<Badge variant="danger">Security</Badge>}
+          />
+          <ActivityItem
+            title="Configuration updated"
+            description="System settings modified by administrator"
+            timestamp="2 hours ago"
+            actor="admin@example.com"
+            status="warning"
+            indicator="⚙️"
+            metadata={<Badge variant="warning">Config</Badge>}
+            clickable
+            onClick={() => alert("View configuration details")}
+          />
+        </ActivityList>
       </Stack>
     </div>
   ),

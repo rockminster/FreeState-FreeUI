@@ -1,7 +1,4 @@
 // Data components for displaying structured information
-export { Timeline, TimelineItem } from "./Timeline";
-export type { TimelineProps, TimelineItemProps } from "./Timeline";
-
 export { FilterPanel, FilterGroup, FilterField } from "./FilterPanel";
 export type {
   FilterPanelProps,
